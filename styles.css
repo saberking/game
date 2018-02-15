@@ -1,0 +1,93 @@
+@font-face {
+    font-family: thestrong;
+    src: url(assets/fonts/theStrong.ttf);
+}
+.style1 {
+        background: url(assets/background/table.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+}
+#message2::-webkit-scrollbar{
+  border-style: solid;
+}
+.non{
+    transform: none;
+transition: transform 1s ;
+will-change: transform;
+}
+.slider-1{
+  transform: translateX(0);
+transition: transform 1s ;
+will-change: transform;
+}
+.slider0 {
+    transform: translateX(-100%);
+transition: transform 1s ;
+will-change: transform;
+}
+.slider1 {
+  transform: translateX(-200%);
+transition: transform 1s ;
+will-change: transform;
+}
+.slider2 {
+  transform: translateX(-300%);
+transition: transform 1s ;
+will-change: transform;
+}
+body{
+  background-color:#333333;
+font-family:thestrong;
+-moz-user-select: none;
+ -webkit-user-select: none;
+ -ms-user-select:none;
+ user-select:none;
+-o-user-select:none;
+margin:0;
+overflow:hidden;
+font-size:28;
+color:#111111;
+}
+canvas{
+  position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background-color:transparent;
+display:none;
+}
+#bottomBar{
+  position:absolute;
+height:180;
+right:0;
+bottom:4;
+left:0;
+padding-left:25;
+font-size:20;
+
+}
+#message2{
+  opacity:0.75;
+position:absolute;
+display:none;
+overflow:scroll;
+width:600;
+background-color:transparent;
+height:157;
+position:absolute;
+padding:9;
+padding-top:7;
+
+}
+#dialogContainer{
+  position:absolute;
+top:0;
+left:0;
+height:100%;
+width:100%;
+display:inline-block;
+}
