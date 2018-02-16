@@ -29,7 +29,6 @@ const increaseStat=(s,i)=>{
     decreaseButton(s,i,'Stat')
   +'</div>'
   increasedStat[i].push(s)
-  (increasedSkill)
   if(characterComplete(i)){
     document.getElementById('continue_'+i).innerHTML=continueButton(i)
   }
