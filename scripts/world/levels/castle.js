@@ -44,7 +44,7 @@ const buildCastle=()=>{
   buildCastle2()
   buildWallV(30,24,6,5)
 
-  addCarpet(11,6,6)
+  // addCarpet(11,6,6)
 
   addConstruct('tree',20,16,6)
   addConstruct('tree',20,24,6)
@@ -57,7 +57,7 @@ const buildCastle=()=>{
   addWell(34,18,6,{x:110,y:125,z:1})
   spawnCreature(ogre,{x:46,y:10,z:6,weapon:enchant(club,4)})
   addChest(40,6,6)
-  addRug(14,16,6)
+  // addRug(14,16,6)
   spawnCreature(greenOoze,{x:12,y:7,z:6})
   spawnCreature(radioactiveOoze,{x:10,y:8,z:6})
   let zombieRoute=linearRoute([{x:40,y:9},{x:26,y:8},{x:28,y:19},{x:40,y:21},{x:40,y:27}],6)
