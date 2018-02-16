@@ -51,6 +51,7 @@ const setup=()=>{
   setTimeout(()=>{
     if(offerLoad){
       newOrLoad()
+      console.log('neworload')
     }  else{
         setTimeout(endDesign,1000)
     }
