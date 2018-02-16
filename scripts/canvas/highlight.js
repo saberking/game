@@ -15,7 +15,7 @@ let quarterHighlight=({x,y,color='white'})=>([{x,y,color,size:1},{x:x+1,y,color,
                           // {x,y:y+1,color:'white',size:1},{x:x+0.5,y:y+1,color:'white',size:1}])
 const getHighlight=()=>{
   let hi=[]
-  for(let i=minheight[currentWorld]-1;i<=maxheight[currentWorld];i++)hi[i]=[]
+  for(let i=minheight[currentWorld];i<=maxheight[currentWorld];i++)hi[i]=[]
   let c
   if(stillToMove)c=stillToMove[0]
   if(combat&&c){

@@ -47,16 +47,16 @@ const setup=()=>{
   addCharacters()
 
   selected=you[0]
-
+  initWorld()
   setTimeout(()=>{
     if(offerLoad){
       newOrLoad()
       console.log('neworload')
     }  else{
-        setTimeout(endDesign,1000)
+        endDesign()
     }
   })
-  setTimeout(initWorld)
+  // setTimeout(initWorld)
   // setTimeout(initBackgrounds)
 }
 let backgrounds=[]

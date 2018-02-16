@@ -12,7 +12,6 @@ const verticalAngle=30//approximately
 const scrollSpeed=30
 const daytimeLos=11
 let los=[]
-const checkInterval=200
 
 const players=1
 const moveSpeed=3

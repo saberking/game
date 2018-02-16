@@ -1,5 +1,5 @@
 ///////////
-let offerLoad=true
+let offerLoad=false
 
 const playthrough=true
 /////////////////
@@ -32,6 +32,7 @@ let dev=false
 let framerate=20
 const fpsWarn=false
 const stuckInterval=200
+const checkInterval=200
 const firstPerson=false
 
 const perform=false

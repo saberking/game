@@ -27,13 +27,14 @@ const finishedCreation=(i)=>{
   if(i<noOfCharacters-1){
     slideTo(i+1)
   }else{
-    you.forEach(c=>position(c,starting.x,starting.y,starting.z))
 
     endDesign()
   }
 }
 const endDesign=()=>{
   charactersToDesign=[]
+  you.forEach(c=>position(c,starting.x,starting.y,starting.z))
+
   restart()
   slideTo(-1)
   closeDialog()
