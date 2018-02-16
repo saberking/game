@@ -14,8 +14,8 @@ const hideUnseen=()=>{
 
 let lastScreenPos={}
 let lastZoomLevel=0
-const stone=new Image()
-stone.src='assets/background/largeConcrete.jpg'
+// const stone=new Image()
+// stone.src='assets/background/largeConcrete.jpg'
 const showWorld2=()=>{
   // if((lastZoomLevel===zoomLevel&&lastScreenPos.x===screenPos.x&&lastScreenPos.y===screenPos.y))return
   // lastScreenPos.x=screenPos.x
@@ -23,7 +23,7 @@ const showWorld2=()=>{
   // lastZoomLevel=zoomLevel
   const dim={x:5136,y:3424}
   const scale={x:dim.x/(width*200*zoomLevel),y:dim.y/(height*200*zoomLevel)}
-  ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
+  // ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
   // ctx2.drawImage(stone,0,0,width*zoomLevel*200,height*zoomLevel*200)
   ctx2.fillStyle='#553424'
   ctx2.globalAlpha=0.75
