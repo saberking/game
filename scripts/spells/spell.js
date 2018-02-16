@@ -151,7 +151,7 @@ const spellDefenceStrength=(a,b,s)=>{
   let defenceStrength = distance(a,b)*s.rangePen
   if(typeof(defenceStrength)!=='number')  console.log(a,b,s)
   if(s.targetType === 'enemy'){
-    if(s.damageType==='magic')defenceStrength += b.status.mag*2/s.penetration
+    if(s.damageType==='magic')defenceStrength += b.status.mag*4/s.penetration
     else defenceStrength+=b.armor[s.damageType]/s.penetration
     if(b.status[s.type])defenceStrength+=round(b.status[s.type]/2)
     defenceStrength+=b.status.divinity/3

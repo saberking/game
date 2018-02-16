@@ -12,6 +12,7 @@ class Item {
     ap=4,
     effects=[],
     name,
+    weight=4,
     picName,
     consumeEffect,
     damageType='physical',
@@ -38,6 +39,7 @@ class Item {
     this.rangePen=rangePen
     this.value=value
     this.ap=ap
+    this.weight=weight
     this.name=name
     this.effects=effects
     this.consumeEffect=consumeEffect

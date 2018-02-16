@@ -22,7 +22,7 @@ const invisibility=new Spell({
   name:'invisibility',
   jobs:['thief'],
   targetType:'self',
-  targets:'self',
+  targets:'single',
   ap:3,
   event:caster=>{
     const spell=spells.find(s=>s.name==='invisibility')
@@ -38,7 +38,7 @@ const invisibility=new Spell({
 
 
 const steelToeCap=new Spell({
-  type:'illusion',
+  type:'sorcery',
   name:'steelToeCap',
   jobs:['fighter'],
   targetType:'self',
@@ -79,6 +79,7 @@ const fireball=new Spell({
   jobs:['wizard'],
   rangePen:3,
   damageType:'physical',
+  effect:[{score:str,amount:-3,type:norm},{score:'fire',amount:4,type:temp}],
   event:(caster,target)=>{
     const spell=spells.find(s=>s.name==='fireball')
     spellHighlight(spell,caster,target)
@@ -111,7 +112,6 @@ const blockage = new Spell({
   name:'blockage',
   jobs:['wizard'],
   damageType:'magic',
-  effect:[{score:str,amount:-1,type:'norm'},{score:int,amount:-2,type:norm},
-      {score:mag,amount:-2,type:norm},{score:luc,amount:-6,type:norm}],
-  rangePen:3,
+  effect:[{score:str,amount:-2,type:'norm'},{score:luc,amount:-6,type:norm}],
+  rangePen:4,
 })

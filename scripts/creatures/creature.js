@@ -49,7 +49,7 @@ class Creature {
     special={},
     deathTrigger,
     job,
-
+    status,
     naturalArmor={},
 
     carried
@@ -108,6 +108,7 @@ class Creature {
     if(trousers)this.trousers=new Item(trousers);if(shoes)this.shoes=new Item(shoes)
     this.deathTrigger=deathTrigger
     this.chat=chat
+    this.status=status
     this.checkStatus(true)
     creatures.push(this)
   }
@@ -140,12 +141,10 @@ class Creature {
       addMessage(this.display+' went up a level!')
     }
     this.status = Object.assign({}, this.stats, this.skills,{spells:this.spells.slice()})
-    if(lastStatus)this.status.currentAp=lastStatus.currentAp
-    else this.status.currentAp=0
+
     this.effects.forEach(e => {
       this.status[e.score] += e.amount
     })
-    this.status.maxAp=max(0,this.status.spd)
     self.armor=Object.assign({},{light:0,physical:0},this.naturalArmor)
     slots.forEach(ef=>{
       if(self[ef]){
@@ -154,23 +153,24 @@ class Creature {
             if(typeof(self.status[e.score])=='number') self.status[e.score]+=e.amount
           })
         }
-        if(!self[ef].spells)console.log(this,ef,self[ef])
         self[ef].spells.forEach(s=>
           typeof(this.skills[spells.find(sp=>sp.name===s).type])==='number'&&this.status.spells.push(s))
         if(self[ef].armor){self.armor.light+=self[ef].armor.light;self.armor.physical+=self[ef].armor.physical}
       }
     })
+    this.status.maxStamina=this.status.str*10
+    if(lastStatus){
+      this.status.stamina=lastStatus.stamina+this.status.maxStamina-lastStatus.maxStamina
+    }else{
+      this.status.stamina=this.status.maxStamina
+    }
+    this.status.maxAp=round(this.status.spd*sqrt(this.status.stamina/this.status.maxStamina))
     if (lastStatus) {
-      if(typeof(lastStatus.maxAp)==='number'&&this.status.maxAp!==lastStatus.maxAp){
-        this.status.currentAp=max(0,this.status.currentAp+this.status.maxAp-lastStatus.maxAp)
-      }
+      this.status.currentAp=lastStatus.currentAp
       if (this.status.str <= 0 && lastStatus.str > 0 ||
             this.status.int <= 0 && lastStatus.int > 0) {
         addMessage(this.display +' has fallen unconscious')
-
-
       }
-
     }
     if (this.status.str <= 0 || this.status.int <=0) {
       this.status.status = 'unconscious'

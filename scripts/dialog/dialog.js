@@ -12,7 +12,7 @@ const background=()=>{
 const removeBackground=()=>{
   document.getElementById('ins').innerHTML=''
 }
-
+const displayEffect=e=>'<div>'+e.score+' '+e.amount+' '+e.type+'</div>'
 const info = (text,c,options=[],bg)=>{
   console.log(options)
   let html='<div style="min-height:100%;background-color:#888888"><div style="padding:20">'

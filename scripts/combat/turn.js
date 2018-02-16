@@ -80,9 +80,6 @@ const finished = (creature) => {
     return
   }
   ready(creature)
-  if(!creature.immunities.find(i=>i==='radiation'))enactRadiation(creature)
-  reduceEffects(creature)
-  creature.checkStatus()
   stillToMove.splice(index, 1)
   const hostile=checkHostility(creatures)
   if(!hostile.length)endBattle()

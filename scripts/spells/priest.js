@@ -35,7 +35,7 @@ const prayer = new Spell({
   type:'divinity',
   name:'prayer',
   jobs:['priest'],
-  targets:'self',
+  targets:'single',
   targetType:'self',
   event:(caster)=>{
     let spell=spells.find(s=>s.name==='prayer')

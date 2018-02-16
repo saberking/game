@@ -8,7 +8,7 @@ const showItemStats=(e,item,target)=>{
   if(item.melee){
     html+='<div>melee</div>'
     item.melee.effect.forEach(effect=>{
-      html+='<div>'+effect.score+' '+effect.amount+' '+effect.type+'</div>'
+      html+=displayEffect(effect)
     })
   }
   if(item.ranged){
