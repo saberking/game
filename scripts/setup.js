@@ -48,15 +48,15 @@ const setup=()=>{
 
   selected=you[0]
 
-  // setTimeout(()=>{
-  //   if(offerLoad){
-  //     newOrLoad()
-  //   }  else{
-  //       setTimeout(endDesign,1000)
-  //   }
-  // })
-  // setTimeout(initWorld)
-  // setTimeout(initBackgrounds)
+  setTimeout(()=>{
+    if(offerLoad){
+      newOrLoad()
+    }  else{
+        setTimeout(endDesign,1000)
+    }
+  })
+  setTimeout(initWorld)
+  setTimeout(initBackgrounds)
 }
 let backgrounds=[]
 const initBackgrounds=()=>{
