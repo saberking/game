@@ -6,25 +6,27 @@ const addCharacters=()=>{
   let cl=['thief','wizard','priest']
   let sp=['invisibility','magicMissile','heal']
   let bonuses=[{str:-2,spd:1,rea:1,luck:2},{str:-2,int:+7,spd:-2},{spd:1,rea:-2}]
-    for(let j = 0;j<noOfCharacters;j++){
-      you.push( new Creature({
-        controlled: true,
-        name: pcNames[j],
-        display:pcNames[j],
-        faction:1,
-        skills:merge(jobsSkills[cl[j]],magicSkills),
-        spells: [],
-        items:[],
-        stages: 5,
-        gold:50
-      })  )
-      // Object.keys(bonuses[j]).forEach(key=>you[j].stats[key]+=bonuses[j][key])
-      if(!offerLoad){
-        you[j].job=cl[j]
-        you[j].spells=[sp[j]]
-      }
-      you[j].checkStatus(true)
+  for(let j = 0;j<noOfCharacters;j++){
+    you.push( new Creature({
+      controlled: true,
+      name: pcNames[j],
+      display:pcNames[j],
+      faction:1,
+      skills:merge(jobsSkills[cl[j]],magicSkills),
+      spells: [],
+      items:[],
+      stages: 5,
+      gold:50
+    })  )
+    // Object.keys(bonuses[j]).forEach(key=>you[j].stats[key]+=bonuses[j][key])
+    if(!offerLoad){
+      you[j].job=cl[j]
+      you[j].spells=[sp[j]]
     }
+    you[j].checkStatus(true)
+  }
+  you.forEach(c=>position(c,starting.x,starting.y,starting.z))
+
 }
 
 const setup=()=>{
@@ -43,11 +45,11 @@ const setup=()=>{
   screenPos={x:0,y:100}
   dev&&devEvents.forEach(e=>e())
   currentWorld=starting.z
+  initWorld()
 
   addCharacters()
 
   selected=you[0]
-  initWorld()
   setTimeout(()=>{
     if(offerLoad){
       newOrLoad()

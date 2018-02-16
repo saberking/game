@@ -33,13 +33,12 @@ const finishedCreation=(i)=>{
 }
 const endDesign=()=>{
   charactersToDesign=[]
-  you.forEach(c=>position(c,starting.x,starting.y,starting.z))
 
   restart()
   slideTo(-1)
   closeDialog()
   document.getElementById('message2').style.display='inline-block'
-  removeBackground()
+  // removeBackground()
 
 }
 const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;left:190"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
