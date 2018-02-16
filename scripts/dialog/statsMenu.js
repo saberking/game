@@ -1,4 +1,6 @@
 const openStatsMenu = (target)=>{
+  const spinningHuman='<img src=assets/background/video_human2.gif style="position:absolute;right:0;top:0"/>'
+
   closeMenu()
   closeDialog2()
   if(!combat&&target.controlled)selectCharacter(target)
@@ -56,7 +58,7 @@ const openStatsMenu = (target)=>{
     '<div>Gold: '+target.gold+'</div>'+
         '<div>'+itemsText+'</div>'+
     '<div style="padding-top:7;paddding-bottom:7;padding-left:19;padding-right:19;position:absolute;right:50;top:20;background-color:#888888;border-style=solid"onclick="closeDialog()">Close</div>'+
-    '<img style="position:absolute;top:420;right:0" src="assets/dialog/chemistry.png"id="chem"/>'+
+    '<img style="position:absolute;top:420;right:0" src="assets/background/chemistry.png"id="chem"/>'+
     '</div></div></div>'
     // document.getElementById('chem').onclick=(e)=>openChemistry(e,target)
     slots.forEach(sl=>{

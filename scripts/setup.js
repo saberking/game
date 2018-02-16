@@ -56,12 +56,13 @@ const setup=()=>{
         endDesign()
     }
   })
-  // setTimeout(initWorld)
-  // setTimeout(initBackgrounds)
+  setTimeout(initBackgrounds)
+
 }
 let backgrounds=[]
 const initBackgrounds=()=>{
-  let bgi=['bg2','concrete','paper','largeConcrete','table']
+  // let bgi=['bg2','concrete','paper','largeConcrete','table']
+  let bgi=['bg2','table']
   bgi.forEach(i=>{
     let c=new Image()
     c.onload=()=>console.log(c.src)

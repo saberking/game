@@ -50,7 +50,6 @@ const openDialog2=()=>{
   dialog2Open=true
 }
 
-const spinningHuman='<img src=assets/dialog/video_human2.gif style="position:absolute;right:0;top:0"/>'
 
 const header = c=>  '<div style="height:100;width:80;overflow:hidden"><img src="assets/sprites/'+c.name+'.png"/></div><div style="position:absolute;top:80;left:120">'+c.display+'</div>'+
   '<div>----------------------------------------------</div>'
