@@ -1,5 +1,10 @@
 const sceneLength=5000
 const cutscene=(cb)=>{
+  imageInfo.forEach(i=>{
+    let im=merge(i,{image:new Image()})
+    im.image.src='assets/animation/'+i.name+'.png'
+    images.push(im)
+  })
   document.getElementById('health').display='none'
   document.getElementById('dialog').innerHTML=''
   document.getElementById('dialog2').innerHTML=''
@@ -32,8 +37,3 @@ const imageInfo=[
     name:'ufo'
   }
 ]
-imageInfo.forEach(i=>{
-  let im=merge(i,{image:new Image()})
-  im.image.src='assets/animation/'+i.name+'.png'
-  images.push(im)
-})
