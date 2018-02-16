@@ -18,13 +18,13 @@ const checkView=(force=false)=>{
     return
   }
   updatePositions()
-  console.log('updated')
+  //console.log('updated')
   let filtered=controlled.filter(c => c.status.status==='active'&&c.z===currentWorld)
   let top=minheight[currentWorld]-1
   let bottom=maxheight[currentWorld]-1
   let left=minwidth[currentWorld]
   let right=maxwidth[currentWorld]
-console.log(filtered,controlled,currentWorld)
+//console.log(filtered,controlled,currentWorld)
   for(let x=left;x<=right;x++){
     currentView[x]=[]
     for(let y=top;y<=bottom;y++){

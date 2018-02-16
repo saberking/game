@@ -29,13 +29,13 @@ const increaseStat=(s,i)=>{
     decreaseButton(s,i,'Stat')
   +'</div>'
   increasedStat[i].push(s)
-  console.log(increasedSkill)
+  (increasedSkill)
   if(characterComplete(i)){
     document.getElementById('continue_'+i).innerHTML=continueButton(i)
   }
 }
 const decreaseStat=(s,i)=>{
-  console.log('decrease',s)
+  ('decrease',s)
   increasedStat[i]=increasedStat[i].filter(st=>st!=s)
   document.getElementById('continue_'+i).innerHTML=''
   let c= charactersToDesign[i]

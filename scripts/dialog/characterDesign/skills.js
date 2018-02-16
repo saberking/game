@@ -30,7 +30,7 @@ const chooseSkills=()=>{
   addSkillButtons()
 }
 const increaseSkill=(skill,i)=>{
-  console.log(skill,i)
+  (skill,i)
   let c=charactersToDesign[i]
   if(increasedSkill[i].length===2)return
     c.skills[skill]+=5
@@ -43,7 +43,7 @@ const increaseSkill=(skill,i)=>{
     }
 }
 const decreaseSkill=(s,i)=>{
-  console.log(s)
+  (s)
   increasedSkill[i]=increasedSkill[i].filter(sk=>sk!=s)
   document.getElementById('continue_'+i).innerHTML=''
   let c= charactersToDesign[i]
