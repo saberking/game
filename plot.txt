@@ -1,5 +1,5 @@
 world background
-dialog windows make canvsa transparent
+dialog windows make canvsa transparent, fade animation
 
 spell descriptions
 magic skill descriptions
