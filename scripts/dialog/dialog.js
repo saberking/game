@@ -15,7 +15,7 @@ const removeBackground=()=>{
 
 const info = (text,c,options=[],bg)=>{
   console.log(options)
-  let html='<div style="min-height:100%;background-image:url(\'assets/background/concrete.jpg\');"><div style="padding:20">'
+  let html='<div style="min-height:100%;background-color:#888888"><div style="padding:20">'
 
   if(c&&c.pic.sprite)html+='<div><img src="assets/sprites/'+c.name+'.png"/>'+c.display+'</div>'
   html+='<div style="padding:50"  id="contents">'+text+'</div>'
