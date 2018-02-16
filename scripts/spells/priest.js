@@ -11,7 +11,7 @@ const heal = new Spell({
   }
 })
 const superglue=new Spell({
-  type:'material',
+  type:'sorcery',
   name:'superglue',
   jobs:['priest'],
   targets:'single',

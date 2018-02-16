@@ -12,7 +12,7 @@ const increaseStatButton=(s,i)=>increaseButton(s,i,'Stat')
 const increaseButton=(s,i,type)=>
   '<button style="background-color:#999988;position:absolute;top:0;left:280"onclick="increase'+type+'(\''+s+'\','+i+')">+</button>'
 
-const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:250;top:100;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
+const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:250;top:10;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
 
 const continueButton= (i)=>     createButton(25,'finishedCreation('+i+')','Continue')
 

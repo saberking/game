@@ -18,7 +18,7 @@ const showItemStats=(e,item,target)=>{
         html+='<div>'+effect.score+' '+effect.amount+' '+effect.type+'</div>'
       })
     }
-    if(typeof(item.rangePen)==='number')
+    if(item.type==='weapon')
     html+='<div>range penalty: '+item.rangePen+'</div>'
   }
   if(item.type==='weapon'){

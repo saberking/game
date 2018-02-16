@@ -1,3 +1,9 @@
+world background
+dialog windows make canvsa transparent
+
+spell descriptions
+magic skill descriptions
+
 character sheet
 
 CARRY

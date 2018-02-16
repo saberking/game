@@ -8,7 +8,7 @@ const displayStats=(i)=>{
   document.getElementById('continue_'+i).innerHTML=''
   increasedStat[i]=[]
   let st=charactersToDesign[i].stats
-  let html='<div style="height:30"></div>'
+  let html=''
   stats.forEach(s=>{
     html+=doubleColumn(fullStats[s],st[s],s+'_'+i)
   })

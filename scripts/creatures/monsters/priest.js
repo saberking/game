@@ -5,7 +5,7 @@ let parishPriest={
     unarmed:10,
     club:10,
     divinity:10,
-    material:10,
+    sorcery:10,
     illusion:10,
     healing:10
   },

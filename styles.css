@@ -51,6 +51,14 @@ overflow:hidden;
 font-size:28;
 color:#111111;
 }
+.skillsColumn{
+  padding:20;
+  padding-top:12;
+  padding-bottom: 12;
+  margin-top:8;
+  width:310;
+  margin-left:-20;
+}
 canvas{
   position:absolute;
 top:0;

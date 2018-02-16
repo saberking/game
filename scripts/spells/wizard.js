@@ -1,5 +1,5 @@
 const magicMissile = new Spell({
-  type:'material',
+  type:'sorcery',
   effect: [{score: str, amount: -3, type: norm}],
   name: 'magicMissile',
   targetType: 'enemy',
@@ -23,13 +23,13 @@ const invisibility=new Spell({
   jobs:['thief'],
   targetType:'self',
   targets:'self',
-  ap:6,
+  ap:3,
   event:caster=>{
     const spell=spells.find(s=>s.name==='invisibility')
     spellHighlight(spell,caster,caster)
     addMessage(caster.display+' casts invisibility!')
     const attackStrength=spellAttackStrength(caster,spell)
-    const points=round(attackStrength*3/20)
+    const points=round(attackStrength*2/20)
     enactEffect({score:'invisibility',amount:points,type:temp})(caster)
     return true
   }
@@ -38,7 +38,7 @@ const invisibility=new Spell({
 
 
 const steelToeCap=new Spell({
-  type:'material',
+  type:'illusion',
   name:'steelToeCap',
   jobs:['fighter'],
   targetType:'self',
@@ -72,7 +72,7 @@ const steelToeCap=new Spell({
 
 
 const fireball=new Spell({
-  type:'material',
+  type:'sorcery',
   targetType:'enemy',
   targets:'area',
   name:'fireball',
@@ -105,7 +105,7 @@ const fireball=new Spell({
 })
 
 const blockage = new Spell({
-  type:'material',
+  type:'sorcery',
   targetType:'enemy',
   targets:'area',
   name:'blockage',

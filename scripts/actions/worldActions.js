@@ -4,12 +4,12 @@ actions.sleep=()=>{
     return
   }else if (players===1){
     let last=selected
-    let healer=creatures.filter(c=>c.controlled&&c.status.status==='active'&&typeof(c.status.medicine)==='number').
-      sort((a,b)=>b.status.medicine-a.status.medicine)[0]
+    let healer=creatures.filter(c=>c.controlled&&c.status.status==='active').
+      sort((a,b)=>b.status.healing-a.status.healing)[0]
     creatures.forEach(c=>{
       if(c.status.status==='active'||c.carried){
         stats.forEach((s)=>{
-          const strength=healer?d20()+healer.status.medicine:10
+          const strength=healer?d20()+healer.status.healing:10
           const points=round(strength/10)
           healStat(points,s,c)
         })
