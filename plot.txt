@@ -1,3 +1,5 @@
+GRAPHICS AND DIALOGS
+
 CARRY
 
 SHADOWS
@@ -13,6 +15,5 @@ banned items red highlight
 steeltoecap notification
 REMOVE + BUTTONS WHEN DONE AND SHOW REMAINING POINTS
 DRAG TO EQUIP
-character sheet
 
 gangster sends you to oversee drug deal which goes wrong. Cutscene of drug deal then battle
