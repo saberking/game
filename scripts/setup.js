@@ -57,7 +57,7 @@ const setup=()=>{
     }
   })
   setTimeout(initWorld)
-  setTimeout(initBackgrounds)
+  // setTimeout(initBackgrounds)
 }
 let backgrounds=[]
 const initBackgrounds=()=>{
