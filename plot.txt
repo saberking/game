@@ -1,4 +1,3 @@
-add stamina
 CARRY
 steeltoecap as effect
 DRAG TO EQUIP
