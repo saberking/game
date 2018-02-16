@@ -24,13 +24,12 @@ var showHealth = ()=>{
 
               '<div style=";height:10;background-color:pink;width:'+max(0,c.stats.str*5)+'" ></div>'+
               '<div style="height:10;background-color:cyan;width:'+max(0,c.stats.mag*5)+'" ></div>'+
-              '<div style="height:10;background-color:#ddcccc;width:'+80+'" ></div>'+
 
             '</div>'+
             '<div style="position:absolute;bottom:0;height:102;width:104" >'+
               '<div style=";height:10;background-color:red;width:'+max(0,c.status.str*5)+'" ></div>'+
               '<div style="height:10;background-color:blue;width:'+max(0,c.status.mag*5)+'" ></div>'+
-              '<div style="height:10;background-color:yellow;width:'+max(0,round(c.status.stamina/c.status.maxStamina*80))+'" ></div>'+
+              '<div style="height:10;background-color:yellow;width:'+max(0,round(c.status.stamina/2))+'" ></div>'+
               (combat?
                   '<span style="background-color:rgba(128,128,128,0.8);margin-top:10;top:10;font-size:20;padding-left:6;padding-right:6"> '+
                   c.status.currentAp+
