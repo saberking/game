@@ -8,7 +8,7 @@ const upOrDownAway=(c, x, target) => {
 const moveCreatureTo =(c, {x, y}, next)=>{
   c.dest={x,y,z:c.z}
   startMove(c, 500/moveSpeed,{x,y})
-  if(combat)c.status.currentAp-=2
+  if(combat)c.status.initiative++
   setTimeout(()=>{
     endMove(c);
   },500/moveSpeed)
@@ -44,6 +44,7 @@ const endMove = (mover) => {
     if(selected&&mover.id===selected.id)moveEndTime=Date.now()
     mover.dest={x:mover.x,y:mover.y,z:mover.z}
     mover.moving = false
+    if(combat)endCombatAction(mover)
   }
   if(!combat&&selected&&selected.id===mover.id&&queuedRoute)startLongMove(queuedRoute,mover)
   queuedRoute=null

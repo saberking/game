@@ -30,13 +30,13 @@ var showHealth = ()=>{
               '<div style=";height:10;background-color:red;width:'+max(0,c.status.str*5)+'" ></div>'+
               '<div style="height:10;background-color:blue;width:'+max(0,c.status.mag*5)+'" ></div>'+
               '<div style="height:10;background-color:yellow;width:'+max(0,round(c.status.stamina/2))+'" ></div>'+
-              (combat?
-                  '<span style="background-color:rgba(128,128,128,0.8);margin-top:10;top:10;font-size:20;padding-left:6;padding-right:6"> '+
-                  c.status.currentAp+
-                  (readied?' +'+readied:'')+' </span>'
-                :
-                  ''
-              )+
+              // (combat?
+              //     '<span style="background-color:rgba(128,128,128,0.8);margin-top:10;top:10;font-size:20;padding-left:6;padding-right:6"> '+
+              //     c.status.currentAp+
+              //     (readied?' +'+readied:'')+' </span>'
+              //   :
+              //     ''
+              // )+
               '<div>'+
 
                 // (combat&&!selectingTarget?getAvailableSpells(c).map((s,i)=>'<button id="'+s+'"style="position:absolute;top:-40;right:'+i*60+'"type="button" >'+s+'</button>').join(''):'')+

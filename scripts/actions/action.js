@@ -3,13 +3,16 @@ let actions=[]
 const initActions=()=>spells.forEach(s=>actions[s.name]=()=>castSpell(s))
 initEvents.push(initActions)
 
+const apCost=(c,amount)=>round(max(1,amount*5/max(c.status.spd,0.5)))
+
 const endCombatAction=c=>{
   getVisibleCreatures()
   if(c.controlled){
       refuseInput=false
-      if(c.status.currentAp<2)finished(c)
   }
   c.checkStatus()
+  finished(c)
+
   if(!checkHostility().length)endBattle()
 }
 

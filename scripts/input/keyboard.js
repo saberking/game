@@ -1,5 +1,4 @@
 var keydown=(key)=>{
-  console.log(key)
   closeMenu()
   if(dialogOpen)return
     let dist=round(20*sqrt(zoomLevel))
@@ -29,7 +28,7 @@ var keydown=(key)=>{
     }
     if(!charactersToDesign.length){
       if(key.key==='Enter'&&combat&&stillToMove[0]&&stillToMove[0].controlled&&selected&&!refuseInput){
-        finished(selected)
+        skip(selected)
       }
       // if(key.key.toLowerCase()==='m'){
       //   if(document.getElementById('menu'))closeMenu()

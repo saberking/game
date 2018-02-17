@@ -1,15 +1,15 @@
 const rangedAttackAction=(a,b)=>{
-  if(distance(a,b)<=1)return
-  if(a.thisTurn&&a.thisTurn.action==='ranged'){
-    a.status.currentAp+=min(a.weapon.ap,a.thisTurn.ap)
-    a.thisTurn={}
-  }
-  if(a.status.currentAp>=a.weapon.ap){
+  // if(distance(a,b)<=1)return
+  // if(a.thisTurn&&a.thisTurn.action==='ranged'){
+  //   a.status.currentAp+=min(a.weapon.ap,a.thisTurn.ap)
+  //   a.thisTurn={}
+  // }
+  // if(a.status.currentAp>=a.weapon.ap){
     rangedAttackEvent(a,b)
-  }else{
-    if(a.controlled)finished(a)
-    else ready(a)
-  }
+  // }else{
+  //   if(a.controlled)finished(a)
+  //   else ready(a)
+  // }
 }
 
 const rangedAttackEvent=(a,b) => {
@@ -34,7 +34,7 @@ const rangedAttackEvent=(a,b) => {
   if(typeof(hitStrength)!=='number')throw new Error()
   console.log(attackStrength,defenceStrength)
   let weaponEffect= a.weapon.subtype==='throwing'?a.weapon.ranged.effect:a.shield.ranged.effect
-  a.status.currentAp-=a.weapon.ap
+  a.initiative+=round(max(1,a.weapon.ap*5/max(0.5,a.status.spd)))
   a.practice[a.weapon.subtype]++
   if(a.weapon.subtype==='throwing'){
     let index=a.items.findIndex(i=>typeof(a.status[i.subtype])==='number')

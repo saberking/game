@@ -1,31 +1,37 @@
 let refuseInput=false
 
 const startTurn=()=>{
+  addMessage('.')
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
   let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld)
-  filtered.forEach(f=>{
-    f.thisTurn=f.nextTurn
-    f.nextTurn={}
-    f.thisAttack=f.nextAttack
-    f.nextAttack=null
-  })
+  // filtered.forEach(f=>{
+  //   f.thisTurn=f.nextTurn
+  //   f.nextTurn={}
+  //   f.thisAttack=f.nextAttack
+  //   f.nextAttack=null
+  // })
   const hostile=checkHostility(filtered)
   if(!hostile.length){
     endBattle()
     return
   }
-  stillToMove=hostile.concat(filtered.filter(c=>c.controlled))
+  let fighting=hostile.concat(filtered.filter(c=>c.controlled))
   creatures.forEach(c=>c.engaged=false)
-  stillToMove.forEach(h=>{
-    if(!h.initiative){
-      h.initiative=d20(h)+h.status.rea*5
+  stillToMove=[]
+  fighting.forEach(h=>{
+    if(h.initiative==='none'){
+      h.initiative=max(1,round(d20(h)/max(0.5,h.status.rea)))
       if(!h.controlled)addMessage('You spot a '+h.display+'!')
+    }else{
+      h.initiative--
+      if(h.initiative<0) h.initiative=0
     }
     h.engaged=true
-    h.status.currentAp=max(h.status.maxAp,min(
-        h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
+    if(!h.initiative)stillToMove.push(h)
+    // h.status.currentAp=max(h.status.maxAp,min(
+    //     h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
   })
-  stillToMove.sort((a,b)=>b.initiative-a.initiative)
+  // stillToMove.sort((a,b)=>b.initiative-a.initiative)
   increaseDate(1)
   nextCharacter()
 }
@@ -34,7 +40,7 @@ const nextCharacter=()=>{
     console.log('inactive')
     stillToMove.splice(0,1)
   }
-  if(!stillToMove.length)endTurn()
+  if(!stillToMove.length)startTurn()
   else{
     if(stillToMove[0].controlled){
       if(checkConditions(stillToMove[0])){
@@ -48,7 +54,6 @@ const nextCharacter=()=>{
   }
 }
 const endTurn=()=>setTimeout(()=>{
-    addMessage('End of turn-------------------------------')
     if(players>1){
       hideCanvas()
     }else{
@@ -76,10 +81,10 @@ const finished = (creature) => {
   refuseInput=true
   if(index){
     console.log('alreadyfinsihed',creature.name)
-    throw new Error()
+    // throw new Error()
     return
   }
-  ready(creature)
+  // ready(creature)
   stillToMove.splice(index, 1)
   const hostile=checkHostility(creatures)
   if(!hostile.length)endBattle()

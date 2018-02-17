@@ -1,16 +1,16 @@
 
 
 const meleeAttackAction=(a,b)=>{
-  if(a.thisTurn&&a.thisTurn.action==='melee'){
-    a.status.currentAp+=min(a.thisTurn.ap,a.weapon.ap)
-    a.thisTurn={}
-  }
-  if(a.status.currentAp>=a.weapon.ap){
+  // if(a.thisTurn&&a.thisTurn.action==='melee'){
+  //   a.status.currentAp+=min(a.thisTurn.ap,a.weapon.ap)
+  //   a.thisTurn={}
+  // }
+  // if(a.status.currentAp>=a.weapon.ap){
     meleeAttackEvent(a,b)
-  }else{
-    if(a.controlled)finished(a)
-    else ready(a)
-  }
+  // }else{
+  //   if(a.controlled)finished(a)
+  //   else ready(a)
+  // }
 }
 const meleeAttackEvent = (a, b) => {
   if(!b.controlled)makeHostile(b)
@@ -43,7 +43,7 @@ const meleeAttackEvent = (a, b) => {
   a.practice[a.weapon.subtype]++
   addMessage(message)
   b.checkStatus()
-  a.status.currentAp-=a.weapon.ap
+  a.initiative+=round(max(1,a.weapon.ap*5/max(0.5,a.status.spd)))
   a.status.stamina-=a.weapon.weight
   endCombatAction(a)
 }

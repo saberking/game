@@ -41,7 +41,10 @@ const useResources=(caster,s)=>{
   enactEffect({amount:-1,score:mag,type:norm})(caster)
   caster.practice[s.type]++
   if(combat){
-    caster.status.currentAp-=s.ap
+    console.log(caster.initiative)
+
+    caster.initiative+=apCost(caster,s.ap)
+    console.log(caster.initiative)
     endCombatAction(caster)
   }
   caster.checkStatus()
@@ -55,12 +58,12 @@ const castSpell=(sp,caster=selected)=>{
   //   caster.status.currentAp+=caster.thisTurn.ap
   //   caster.thisTurn=null
   // }
-  if(combat&&caster.status.currentAp<s.ap){
-    console.log('lowap')
-    // caster.nextTurn={action:s.name,ap:caster.status.currentAp}
-    // caster.controlled&&finished(caster)
-    return
-  }
+  // if(combat&&caster.status.currentAp<s.ap){
+  //   console.log('lowap')
+  //   // caster.nextTurn={action:s.name,ap:caster.status.currentAp}
+  //   // caster.controlled&&finished(caster)
+  //   return
+  // }
   if(s.targetType==='none'||s.targetType==='self'){
     console.log('autotarget')
     if(s.event(caster,caster)){
@@ -139,7 +142,7 @@ const getAvailableSpells=(c=selected)=>c.status.spells.filter(s=>{
   let spell=spells.find(sp=>sp.name===s)
   if(c.status.mag>0){
     if(combat){
-      if(c.status.currentAp>=spell.ap)return true
+      return true
     }else{
       return spell.targetType!=='enemy'
     }

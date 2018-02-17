@@ -1,12 +1,13 @@
 let battleEndTime=0
 var startBattle = () => {
+  endBattle()
   addMessage('Battle starts!')
   refuseInput=true
   combat=true
   date=startDate+floor(Date.now()/1000)
-  creatures.forEach(c=>c.status.currentAp=0)
+  // creatures.forEach(c=>c.status.currentAp=0)
   currentTurn=0
-  startTurn()
+  setTimeout(()=>startTurn(),1000)
 }
 
 var endBattle=()=>{
@@ -19,16 +20,17 @@ var endBattle=()=>{
     c.nextTurn=null
     let indices=[]
     c.engaged=false
-    c.initiative=0
+    c.initiative='none'
     c.checkStatus()
   })
   selectCharacter(controlled.find(c=>c.status.status==='active'))
 }
-const apForAttack=(c)=>{
-  let ap=c.status.currentAp
-  if(c.thisTurn&&c.weapon[c.thisTurn.action])ap+=c.thisTurn.ap
-  return ap>=c.weapon.ap
-}
+const apForAttack=(c)=>true
+// {
+//   let ap=c.status.currentAp
+//   if(c.thisTurn&&c.weapon[c.thisTurn.action])ap+=c.thisTurn.ap
+//   return ap>=c.weapon.ap
+// }
 const checkHostility=()=>{
   if(!visibleCreatures||!visibleCreatures.length)getVisibleCreatures()
   let v=visibleCreatures

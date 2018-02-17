@@ -2,7 +2,7 @@ const canEquip=(target,item)=>{
   if(!item.jobs.find(j=>j===target.job))return
   const slot=slots.find(s=>s===item.type)
   if(slot&&(!target[slot]||target[slot].id!==item.id)){
-    if(!combat||(target.id===stillToMove[0].id&&target.status.currentAp>=equipAp(target,slot))){
+    if(!combat||(target.id===stillToMove[0].id)){
       if(item.type!=='weapon'||typeof(target.skills[item.subtype])=='number') {
         if(item.type!=='shield'||item.subtype==='shield'||target.weapon.ammo.find(a=>a===item.subtype)){
           return true
@@ -16,7 +16,7 @@ const canEquip=(target,item)=>{
 const canUnequip=(target,item)=>{
   const slot=slots.find(s=>s===item.type)
   if(slot&&target[slot]&&target[slot].id===item.id&&item.subtype!=='unarmed'){
-    if(!combat||(target.id===stillToMove[0].id&&target.status.currentAp>=unequipAp(target,slot))){
+    if(!combat||(target.id===stillToMove[0].id)){
       return true
     }
   }
@@ -51,8 +51,8 @@ const equip=(e,c,item)=>{
   c.checkStatus()
   openStatsMenu(c)
   if(combat){
-    c.status.currentAp-=ap
-    if(!c.status.currentAp&&c.controlled)finished(c)
+    c.initiative+=apCost(ap,c)
+    endCombatAction(c)
   }
 
   return true
@@ -73,8 +73,8 @@ const unequip=(e,target,slot)=>{
       target[slot]=null
     }
     if(combat){
-      target.status.currentAp--
-      if(!target.status.currentAp&&target.controlled)finished(target)
+      target.status.initiative++
+      endCombatAction(target)
     }
     target.checkStatus()
     openStatsMenu(target)

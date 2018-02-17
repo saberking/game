@@ -41,7 +41,15 @@ var selectCharacterAt = function({coords}) {
     return true
   }
 }
-actions.finish=id=>finished(creatures.find(c=>c.id===id))
+const skip=c=>{
+  addMessage(c.display+' waits...')
+  finished(c)
+}
+actions.finish=id=>{
+  let c=creatures.find(c=>c.id===id)
+  skip(c)
+}
+
 const makeHostile=b=>{
   // if(players===2&&b.faction>=10&&!b.hostileRange)b.faction=currentFaction===1?2:1
   if(b.faction!==1&&!b.hostileRange){

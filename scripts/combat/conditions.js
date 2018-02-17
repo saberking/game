@@ -3,7 +3,7 @@ const checkConditions = c=>{
   c.effects.forEach(e=>{
     if(e.score ===afraid){
       s=true
-      if(c.status.currentAp>1){
+      // if(c.status.currentAp>1){
         const closest = creatures.filter(cr=>
           cr.status.status==='active'&&cr.faction!==c.faction&&canSee(c,cr))
           .sort((a,b)=>distance(a,c)-distance(b,c))
@@ -14,9 +14,9 @@ const checkConditions = c=>{
         }else{
           addMessage(c.display+' cowers in fear!')
         }
-      }else {
-        console.log('no ap to run away')
-      }
+      // }else {
+      //   console.log('no ap to run away')
+      // }
     }
   })
   return s

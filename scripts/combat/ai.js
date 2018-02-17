@@ -6,10 +6,10 @@ const aiTurn=(c)=>{
     setTimeout(()=>aiTurn(c),250)
     return
   }
-  if(c.status.currentAp<2){
-    setTimeout(()=>finished(c),400)
-    return
-  }
+  // if(c.status.currentAp<2){
+  //   setTimeout(()=>finished(c),400)
+  //   return
+  // }
   if(checkConditions(c)){
     setTimeout(()=>finished(c),500)
     return
@@ -24,22 +24,18 @@ const aiTurn=(c)=>{
     return
   }
   if(aiCastSpell(c)){
-    setTimeout(()=>aiTurn(c),500)
     return
   }
   if(canSee(c,target)&&AIAttack(c, target)){
-    setTimeout(()=>aiTurn(c),500)
     return
   }
   console.log('cant attack')
   if(c.weapon.ranged&&distance(c,target)===1){
     switchWeapons(c)
-    setTimeout(()=>aiTurn(c),500)
     return
   }
   console.log('out of range')
   if(singleMoveToward(c, target)){
-    setTimeout(()=>aiTurn(c),500)
     return
   }
   finished(c)
@@ -50,7 +46,7 @@ const aiCastSpell=(a)=>{
   if(a.status.spells.length&&a.status.mag>0){
     for(let i = 0;i<a.status.spells.length;i++){
       const spell=spells.find(s=>s.name===a.status.spells[i])
-      if(a.status.currentAp>=spell.ap)done=castSpell(spell,a)
+      done=castSpell(spell,a)
     }
   }
   return done
@@ -84,6 +80,7 @@ const switchWeapons=c=>{
     c.weapon=mel
     let index=c.items.findIndex(i=>i.id===mel.id)
     if(index!==-1) c.items.splice(index,1)
+    endCombatAction(c)
     return true
   }else{
     // let ran=c.items.findIndex(i=>i.ranged)

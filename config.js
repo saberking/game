@@ -1,5 +1,5 @@
 ///////////
-let offerLoad=true
+let offerLoad=false
 
 const playthrough=true
 /////////////////

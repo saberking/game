@@ -2,7 +2,7 @@
 const combatMovePC=(coords,mover)=>{
   let dist=distance(mover,coords)
 
-  if(dist<=min(2,mover.status.currentAp/2)&&combat){
+  if(dist<=2&&combat){
     let possible=isEmpty(coords)&&combatMovePossible(mover,coords)
 
     if(possible){
@@ -10,9 +10,8 @@ const combatMovePC=(coords,mover)=>{
       mover.dest=merge(coords,{z:currentWorld})
       startMove(mover, 1000,coords)
       setTimeout(() => {
-        mover.status.currentAp-=ap
+        mover.status.initiative++
         endMove(mover)
-        endCombatAction(mover)
       }, 1000)
       return true
     }
