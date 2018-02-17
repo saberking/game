@@ -20,7 +20,7 @@ const startTurn=()=>{
   stillToMove=[]
   fighting.forEach(h=>{
     if(h.initiative==='none'){
-      h.initiative=max(1,round(d20(h)/max(0.5,h.status.rea)))
+      h.initiative=max(1,round(random()*20/max(1,h.status.rea+2)))
       if(!h.controlled)addMessage('You spot a '+h.display+'!')
     }else{
       h.initiative--

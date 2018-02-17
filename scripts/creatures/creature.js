@@ -5,7 +5,7 @@ const defaultStats=()=>{
   })
   return rtn
 }
-const xpBonus=10
+const xpBonus=1
 class Creature {
   constructor({
     stats =defaultStats(),
