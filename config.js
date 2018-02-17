@@ -1,23 +1,12 @@
 ///////////
 let offerLoad=false
 
-const playthrough=false
-/////////////////
+
 let startingWorld=6
 
-let omniscient=true
+let omniscient=false
 
 let longRange=false
-
-
-
-/////////
-
-if(playthrough){
-  startingWorld=5
-  omniscient=false
-  longRange=false
-}
 
 /////////////////////////////
 const minZoom=longRange?0.2:0.7
