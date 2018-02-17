@@ -1,5 +1,6 @@
+new combat rules
+
 CARRY
-magic rules
 city guards wont allow you in without passport
 mayor has passport and will give it as reqard for killing wizard king
 
