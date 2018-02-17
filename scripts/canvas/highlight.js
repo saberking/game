@@ -20,7 +20,7 @@ const getHighlight=()=>{
   if(stillToMove)c=stillToMove[0]
   if(combat&&c){
     let range=floor(c.status.currentAp/2)
-    range=1
+    range=2
     // let color=range?'white':'#77aaaa'
     if(range)adjacentHexes(c,min(range,2)).
       filter(h=>h.x!==c.x||h.y!==c.y).

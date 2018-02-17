@@ -27,9 +27,12 @@ var keydown=(key)=>{
     if(key.key==='f'||key.key==='F'){goFullscreen()
     }
     if(!charactersToDesign.length){
-      if(key.key==='Enter'&&combat&&stillToMove[0]&&stillToMove[0].controlled&&selected&&!refuseInput){
+      if(key.key==='Enter')
+      if(combat&&stillToMove[0]&&stillToMove[0].controlled&&selected&&selected.controlled&&!refuseInput){
+        console.log('skip,s',selected)
         skip(selected)
-      }
+      }else         console.log('nooooo,s',selected)
+
       // if(key.key.toLowerCase()==='m'){
       //   if(document.getElementById('menu'))closeMenu()
       //   else openSpellMenu()

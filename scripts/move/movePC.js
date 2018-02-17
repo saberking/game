@@ -1,7 +1,7 @@
 
 const combatMovePC=(coords,mover)=>{
   let dist=distance(mover,coords)
-
+  console.log(mover,coords)
   if(dist<=2&&combat){
     let possible=isEmpty(coords)&&combatMovePossible(mover,coords)
 
@@ -12,6 +12,7 @@ const combatMovePC=(coords,mover)=>{
       setTimeout(() => {
         mover.status.initiative++
         endMove(mover)
+        endCombatAction(mover)
       }, 1000)
       return true
     }
@@ -42,6 +43,7 @@ const peaceMovePC=(coords,mover)=>{
 const movePC = (coords,mover=selected)=>{
   if(!mover)return
   if(combat){
+    console.log(mover)
     if(mover.moving)return
     return combatMovePC(coords,mover)
   }

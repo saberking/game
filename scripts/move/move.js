@@ -44,7 +44,6 @@ const endMove = (mover) => {
     if(selected&&mover.id===selected.id)moveEndTime=Date.now()
     mover.dest={x:mover.x,y:mover.y,z:mover.z}
     mover.moving = false
-    if(combat)endCombatAction(mover)
   }
   if(!combat&&selected&&selected.id===mover.id&&queuedRoute)startLongMove(queuedRoute,mover)
   queuedRoute=null

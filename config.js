@@ -1,9 +1,9 @@
 ///////////
 let offerLoad=false
 
-const playthrough=true
+const playthrough=false
 /////////////////
-let startingWorld=5
+let startingWorld=6
 
 let omniscient=true
 

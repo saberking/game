@@ -19,8 +19,12 @@ var handle = function(event) {
   let start=Date.now()
   closeMenu()
   event.preventDefault()
-  if((combat&&(!stillToMove[0]||!stillToMove[0].controlled||!selected) )|| dialogOpen||refuseInput){
+  if(dialogOpen||refuseInput){
+// console.log(refuseInput,stillToMove,selected,dialogOpen,stillToMove[0].controlled)
     return
+  }
+  if(combat){
+    if(!stillToMove||!stillToMove[0]||!stillToMove[0].controlled||!selected)return
   }
   const coords =coordinates(event)
   if(coords.x<minwidth[currentWorld]||coords.x>maxwidth[currentWorld]||coords.y<=minheight[currentWorld]||coords.y>maxheight[currentWorld])return
@@ -40,6 +44,7 @@ var handle = function(event) {
     }
     addMessage('invalid target!')
   }else{
+    console.log(coords)
     selectCharacterAt({coords:normalise(coords)})||
     attack(coords)||
     openActionMenu(coords)||

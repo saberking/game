@@ -36,38 +36,38 @@ const invisibility=new Spell({
 })
 
 
-
-const steelToeCap=new Spell({
-  type:'sorcery',
-  name:'steelToeCap',
-  jobs:['fighter'],
-  targetType:'self',
-  event:(caster)=>{
-    const spell=spells.find(s=>s.name==='steelToeCap')
-    spellHighlight(spell,caster,caster)
-    addMessage(caster.display+' puts on his steel toe cap boots!')
-    const attackStrength=spellAttackStrength(caster,spell)
-    const power=round(attackStrength*7/20)
-    caster.nextAttack={
-      bonus:power,type:'melee',event:(target)=>{
-        let vec={}
-        vec.x=target.x-caster.x
-        vec.y=target.y-caster.y
-        let done=false, i=1
-        let endDestination={x:target.x,y:target.y,z:target.z}
-        while(i<power){
-          if(adjacentMovePossible(endDestination,{x:endDestination.x+vec.x,y:endDestination.y+vec.y,z:target.z})){
-            endDestination.x+=vec.x
-            endDestination.y+=vec.y
-          }
-          i++
-        }
-        moveCreatureTo(target,endDestination)
-      }
-    }
-    return true
-  }
-})
+// 
+// const steelToeCap=new Spell({
+//   type:'sorcery',
+//   name:'steelToeCap',
+//   jobs:['fighter'],
+//   targetType:'self',
+//   event:(caster)=>{
+//     const spell=spells.find(s=>s.name==='steelToeCap')
+//     spellHighlight(spell,caster,caster)
+//     addMessage(caster.display+' puts on his steel toe cap boots!')
+//     const attackStrength=spellAttackStrength(caster,spell)
+//     const power=round(attackStrength*7/20)
+//     caster.nextAttack={
+//       bonus:power,type:'melee',event:(target)=>{
+//         let vec={}
+//         vec.x=target.x-caster.x
+//         vec.y=target.y-caster.y
+//         let done=false, i=1
+//         let endDestination={x:target.x,y:target.y,z:target.z}
+//         while(i<power){
+//           if(adjacentMovePossible(endDestination,{x:endDestination.x+vec.x,y:endDestination.y+vec.y,z:target.z})){
+//             endDestination.x+=vec.x
+//             endDestination.y+=vec.y
+//           }
+//           i++
+//         }
+//         moveCreatureTo(target,endDestination)
+//       }
+//     }
+//     return true
+//   }
+// })
 
 
 

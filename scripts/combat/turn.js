@@ -3,7 +3,7 @@ let refuseInput=false
 const startTurn=()=>{
   addMessage('.')
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
-  let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld)
+  let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld&&c.status.stamina>0)
   // filtered.forEach(f=>{
   //   f.thisTurn=f.nextTurn
   //   f.nextTurn={}
@@ -76,7 +76,7 @@ const ready=(c)=>{
 }
 const finished = (creature) => {
   selected=null
-  if(!combat)return
+  if(!combat||!stillToMove)return
   const index = stillToMove.findIndex(c=>c.id===creature.id)
   refuseInput=true
   if(index){

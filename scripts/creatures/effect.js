@@ -76,7 +76,8 @@ const reduceEffects=(c)=>{
   indices.reverse().forEach(i=>{
     c.effects.splice(i,1)
   })
-  c.status.stamina=min(c.status.maxStamina,c.status.stamina+c.status.str)
+  c.status.stamina++
+  c.status.stamina=min(c.status.stamina,c.status.maxStamina)
   if(!c.immunities.find(i=>i==='radiation'))enactRadiation(c)
   c.checkStatus()
 }

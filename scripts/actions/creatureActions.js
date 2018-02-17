@@ -2,6 +2,7 @@ var selectCharacter=c=>{
   c.catchupRoute=null
   refuseInput=!c.controlled
   selected=c
+  console.log(c)
   showHealth()
 }
 
