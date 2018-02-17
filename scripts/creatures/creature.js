@@ -5,7 +5,7 @@ const defaultStats=()=>{
   })
   return rtn
 }
-
+const xpBonus=10
 class Creature {
   constructor({
     stats =defaultStats(),
@@ -134,7 +134,7 @@ class Creature {
         this.practice[skill]=0
       }
     }
-    let req=(this.level+2)*(this.level+2)*(this.level+2)*(this.level+2)
+    let req=(this.level+2)*(this.level+2)*(this.level+2)*(this.level+2)/xpBonus
     if(this.xp>req){
       this.level++
       levelUp(this)

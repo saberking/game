@@ -44,7 +44,7 @@ const aiTurn=(c)=>{
 const aiCastSpell=(a)=>{
   let done=false
   if(a.status.spells.length&&a.status.mag>0){
-    for(let i = 0;i<a.status.spells.length;i++){
+    for(let i = 0;i<a.status.spells.length&&!done;i++){
       const spell=spells.find(s=>s.name===a.status.spells[i])
       done=castSpell(spell,a)
     }
