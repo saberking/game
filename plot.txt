@@ -1,5 +1,3 @@
-uplevel continue button
-
 CARRY
 city guards wont allow you in without passport
 mayor has passport and will give it as reqard for killing wizard king
@@ -9,7 +7,7 @@ gangster sends you to oversee drug deal which goes wrong. Cutscene of drug deal 
 
 steeltoecap as effect
 DRAG TO EQUIP
-world background wall tops
+world background& wall tops
 dialog windows make canvsa transparent, fade animation
 
 
