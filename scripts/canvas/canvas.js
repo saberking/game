@@ -18,7 +18,6 @@ const hideCanvas=()=>{
   console.log('hide')
   can2.style.display='none'
   document.getElementById('can').style.display='none'
-  document.getElementById('message').style.display='none'
 
 }
 let rectTime=0

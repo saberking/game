@@ -63,7 +63,7 @@ const loadData=text=>{
   currentWorld=you[0].z
   selected=you.find(y=>y.status.status==='active')
   continueDrawing=true
-  endDesign()
+  start()
   if(worldText){
     searched=JSON.parse(worldText)
     searched.forEach((id)=>constructs.find(c=>c.id===id).items=[])

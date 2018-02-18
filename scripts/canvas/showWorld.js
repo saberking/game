@@ -14,28 +14,25 @@ const hideUnseen=()=>{
 
 let lastScreenPos={}
 let lastZoomLevel=0
-// const stone=new Image()
-// stone.src='assets/background/largeConcrete.jpg'
+const stone=new Image()
+stone.src='assets/background/largeConcrete.jpg'
 const showWorld2=()=>{
   // if((lastZoomLevel===zoomLevel&&lastScreenPos.x===screenPos.x&&lastScreenPos.y===screenPos.y))return
-  // lastScreenPos.x=screenPos.x
-  // lastScreenPos.y=screenPos.y
-  // lastZoomLevel=zoomLevel
+  lastScreenPos.x=screenPos.x
+  lastScreenPos.y=screenPos.y
+  lastZoomLevel=zoomLevel
   const dim={x:5136,y:3424}
   const scale={x:dim.x/(width*200*zoomLevel),y:dim.y/(height*200*zoomLevel)}
-  // ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
-  // ctx2.drawImage(stone,0,0,width*zoomLevel*200,height*zoomLevel*200)
+  ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
 
-  // ctx2.fillStyle='#553424'
-  // ctx2.globalAlpha=0.75
-  // ctx2.fillRect(0,0,screenwidth,screenheight)
-  // ctx2.globalAlpha=1
+  ctx2.fillStyle='#633e2a'
+  ctx2.globalAlpha=0.5
+  ctx2.fillRect(0,0,screenwidth,screenheight)
+  ctx2.globalAlpha=1
 
   showFlatConstructs()
 
-  start=Date.now()
   hex&&horizontalLines()
-  hextime+=Date.now()-start
 }
 
 // const showWorld=()=>{

@@ -43,7 +43,7 @@ const openStatsMenu = (target)=>{
     let topPic=target.top?'<img style="position:absolute;right:180;top:80" id="top" src="assets/items/'+target.top.picName+'.png"/>':''
     let trousersPic=target.trousers?'<img style="position:absolute;right:180;top:200" id="trousers" src="assets/items/'+target.trousers.picName+'.png"/>':''
     let shoesPic=target.shoes?'<img style="position:absolute;right:180;top:330" id="shoes" src="assets/items/'+target.shoes.picName+'.png"/>':''
-    document.getElementById('dialog').innerHTML='<div style="min-height:100%;padding:20;background-color:#999988">'+
+    document.getElementById('dialog').innerHTML='<div style="min-height:100%;padding:20;background-image:url(\'assets/background/paper.jpg\')">'+
     header(target)+
     spinningHuman+
     '<div style="width:'+(screenwidth*0.75-400)+'">'+

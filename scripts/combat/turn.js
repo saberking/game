@@ -1,7 +1,6 @@
 let refuseInput=false
 
 const startTurn=()=>{
-  addMessage('.')
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
   let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld&&c.status.stamina>0)
   // filtered.forEach(f=>{

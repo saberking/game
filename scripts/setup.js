@@ -56,10 +56,21 @@ const setup=()=>{
       newOrLoad()
       console.log('neworload')
     }  else{
-        endDesign()
+        start()
     }
   })
   setTimeout(initBackgrounds)
+
+}
+const start=()=>{
+  charactersToDesign=[]
+
+  restart()
+  slideTo(-1)
+  closeDialog()
+  centreScreen()
+  document.getElementById('message2').style.display='inline-block'
+  removeBackground()
 
 }
 let backgrounds=[]

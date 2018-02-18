@@ -44,7 +44,6 @@ var handle = function(event) {
     }
     addMessage('invalid target!')
   }else{
-    console.log(coords)
     selectCharacterAt({coords:normalise(coords)})||
     attack(coords)||
     openActionMenu(coords)||

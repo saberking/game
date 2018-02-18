@@ -67,6 +67,7 @@ actions.pullLever=()=>{
 }
 actions.move=(coords)=>movePC(normalise(coords))
 actions.search=(id)=>{
+  console.log(id)
   let c=constructs.find(c=>c.id===id)
   let items=c.items
   if(!items.length)addMessage('You find nothing of interest')
