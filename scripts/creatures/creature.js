@@ -37,7 +37,7 @@ class Creature {
     level=1,
     effects=[],
     picWidth = 88,
-    picHeight = 100,
+    picHeight = 88,
     drawWidth=width*2,
     drawHeight=height*2,
     stages = 1,

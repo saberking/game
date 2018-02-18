@@ -1,8 +1,6 @@
 
 const showCanvas=()=>{
-  can2.style.display='inline'
-  document.getElementById('can').style.display='inline'
-
+  can.style.display='inline'
 }
 const square=()=>{
   ctx.globalAlpha=1
@@ -15,10 +13,7 @@ const square=()=>{
   ctx.fillRect(x,y,10,50)
 }
 const hideCanvas=()=>{
-  console.log('hide')
-  can2.style.display='none'
-  document.getElementById('can').style.display='none'
-
+  can.style.display='none'
 }
 let rectTime=0
 var rect = ({x, y,size=1}) =>{

@@ -3,6 +3,7 @@ var selectCharacter=c=>{
   refuseInput=!c.controlled
   selected=c
   showHealth()
+  if(!c.controlled)aiTurn(c)
 }
 
 const getAvailableCreatureActions = (c) => {

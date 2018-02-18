@@ -2,7 +2,7 @@ const sceneLength=5000
 const cutscene=(cb)=>{
   imageInfo.forEach(i=>{
     let im=merge(i,{image:new Image()})
-    im.image.src='assets/animation/'+i.name+'.png'
+    im.image.src='assets/cutscene/'+i.name+'.png'
     images.push(im)
   })
   document.getElementById('health').display='none'

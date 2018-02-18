@@ -29,7 +29,6 @@ var keydown=(key)=>{
     if(!charactersToDesign.length){
       if(key.key==='Enter')
       if(combat&&stillToMove[0]&&stillToMove[0].controlled&&selected&&selected.controlled&&!refuseInput){
-        console.log('skip,s',selected)
         skip(selected)
       }else         console.log('nooooo,s',selected)
 

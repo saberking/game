@@ -40,7 +40,6 @@ const jobsSkills={
     dagger: 0,
     throwing:0,
     unarmed:0,
-    club:0,
     staff:0,
   }
 }

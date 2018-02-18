@@ -7,9 +7,8 @@ const checkConditions = c=>{
         const closest = creatures.filter(cr=>
           cr.status.status==='active'&&cr.faction!==c.faction&&canSee(c,cr))
           .sort((a,b)=>distance(a,c)-distance(b,c))
-        if(closest[0]&&distance(c,closest[0]) < los[currentWorld]) {
+        if(closest[0]) {
           addMessage(c.display+' runs away!')
-          console.log(c,closest[0])
           singleMoveAway(c, closest[0])
         }else{
           addMessage(c.display+' cowers in fear!')

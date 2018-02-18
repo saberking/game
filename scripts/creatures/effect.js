@@ -58,26 +58,3 @@ const resolveEffects = (hitStrength, eff, target) => {
   if(message==='')message='no effect!'
   return message
 }
-const reduceEffects=(c)=>{
-  let indices=[]
-  c.effects.forEach((e,i)=>{
-    if(e.score==='fire'){
-      enactEffect({amount:-1,score:str,type:norm})(c)
-      addMessage(c.display+' got 1 fire damage from being on fire!')
-    }
-    if(e.type===temp){
-      if(e.amount>0)e.amount--
-      else e.amount++
-      if (e.amount==0) {
-        indices.push(i)
-      }
-    }
-  })
-  indices.reverse().forEach(i=>{
-    c.effects.splice(i,1)
-  })
-  c.status.stamina++
-  c.status.stamina=min(c.status.stamina,c.status.maxStamina)
-  if(!c.immunities.find(i=>i==='radiation'))enactRadiation(c)
-  c.checkStatus()
-}

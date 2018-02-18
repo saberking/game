@@ -1,6 +1,5 @@
 
 const aiTurn=(c)=>{
-  console.log(c.status.currentAp,date,c.moving)
   if(c.controlled)throw new Error()
   if(c.moving){
     setTimeout(()=>aiTurn(c),250)
@@ -11,7 +10,6 @@ const aiTurn=(c)=>{
   //   return
   // }
   if(checkConditions(c)){
-    setTimeout(()=>finished(c),500)
     return
   }
   const closest = controlled.filter(co=>

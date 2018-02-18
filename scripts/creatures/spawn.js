@@ -49,7 +49,6 @@ const addCreatureGroup=(c,params,count,route=null,equipment={})=>{
 }
 const spawnCreatures=()=>{
   console.log(creatureGroups)
-  // creatures=creatures.filter(c=>typeof(c.group)!=='number')
   creatureGroups.forEach(worldgroup=>{
     if(worldgroup){
       worldgroup.forEach(g=>g())

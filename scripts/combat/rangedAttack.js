@@ -34,7 +34,7 @@ const rangedAttackEvent=(a,b) => {
   if(typeof(hitStrength)!=='number')throw new Error()
   console.log(attackStrength,defenceStrength)
   let weaponEffect= a.weapon.subtype==='throwing'?a.weapon.ranged.effect:a.shield.ranged.effect
-  a.initiative+=round(max(1,a.weapon.ap*5/max(0.5,a.status.spd)))
+  a.initiative+=apCost(a,a.weapon.ap)
   a.practice[a.weapon.subtype]++
   if(a.weapon.subtype==='throwing'){
     let index=a.items.findIndex(i=>typeof(a.status[i.subtype])==='number')

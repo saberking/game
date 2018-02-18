@@ -43,7 +43,7 @@ const meleeAttackEvent = (a, b) => {
   a.practice[a.weapon.subtype]++
   addMessage(message)
   b.checkStatus()
-  a.initiative+=round(max(1,a.weapon.ap*5/max(0.5,a.status.spd)))
+  a.initiative+=apCost(a,a.weapon.ap)
   a.status.stamina-=a.weapon.weight
   endCombatAction(a)
 }
