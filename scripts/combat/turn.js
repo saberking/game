@@ -63,5 +63,5 @@ const finished = (creature) => {
   stillToMove.splice(index, 1)
   const hostile=checkHostility(creatures)
   if(!hostile.length)endBattle()
-  else nextCharacter()
+  else setTimeout(nextCharacter,500)
 }

@@ -34,7 +34,6 @@ const startMove = (creature, time,coords) => {
 
 
 const endMove = (mover) => {
-  if(combat&&stillToMove&&stillToMove[0]&&stillToMove[0].controlled)refuseInput=false
   if(mover.moving){
     if(selected&&mover.id===selected.id)moveEndTime=Date.now()
     mover.dest={x:mover.x,y:mover.y,z:mover.z}

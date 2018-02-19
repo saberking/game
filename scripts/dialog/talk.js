@@ -9,7 +9,7 @@ const talk=(c)=>{
   if(c.chat){
     let {text}=c.chat.states[c.chat.state]
     document.getElementById('dialog').innerHTML=
-      '<div style="min-height:100%;background-color:#888888"><div style="padding:20">'+
+      '<div style="min-height:100%"><div style="padding:20">'+
       header(c)+
       text+
       '<div style="padding-top:50"> </div><div id="contents"></div></div></div>'
