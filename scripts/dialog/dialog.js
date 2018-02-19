@@ -33,13 +33,13 @@ const openDialog=()=>{
   document.body.onkeydown=()=>{};
   continueDrawing=false
   // slideTo(-1)
-  document.getElementById('dialogContainer').style.left=0
+  document.getElementById('dialogContainer').style.display='inline-block'
   hideCanvas()
 }
 const closeDialog = (lp=true) => {showHealth();closeDialog2();removeClones()
 dialogOpen=false;showCanvas();document.body.onkeydown=keydown;continueDrawing=true;
 lp&&restartLoop()
-document.getElementById('dialogContainer').style.left=-1*screenwidth
+document.getElementById('dialogContainer').style.display='none'
 // slideTo(0)
 
 shopping=false

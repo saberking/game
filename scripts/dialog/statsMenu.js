@@ -43,7 +43,7 @@ const openStatsMenu = (target)=>{
     let topPic=target.top?'<img style="position:absolute;right:180;top:80" id="top" src="assets/items/'+target.top.picName+'.png"/>':''
     let trousersPic=target.trousers?'<img style="position:absolute;right:180;top:200" id="trousers" src="assets/items/'+target.trousers.picName+'.png"/>':''
     let shoesPic=target.shoes?'<img style="position:absolute;right:180;top:330" id="shoes" src="assets/items/'+target.shoes.picName+'.png"/>':''
-    document.getElementById('dialog').innerHTML='<div style="min-height:100%;padding:20;">'+
+    document.getElementById('dialog').innerHTML=
     header(target)+
     spinningHuman+
     '<div style="width:'+(screenwidth*0.75-400)+'">'+
@@ -59,7 +59,7 @@ const openStatsMenu = (target)=>{
         '<div>'+itemsText+'</div>'+
     '<div style="padding-top:7;paddding-bottom:7;padding-left:19;padding-right:19;position:absolute;right:50;top:20;background-color:#888888;border-style=solid"onclick="closeDialog()">Close</div>'+
     '<img style="position:absolute;top:420;right:0" src="assets/background/chemistry.png"id="chem"/>'+
-    '</div></div></div>'
+    '</div></div>'
     // document.getElementById('chem').onclick=(e)=>openChemistry(e,target)
     slots.forEach(sl=>{
       if(target[sl]){
