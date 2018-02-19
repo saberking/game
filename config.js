@@ -1,5 +1,5 @@
 ///////////
-let offerLoad=false
+let offerLoad=true
 
 
 let startingWorld=5

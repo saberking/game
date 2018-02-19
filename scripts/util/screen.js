@@ -48,10 +48,10 @@ const layout=()=>{
   // document.getElementById('canvas2').style.width = screenwidth
   // document.getElementById('canvas2').height = screenheight
   // document.getElementById('canvas2').style.height = screenheight
-  document.getElementById('dialog').style.height = screenheight- 80
-  document.getElementById('dialog').style.width =screenwidth - 150
-  document.getElementById('dialog').style.top = 40
-  document.getElementById('dialog').style.left =75
+  document.getElementById('dialog').style.height = screenheight
+  document.getElementById('dialog').style.width =screenwidth
+  document.getElementById('dialog').style.top = 0
+  document.getElementById('dialog').style.left =0
   for(let i=0;i<noOfCharacters;i++){
     let e=document.getElementById('dialog_'+i)
     if(e)  {
@@ -63,9 +63,9 @@ const layout=()=>{
   document.getElementById('message2').style.width=screenwidth*0.5
   document.getElementById('dialog2').style.width=screenwidth*0.5 - 50
   document.getElementById('dialog2').style.left=screenwidth*0.25
-  document.getElementById('dialog2').style.top=screenheight*0.25
-  document.getElementById('dialog2').style.height=screenheight*0.5-50
-  document.getElementById('ins').style.height=screenheight
-  document.getElementById('ins').style.width=screenwidth
+  document.getElementById('dialog2').style.top=screenheight*0.1
+  document.getElementById('dialog2').style.height=screenheight*0.8-50
+  // document.getElementById('ins').style.height=screenheight
+  // document.getElementById('ins').style.width=screenwidth
   lastZoomLevel=0
 }
