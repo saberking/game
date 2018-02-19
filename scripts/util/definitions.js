@@ -1,3 +1,11 @@
+
+let width=44
+let height=44
+
+
+
+const players=1
+
 const str = 'str', int='int',  spd='spd',dex='dex',rea='rea',mag='mag',san='san',luc='luc'
 const stats = [int,luc,mag,str]
 const fullStats={

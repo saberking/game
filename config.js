@@ -31,3 +31,8 @@ const hex=true
 
 //////////////////////////
 ///////////////////
+const moveSpeed=4
+
+const scrollSpeed=30
+const daytimeLos=11
+let los=[]

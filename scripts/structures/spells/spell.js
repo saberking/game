@@ -41,10 +41,8 @@ const useResources=(caster,s)=>{
   enactEffect({amount:-1,score:mag,type:norm})(caster)
   caster.practice[s.type]++
   if(combat){
-    console.log(caster.initiative)
 
     caster.initiative+=apCost(caster,s.ap)
-    console.log(caster.initiative)
     endCombatAction(caster)
   }
   caster.checkStatus()
@@ -65,7 +63,6 @@ const castSpell=(sp,caster=selected)=>{
   //   return
   // }
   if(s.targetType==='none'||s.targetType==='self'){
-    console.log('autotarget')
     if(s.event(caster,caster)){
       useResources(caster,s)
       return true

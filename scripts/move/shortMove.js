@@ -44,12 +44,11 @@ const shortMovePossible=(a,b,func)=>{
   }
   return possible
 }
-let singleMoveToward = (c, target,cont)=>{
+let singleMoveToward = (c, target)=>{
   if(isNaN(target.x)||isNaN(target.y))throw new Error()
   let route=routeToward(c,target)
   if(route&&isEmpty(route[1])){
-    moveCreatureTo(c,route[1],cont)
-    combat&&setTimeout(()=>    endCombatAction(c),500)
+    moveCreatureTo(c,route[1])
     return true
   }
 }
@@ -71,7 +70,5 @@ let singleMoveAway = (c,target,cont) =>{
     console.log('foo')
     return false
   }
-  combat&&setTimeout(()=>    endCombatAction(c),500)
-
   return true
 }

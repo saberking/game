@@ -6,7 +6,6 @@ const combatMovePC=(coords,mover)=>{
 
     if(possible){
       moveCreatureTo(mover,coords)
-      setTimeout(()=>finished(mover),500)
       return true
     }
 
@@ -14,11 +13,11 @@ const combatMovePC=(coords,mover)=>{
 }
 const startLongMove=(route,mover,cb)=>{
   mover.dest=route[route.length-1]
-  startMove(mover,500/moveSpeed,route[1],route)
-  if(2===route.length) setTimeout(()=>{endMove(mover);cb&&cb()},500/moveSpeed)
+  startMove(mover,1000/moveSpeed,route[1],route)
+  if(2===route.length) setTimeout(()=>{endMove(mover);cb&&cb()},1000/moveSpeed)
   else  setTimeout(()=>{
       timeoutMove(mover,route,2,cb)
-    },500/moveSpeed)
+    },1000/moveSpeed)
   return true
 }
 const peaceMovePC=(coords,mover)=>{
@@ -48,9 +47,9 @@ const timeoutMove=(mover,route,i,cb)=>{
       queuedRoute=null
       return
     }
-    startMove(mover,500/moveSpeed,route[i],route)
-    if(i===route.length-1) setTimeout(()=>{endMove(mover);cb&&cb()},480/moveSpeed)
-    else setTimeout(()=>timeoutMove(mover,route,i+1,cb),480/moveSpeed)
+    startMove(mover,1000/moveSpeed,route[i])
+    if(i===route.length-1) setTimeout(()=>{endMove(mover);cb&&cb()},1000/moveSpeed)
+    else setTimeout(()=>timeoutMove(mover,route,i+1,cb),1000/moveSpeed)
   }else{
     endMove(mover)
   }

@@ -3,6 +3,7 @@ let linearRoute=(oneway,z)=>{
   return {route:oneway.concat(rtn).map(a=>Object.assign({},a,{z})),leg:0}
 }
 const patrol=()=>{
+  if(combat)return
   creatures.filter(c=>(c.z===currentWorld||c.z===currentWorld-1)&&!c.engaged).forEach(c=>{
     if(c.route){
 

@@ -16,8 +16,7 @@ let quarterHighlight=({x,y,color='white'})=>([{x,y,color,size:1},{x:x+1,y,color,
 const getHighlight=()=>{
   let hi=[]
   for(let i=minheight[currentWorld];i<=maxheight[currentWorld];i++)hi[i]=[]
-  let c
-  if(stillToMove)c=stillToMove[0]
+  let c=selected
   if(combat&&c){
     let range=floor(c.status.currentAp/2)
     range=2

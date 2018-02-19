@@ -2,6 +2,7 @@ let refuseInput=false
 
 const startTurn=()=>{
   timedEvents.increment()
+  addMessage('--------------Start of turn----------')
 
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
   let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld)
@@ -33,18 +34,18 @@ const startTurn=()=>{
     //     h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
   })
   // stillToMove.sort((a,b)=>b.initiative-a.initiative)
-  nextCharacter()
+  setTimeout(nextCharacter,1000)
 }
 const nextCharacter=()=>{
   stillToMove=stillToMove.filter(s=>s.status.status==='active')
-  if(!stillToMove.length)startTurn()
+  if(!stillToMove.length)endTurn()
   else{
     if(!checkConditions(stillToMove[0])){
       selectCharacter(stillToMove[0])
     }
   }
 }
-const endTurn=()=>setTimeout(startTurn,300)
+const endTurn=()=>setTimeout(startTurn,500)
 
 
 // const ready=(c)=>{

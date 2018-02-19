@@ -1,12 +1,20 @@
-
+const moveTime=d=>1000*d/moveSpeed
 
 const moveCreatureTo =(c, {x, y})=>{
   c.dest={x,y,z:c.z}
-  startMove(c, 500/moveSpeed,{x,y})
-  if(combat)c.status.initiative++
-  setTimeout(()=>{
+  let ending=()=>{
     endMove(c);
-  },500/moveSpeed)
+  }
+  if(combat){
+    ending=()=>{
+      endMove(c);
+      finished(c)
+    }
+  }
+  let time=moveTime(distance({x,y},c))
+  startMove(c, time,{x,y})
+  if(combat)c.status.initiative++
+  setTimeout(ending,time)
 }
 
 
