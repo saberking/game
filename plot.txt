@@ -9,6 +9,8 @@ SHADOWS/time of day
 CARRY
 steeltoecap as effect
 
+
+/////////////////////////////////////////////////
 spell descriptions
 magic skill descriptions
 addLevelsAtEndOfBattle
