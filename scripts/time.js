@@ -52,7 +52,7 @@ const createTime=()=>{
     handleTime=0
   }})
   timedEvents.add({interval:300,event:spawnCreatures})
-  timedEvents.add({interval:5,event:()=>creatures.forEach(c=>c.z===currentWorld&&reduceEffects(c))})
+  timedEvents.add({interval:1,event:()=>creatures.forEach(c=>c.z===currentWorld&&reduceEffects(c))})
   timedEvents.add({event:()=>catchup(),interval:1})
   console.log('timer')
   setInterval(()=>{if(!dialogOpen&&!combat)timedEvents.increment()},1000)
