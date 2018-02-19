@@ -7,11 +7,12 @@ const checkConditions = c=>{
         const closest = creatures.filter(cr=>
           cr.status.status==='active'&&cr.faction!==c.faction&&canSee(c,cr))
           .sort((a,b)=>distance(a,c)-distance(b,c))
-        if(closest[0]) {
+        if(closest[0]&&singleMoveAway(c, closest[0])) {
           addMessage(c.display+' runs away!')
-          singleMoveAway(c, closest[0])
+
         }else{
           addMessage(c.display+' cowers in fear!')
+          setTimeout(()=>endCombatAction(c),500)
         }
       // }else {
       //   console.log('no ap to run away')

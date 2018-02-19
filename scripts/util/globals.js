@@ -9,7 +9,7 @@ let onTargetSelect
 let moveEndTime=Date.now()
 let constructs=[]
 let turnTrigger
-var stillToMove
+var stillToMove=[]
 var selected
 let scrollLeft,scrollRight,scrollUp,scrollDown
 let screenPos

@@ -6,6 +6,7 @@ const combatMovePC=(coords,mover)=>{
 
     if(possible){
       moveCreatureTo(mover,coords)
+      setTimeout(()=>finished(mover),500)
       return true
     }
 

@@ -19,10 +19,10 @@ class TimedEvents{
     this.events=this.events.filter(a=>a.name!==name)
   }
   trigger(){
-    this.events.map(e=>!(date%e.interval)&&e.event())
+    this.events.map(e=>!(this.date%e.interval)&&e.event())
   }
 }
-const timedEvents=new TimedEvents
+const timedEvents=new TimedEvents(0)
 const createTime=()=>{
   perform&&timedEvents.add({interval:5,event:()=>{
     console.log({dateTime,uTime,catchuptime,hextime,ccTime,vTime,handleTime})

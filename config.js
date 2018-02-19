@@ -2,7 +2,7 @@
 let offerLoad=false
 
 
-let startingWorld=5
+let startingWorld=6
 
 let omniscient=false
 
