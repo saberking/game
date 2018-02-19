@@ -22,7 +22,7 @@ const showItemStats=(e,item,target)=>{
     html+='<div>range penalty: '+item.rangePen+'</div>'
   }
   if(item.type==='weapon'){
-    html+='<div>AP: '+item.ap+'</div>'
+
     html+='<div>penetration: '+item.penetration+'</div>'
   }
   if(item.armor){

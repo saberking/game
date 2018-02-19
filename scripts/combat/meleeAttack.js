@@ -22,12 +22,12 @@ const meleeAttackEvent = (a, b) => {
   let message='   - '
   let bonus=a.nextAttack||a.thisAttack
   if(bonus&&!bonus.type.includes('melee'))bonus=null
-  let attackStrength = a.status.str +a.status[a.weapon.subtype] + d20(a)+a.status.sorcery/3+a.status.stamina*20/a.status.maxStamina
+  let attackStrength = a.status.str +a.status[a.weapon.subtype] + d20(a)+a.status.sorcery/3
   if(bonus){
     attackStrength+=bonus.bonus
     addMessage(a.display+ ' is wearing steel toe caps!')
   }
-  let defenceStrength = b.status.rea +b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)+b.status.illusion/3+15
+  let defenceStrength = b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)+b.status.illusion/3+15
   if(b.weapon.melee)defenceStrength+=b.status[b.weapon.subtype]
   const hitStrength = attackStrength - defenceStrength
   if (hitStrength > 0) {
@@ -44,6 +44,5 @@ const meleeAttackEvent = (a, b) => {
   addMessage(message)
   b.checkStatus()
   a.initiative+=apCost(a,a.weapon.ap)
-  a.status.stamina-=a.weapon.weight
   endCombatAction(a)
 }

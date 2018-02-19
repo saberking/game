@@ -10,7 +10,7 @@ const openStatsMenu = (target)=>{
   }
   if (target) {
     let statsText = '<div style="height:5"></div>'
-    Object.keys(target.stats).forEach((stat,i) => statsText+=stat+': '+target.status[stat]+'/'+target.stats[stat]+' ')
+    stats.forEach((stat,i) => statsText+=stat+': '+target.status[stat]+'/'+target.stats[stat]+' ')
     let spellsText=''
     if(target.status.spells.length){
       spellsText+='<div style="margin-top:10;margin-bottom:10">Spells: '

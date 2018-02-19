@@ -1,5 +1,5 @@
 const str = 'str', int='int',  spd='spd',dex='dex',rea='rea',mag='mag',san='san',luc='luc'
-const stats = [int,luc,mag,rea,spd,str]
+const stats = [int,luc,mag,str]
 const fullStats={
   str:'Strength',
   int:'Intelligence',

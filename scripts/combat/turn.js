@@ -4,7 +4,7 @@ const startTurn=()=>{
   timedEvents.increment()
 
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
-  let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld&&c.status.stamina>0)
+  let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld)
   // filtered.forEach(f=>{
   //   f.thisTurn=f.nextTurn
   //   f.nextTurn={}
@@ -28,7 +28,7 @@ const startTurn=()=>{
       if(h.initiative<0) h.initiative=0
     }
     h.engaged=true
-    if(!h.initiative)stillToMove.push(h)
+    stillToMove.push(h)
     // h.status.currentAp=max(h.status.maxAp,min(
     //     h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
   })
@@ -36,7 +36,7 @@ const startTurn=()=>{
   nextCharacter()
 }
 const nextCharacter=()=>{
-  stillToMove=stillToMove.filter(s=>s.status.status==='active'&&s.status.stamina>0)
+  stillToMove=stillToMove.filter(s=>s.status.status==='active')
   if(!stillToMove.length)startTurn()
   else{
     if(!checkConditions(stillToMove[0])){
