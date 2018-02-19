@@ -44,11 +44,12 @@ const setup=()=>{
 
   document.getElementById('file-input').onchange= loadFile
   screenPos={x:0,y:100}
-  dev&&devEvents.forEach(e=>e())
   currentWorld=starting.z
   initWorld()
 
   addCharacters()
+
+  createTime()
 
   selected=you[0]
   setTimeout(()=>{
@@ -66,9 +67,8 @@ const start=()=>{
   charactersToDesign=[]
 
   restart()
-  slideTo(-1)
   closeDialog()
-  centreScreen()
+
   document.getElementById('message2').style.display='inline-block'
   removeBackground()
 
@@ -86,6 +86,8 @@ const initBackgrounds=()=>{
 }
 
 const restart=()=>{
+  slideTo(-1)
+  centreScreen()
   controlled=creatures.filter(c=>c.controlled)
   resetView()
 }

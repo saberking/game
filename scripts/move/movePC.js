@@ -1,19 +1,11 @@
 
 const combatMovePC=(coords,mover)=>{
   let dist=distance(mover,coords)
-  console.log(mover,coords)
   if(dist<=2&&combat){
-    let possible=isEmpty(coords)&&combatMovePossible(mover,coords)
+    let possible=combatMovePossible(mover,coords)
 
     if(possible){
-      let ap = distance(mover,coords)*2
-      mover.dest=merge(coords,{z:currentWorld})
-      startMove(mover, 1000,coords)
-      setTimeout(() => {
-        mover.status.initiative++
-        endMove(mover)
-        endCombatAction(mover)
-      }, 1000)
+      moveCreatureTo(mover,coords)
       return true
     }
 
@@ -43,13 +35,10 @@ const peaceMovePC=(coords,mover)=>{
 const movePC = (coords,mover=selected)=>{
   if(!mover)return
   if(combat){
-    console.log(mover)
     if(mover.moving)return
     return combatMovePC(coords,mover)
   }
-  if(peaceMovePC(coords,mover)){
-    return true
-  }
+  return peaceMovePC(coords,mover)
 }
 const timeoutMove=(mover,route,i,cb)=>{
   if(!combat){

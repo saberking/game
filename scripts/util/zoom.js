@@ -1,5 +1,4 @@
 const zoom = ({deltaY})=>{
-  if(dialogOpen||!dev)return
   for(let i = 0;i<abs(deltaY/10);i++){
     if(deltaY<0){
       if(zoomLevel>minZoom){

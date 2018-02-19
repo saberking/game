@@ -23,12 +23,6 @@ const statDescriptions={
   // san:'Improves magic resistance and reduces chance of insanity',
   luc:'Improves your luck with anything involvoing chance'
 }
-const sorcery='sorcery',divinity='divinity'
+const sorcery='sorcery',divinity='divinity',illusion='illusion'
 const afraid = 'afraid'
 const slots=['weapon','hat','shield','top','trousers','shoes']
-// const factionName=[]
-// factionName[1]='party'
-// factionName[2]='undead'
-// factionName[10]='monsters'
-const races=['dwarf','elf','human']
-const classNames=['fighter','priest','thief','wizard']

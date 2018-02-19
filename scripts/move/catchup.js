@@ -1,5 +1,6 @@
 let catchuptime=0
 const catchup=()=>{
+  if(combat)return
   let start=Date.now()
   let success=false
   controlled.filter(c=>c.z===currentWorld&&c.id!==selected.id&&
@@ -20,12 +21,12 @@ const singleCatchupMove=(c,dest)=>{
 const catchupMove=(c,dest)=>{
   if(!dest.z)throw new Error()
   if(singleCatchupMove(c,dest))return true
-  if(c.lastDestination&&dest.x===c.lastDestination.x&&dest.y===c.lastDestination.y&&
-    (Date.now()-c.lastCatchup<stuckInterval)) return false
+  // if(c.lastDestination&&dest.x===c.lastDestination.x&&dest.y===c.lastDestination.y&&
+  //   (Date.now()-c.lastCatchup<stuckInterval)) return false
 
   c.lastDestination={x:dest.x,y:dest.y}
   c.catchupRoute=routeToward(c,dest)
-  c.lastCatchup=Date.now()
+  // c.lastCatchup=Date.now()
   if(c.catchupRoute){
     c.catchupRoute=c.catchupRoute.slice(1)
   }

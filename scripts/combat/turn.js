@@ -1,7 +1,7 @@
 let refuseInput=false
 
 const startTurn=()=>{
-  increaseDate(1)
+  timedEvents.increment()
 
   creatures=creatures.filter(c=>c.controlled||c.status.status==='active')
   let filtered=creatures.filter(c=>c.status.status==='active'&&c.z===currentWorld&&c.status.stamina>0)

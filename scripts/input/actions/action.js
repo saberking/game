@@ -3,8 +3,6 @@ let actions=[]
 const initActions=()=>spells.forEach(s=>actions[s.name]=()=>castSpell(s))
 initEvents.push(initActions)
 
-
-
 const actionRoute=({x,y})=>{
   if(!selected||combat)return
   if(selected.moving)return

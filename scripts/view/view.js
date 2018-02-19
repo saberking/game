@@ -65,8 +65,6 @@ const lineOfSite=(x1,y1,x2,y2)=>{
     if(i+1<=xDistance){
       block=blocking({z:currentWorld,x:x1+xVec*(i+0.5),y:endY})
       let opac=world[currentWorld][x1+xVec*(i+0.5)][endY].opacity
-        // world[currentWorld][x1+xVec*(i+0.5)][endY+yVec].opacity]
-      // if(abs((i+0.5)*yDistance/xDistance*yVec-endY+y1)<cornerError)arr.push(blocking({z:currentWorld,x:x1+xVec*(i+0.5),y:endY+yVec}))
         if(block){
           if((block.includes('l')&&xVec<0)||(block.includes('r')&&xVec>0)){
             opacitySum+=opac
@@ -78,12 +76,6 @@ const lineOfSite=(x1,y1,x2,y2)=>{
     for(let y=start;y<=end;y++){
       block=blocking({z:currentWorld,x:x1+xVec*(i+0.5),y})
       if(block){
-        // if(!world[currentWorld][x1+xVec*(i+1.5)]){
-        //   console.log(block,x1+xVec*(i+1.5))
-        //
-        // }
-        // let block2=world[currentWorld][x1+xVec*(i+1.5)][y].blocking
-        // if(typeof(block2)!=='string'){console.log(world[currentWorld][x1+xVec*(i+1.5)][y],x1,xVec,i,x1+xVec*(i+1.5),y,currentWorld)}
         if(block.includes('t')){
           if(
             y!==start||

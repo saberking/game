@@ -1,11 +1,6 @@
-const upOrDownAway=(c, x, target) => {
-  if(c.y>target.y && isEmpty({x,y:c.y+1})) return 1
-  else if(c.y<target.y && isEmpty({x,y:c.y-1})) return -1
-  else if(isEmpty({x,y:c.y+1}))return 1
-  else return -1
-}
 
-const moveCreatureTo =(c, {x, y}, next)=>{
+
+const moveCreatureTo =(c, {x, y})=>{
   c.dest={x,y,z:c.z}
   startMove(c, 500/moveSpeed,{x,y})
   if(combat)c.status.initiative++
@@ -48,5 +43,3 @@ const endMove = (mover) => {
   if(!combat&&selected&&selected.id===mover.id&&queuedRoute)startLongMove(queuedRoute,mover)
   queuedRoute=null
 }
-const canMoveLeft = c=>isEmpty({x:c.x-2,y:c.y+1})||isEmpty({x:c.x-2, y:c.y-1})
-const canMoveRight = c=>isEmpty({x:c.x+2,y:c.y+1})||isEmpty({x:c.x+2, y:c.y-1})

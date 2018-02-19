@@ -1,6 +1,13 @@
 const connected=(a,b)=>shortMovePossible(a,b,(a,b)=>isPassable(b))
 const combatMovePossible=(a,b)=>shortMovePossible(a,b,(a,b)=>moveThrough(a,b,a.faction))
-
+const upOrDownAway=(c, x, target) => {
+  if(c.y>target.y && isEmpty({x,y:c.y+1})) return 1
+  else if(c.y<target.y && isEmpty({x,y:c.y-1})) return -1
+  else if(isEmpty({x,y:c.y+1}))return 1
+  else return -1
+}
+const canMoveLeft = c=>isEmpty({x:c.x-2,y:c.y+1})||isEmpty({x:c.x-2, y:c.y-1})
+const canMoveRight = c=>isEmpty({x:c.x+2,y:c.y+1})||isEmpty({x:c.x+2, y:c.y-1})
 const adjacentMovePossible=(a,b)=>{
   if(a.z!==b.z)return
   if(distance(a,b)>1)return

@@ -63,16 +63,12 @@ const loadData=text=>{
   currentWorld=you[0].z
   selected=you.find(y=>y.status.status==='active')
   continueDrawing=true
-  start()
   if(worldText){
     searched=JSON.parse(worldText)
     searched.forEach((id)=>constructs.find(c=>c.id===id).items=[])
   }
-  console.log(you.map(y=>y.z),controlled.map(c=>c.z))
-  centreScreen()
-  document.body.onclick=null
+  start()
   addMessage('load successful')
-  restartLoop()
 }
 
 const load=()=>{

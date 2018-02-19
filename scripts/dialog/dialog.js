@@ -30,7 +30,8 @@ const info = (text,c,options=[],bg)=>{
 }
 const openDialog=()=>{
   dialogOpen=true;
-  document.body.onkeydown=()=>{};continueDrawing=false
+  document.body.onkeydown=()=>{};
+  continueDrawing=false
   // slideTo(-1)
   document.getElementById('dialogContainer').style.left=0
   hideCanvas()

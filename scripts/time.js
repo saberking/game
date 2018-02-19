@@ -3,13 +3,14 @@ const increaseDate=(amount=1)=>{
     incrementDate()
   }
 }
-const incrementDate=()=>{
-  date++
-  timedEvents.trigger()
-}
 class TimedEvents{
-  constructor(){
+  constructor(date){
     this.events=[]
+    this.date=date
+  }
+  increment(){
+    this.date++
+    this.trigger()
   }
   add({interval,event,name}) {
     this.events.push({interval,event})
@@ -22,35 +23,40 @@ class TimedEvents{
   }
 }
 const timedEvents=new TimedEvents
-perform&&timedEvents.add({interval:5,event:()=>{
-  console.log({dateTime,uTime,catchuptime,hextime,ccTime,vTime,handleTime})
-  longTime=0
-  longCount=0
-  hextime=0
-  catchuptime=0
-  moveThroughTime=0
-  clearTime=0
-  checkTime=0
-  worldTime=0
-  highTime=0
-  ccTime=0
-  hostileTime=0
-  dateTime=0
-  vcTime=0
-  uTime=0
-  vTime=0
-  aTime=0
-  findhTime=0
-  excTime=0
-  cltime=0
-  rectTime=0
-  constructTime=0
-  bucktime=0
-  creattime=0
-  handleTime=0
-}})
-timedEvents.add({interval:300,event:spawnCreatures})
-timedEvents.add({interval:5,event:()=>creatures.forEach(c=>c.z===currentWorld&&reduceEffects(c))})
+const createTime=()=>{
+  perform&&timedEvents.add({interval:5,event:()=>{
+    console.log({dateTime,uTime,catchuptime,hextime,ccTime,vTime,handleTime})
+    longTime=0
+    longCount=0
+    hextime=0
+    catchuptime=0
+    moveThroughTime=0
+    clearTime=0
+    checkTime=0
+    worldTime=0
+    highTime=0
+    ccTime=0
+    hostileTime=0
+    dateTime=0
+    vcTime=0
+    uTime=0
+    vTime=0
+    aTime=0
+    findhTime=0
+    excTime=0
+    cltime=0
+    rectTime=0
+    constructTime=0
+    bucktime=0
+    creattime=0
+    handleTime=0
+  }})
+  timedEvents.add({interval:300,event:spawnCreatures})
+  timedEvents.add({interval:5,event:()=>creatures.forEach(c=>c.z===currentWorld&&reduceEffects(c))})
+  timedEvents.add({event:()=>catchup(),interval:1})
+  console.log('timer')
+  setInterval(()=>{if(!dialogOpen&&!combat)timedEvents.increment()},1000)
+}
 const reduceEffects=(c)=>{
   let indices=[]
   c.effects.forEach((e,i)=>{
@@ -74,6 +80,7 @@ const reduceEffects=(c)=>{
   if(!c.immunities.find(i=>i==='radiation'))enactRadiation(c)
   c.checkStatus()
 }
+
 const enactRadiation=c=>{
   creatures.filter(cr=>c.z===cr.z&&distance(cr,c)<=4&&cr.id!==c.id).forEach(cr=>{
     if(cr.special.radiation){

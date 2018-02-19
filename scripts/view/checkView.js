@@ -20,21 +20,19 @@ const checkView=(force=false)=>{
   updatePositions()
   //console.log('updated')
   let filtered=controlled.filter(c => c.status.status==='active'&&c.z===currentWorld)
-  let top=minheight[currentWorld]-1
-  let bottom=maxheight[currentWorld]-1
+  let top=minheight[currentWorld]
+  let bottom=maxheight[currentWorld]
   let left=minwidth[currentWorld]
   let right=maxwidth[currentWorld]
 //console.log(filtered,controlled,currentWorld)
   for(let x=left;x<=right;x++){
     currentView[x]=[]
     for(let y=top;y<=bottom;y++){
-      if(exists(normalise({x,y}))){
-        currentView[x][y]=hexVisibility(x,y,filtered)
-        if(currentView[x][y]){
-          world[currentWorld][x][y].seen=true
-          for(let i=currentWorld;world[i][x][y-currentWorld+i].terrain==='air';i--){
-            world[i-1][x][y-currentWorld+i-1].seen=true
-          }
+      currentView[x][y]=hexVisibility(x,y,filtered)
+      if(currentView[x][y]){
+        world[currentWorld][x][y].seen=true
+        for(let i=currentWorld;world[i][x][y-currentWorld+i].terrain==='air';i--){
+          world[i-1][x][y-currentWorld+i-1].seen=true
         }
       }
     }

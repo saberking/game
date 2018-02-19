@@ -59,27 +59,7 @@ const makeHostile=b=>{
   }
 }
 actions.fight=(id)=>makeHostile(creatures.find(c=>c.id===id))
-const attack=({x,y})=>{
-  let c=creatureAt({x,y})
-  if(!c||!c.hostileRange||c.effects.find(e=>e.score==='invisibility'))return
-  if(!selected||!stillToMove||!stillToMove.length||!stillToMove[0].controlled)return
-  if(combat){
-    const range = distance(c,selected)
-    if(!c.controlled){
-      if (range === 1 && selected.weapon.melee) {
-        meleeAttackAction(selected, c)
-        return true
-      }
-      if(!selected.weapon)console.log(selected)
-      const sufficientAmmo=selected.weapon.subtype==='throwing'||
-        selected.weapon.ammo.find(a=>selected.shield&&a===selected.shield.subtype)
-      if (selected.weapon.ranged && range > 1&&sufficientAmmo) {
-        rangedAttackAction(selected, c)
-          return true
-      }
-    }
-  }
-}
+
 const carry=(id)=>{
   creatures.find(c=>c.id===id).carried=true
 }
