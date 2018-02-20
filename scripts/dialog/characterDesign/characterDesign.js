@@ -71,7 +71,7 @@ const openLevelDialog=()=>{
   increasedStat[0]=[]
   // document.getElementById('continue').innerHTML='<div style="height:52"></div>'
   document.getElementById('dialog').innerHTML=
-  header(c)+displayStats()+'<div style="position:absolute;left:200;top:50"id="stats"></div>'
+  header(c)+displayStats(c)+'<div style="position:absolute;left:200;top:50"id="stats"></div>'
   document.getElementById('stats').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
   addSkillButtons()
   addStatButtons()
