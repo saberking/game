@@ -23,8 +23,7 @@ const invisibility=new Spell({
   type:'illusion',
   name:'invisibility',
   jobs:['thief'],
-  targetType:'self',
-  targets:'single',
+  targets:'self',
   ap:3,
   event:caster=>{
     const spell=spells.find(s=>s.name==='invisibility')

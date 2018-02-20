@@ -18,6 +18,8 @@ const getAvailableCreatureActions = (c) => {
       }
       availableActions.push('fight')
     }
+    if(combat&&selected.status.magic>0)availableActions=availableActions.concat(selected.spells.filter(s=>s.targets==='single').map(s=>s.name))
+    if(canAttack(c.id))availableActions.push('attack')
     if(selected&&c.faction===selected.faction&&c.status.status!=='active')availableActions.push('carry')
 
   }
@@ -59,7 +61,30 @@ const makeHostile=b=>{
   }
 }
 actions.fight=(id)=>makeHostile(creatures.find(c=>c.id===id))
-
+const canAttack=(id)=>{
+  let c=creatures.find(c=>c.id===id)
+  console.log(c)
+  if(!c||!c.hostileRange)return
+  if(!selected||!stillToMove||!stillToMove.length||!stillToMove[0].controlled)return
+  console.log('ifcom')
+  if(combat){
+    const range = distance(c,selected)
+    if(!c.controlled){
+      if (range === 1 && selected.weapon.melee) {
+        console.log('mel')
+        return ()=>meleeAttackAction(selected, c)
+      }
+      if(!selected.weapon)console.log(selected)
+      const sufficientAmmo=selected.weapon.subtype==='throwing'||
+        selected.weapon.ammo.find(a=>selected.shield&&a===selected.shield.subtype)
+      if (selected.weapon.ranged && range > 1&&sufficientAmmo) {
+        console.log('ran')
+        return ()=>rangedAttackAction(selected, c)
+      }
+    }
+  }
+}
+actions.attack=id=>canAttack(id)&&canAttack(id)()
 const carry=(id)=>{
   creatures.find(c=>c.id===id).carried=true
 }

@@ -51,7 +51,7 @@ const equip=(e,c,item)=>{
   c.checkStatus()
   openStatsMenu(c)
   if(combat){
-    c.initiative+=apCost(ap,c)
+    // c.initiative+=apCost(c,ap)
     endCombatAction(c)
   }
 

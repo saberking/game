@@ -38,8 +38,7 @@ const prayer = new Spell({
   type:'theology',
   name:'prayer',
   jobs:['priest'],
-  targets:'single',
-  targetType:'self',
+  targets:'self',
   event:(caster)=>{
     let spell=spells.find(s=>s.name==='prayer')
     addMessage(caster.display+' prays!')

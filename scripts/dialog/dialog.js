@@ -34,12 +34,14 @@ const openDialog=()=>{
   continueDrawing=false
   // slideTo(-1)
   document.getElementById('dialogContainer').style.display='inline-block'
+  document.getElementById('message2').style.display='none'
   hideCanvas()
 }
 const closeDialog = (lp=true) => {showHealth();closeDialog2();removeClones()
 dialogOpen=false;showCanvas();document.body.onkeydown=keydown;continueDrawing=true;
 lp&&restartLoop()
 document.getElementById('dialogContainer').style.display='none'
+document.getElementById('message2').style.display='inline-block'
 // slideTo(0)
 
 shopping=false

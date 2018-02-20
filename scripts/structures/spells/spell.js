@@ -62,7 +62,7 @@ const castSpell=(sp,caster=selected)=>{
   //   // caster.controlled&&finished(caster)
   //   return
   // }
-  if(s.targetType==='none'||s.targetType==='self'){
+  if(s.targets==='none'||s.targets==='self'){
     if(s.event(caster,caster)){
       useResources(caster,s)
       return true

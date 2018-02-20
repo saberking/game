@@ -146,6 +146,8 @@ class Creature {
       this.status[e.score] += e.amount
     })
     self.armor=Object.assign({},{light:0,physical:0},this.naturalArmor)
+    this.spells=spells.filter(s=>this.status[s.type]>=s.level).map(s=>s.name)
+
     slots.forEach(ef=>{
       if(self[ef]){
         if(self[ef].effects){
@@ -158,7 +160,6 @@ class Creature {
         if(self[ef].armor){self.armor.light+=self[ef].armor.light;self.armor.physical+=self[ef].armor.physical}
       }
     })
-    this.spells=spells.filter(s=>this.status[s.type]>=s.level).map(s=>s.name)
     // this.status.maxStamina=this.status.str*10
     // if(lastStatus){
     //   this.status.stamina=lastStatus.stamina+this.status.maxStamina-lastStatus.maxStamina

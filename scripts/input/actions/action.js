@@ -26,10 +26,10 @@ const openActionMenu=({x,y},leftClick=true)=>{
     let route
     if(distance(selected,normalise({x,y}))>1||blockedByWall(selected,normalise({x,y}))){
         route=actionRoute(normalise({x,y}))
-        if(!route)possibleActions=possibleActions.filter(a=>a.action==='stats'||a.action==='fight')
+        if(!route)possibleActions=possibleActions.filter(a=>a.action==='stats'||a.action==='fight'||a.action==='attack')
     }
     let defaultEvent=(a,route)=>{
-                if(!route||a.action==='fight'||a.action==='stats')
+                if(!route||a.action==='fight'||a.action==='stats'||a.action==='attack')
                 return ()=>actions[a.action](a.id)
                 return ()=>startLongMove(route,selected,()=>{actions[a.action](a.id)})
     }
