@@ -1,8 +1,8 @@
 ///////////
-let offerLoad=false
+let offerLoad=true
 
 
-let startingWorld=6
+let startingWorld=5
 
 let omniscient=false
 

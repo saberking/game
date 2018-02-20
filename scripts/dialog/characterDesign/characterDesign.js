@@ -50,6 +50,7 @@ const characterDesign=()=>{
   charactersToDesign=[]
   for(let i = 0;i<noOfCharacters;i++){
     let clone=dialog.cloneNode(false)
+    console.log(dialog.style.width,clone.style.width)
     clone.id='dialog_'+i
 
     let x=75+screenwidth*(i+1)

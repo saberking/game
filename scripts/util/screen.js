@@ -55,9 +55,9 @@ const layout=()=>{
   for(let i=0;i<noOfCharacters;i++){
     let e=document.getElementById('dialog_'+i)
     if(e)  {
-      e.style.height = screenheight- 90
-      e.style.width =screenwidth - 200
-      e.style.left=(i+1)*screenwidth+75
+      e.style.height = screenheight
+      e.style.width =screenwidth
+      e.style.left=(i+1)*screenwidth
     }
   }
   document.getElementById('message2').style.width=screenwidth*0.5
