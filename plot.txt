@@ -1,3 +1,6 @@
+
+SHADOWS/time of day
+
 city guards wont allow you in without passport
 mayor has passport and will give it as reqard for killing wizard king
 
@@ -5,7 +8,6 @@ gangster sends you to oversee drug deal which goes wrong. Cutscene of drug deal 
 
 interrupt
 
-SHADOWS/time of day
 CARRY
 steeltoecap as effect
 
