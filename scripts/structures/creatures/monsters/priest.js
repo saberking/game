@@ -4,10 +4,9 @@ let parishPriest={
   skills:{
     unarmed:10,
     club:10,
-    divinity:10,
-    sorcery:10,
+    theology:10,
+    chemistry:10,
     illusion:10,
-    healing:10
   },
   spells:['terror','airStrike'],
   weapon:bible
@@ -17,8 +16,8 @@ const unholyBible={
   hostileRange:10,
   skills:{
     unarmed:10,
-    divinity:15,
-    sorcery:5
+    theology:15,
+    chemistry:5
   },
   stats:{
     str:3,

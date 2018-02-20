@@ -40,7 +40,7 @@ const randomItemEffect=(bonus=0)=>{
 }
 
 const randomSpell=(l=1)=>{
-  let s=spells.filter(sp=>sp.level===l)
+  let s=spells
   let i = floor(random()*s.length)
   return s[i]
 }

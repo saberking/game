@@ -5,7 +5,7 @@ let increasedStat=[]
 let increasedSkill=[]
 const characterComplete=(i)=>{
   return increasedSkill[i].length===2&&
-      (charactersToDesign[i].level>1||(increasedStat[i].length===2&&charactersToDesign[i].spells[0]))
+      (charactersToDesign[i].level>1||(increasedStat[i].length===2))
 }
 const increaseStatButton=(s,i)=>increaseButton(s,i,'Stat')
 

@@ -28,7 +28,7 @@ const rangedAttackEvent=(a,b) => {
   }
   addMessage(message)
   message='    - '
-  const attackStrength = a.status[a.weapon.subtype]/2 +  d20(a)+a.status.sorcery/3
+  const attackStrength = a.status[a.weapon.subtype]/2 +  d20(a)+a.status.chemistry/3
   const defenceStrength = distance(a,b)*a.weapon.rangePen+b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)+b.status.illusion/3
   const hitStrength = attackStrength - defenceStrength
   if(typeof(hitStrength)!=='number')throw new Error()

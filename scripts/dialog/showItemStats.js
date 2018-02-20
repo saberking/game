@@ -3,7 +3,7 @@ const showItemStats=(e,item,target)=>{
   e.stopPropagation()
   let html='<div>'+item.name+'</div>'+
   '<div>type: '+item.subtype+'</div>'+
-  (item.jobs.length===4?'':'<div style="color:#111144">Classes: '+item.jobs.join(', ')+'</div>')+
+  // (item.jobs.length===4?'':'<div style="color:#111144">Classes: '+item.jobs.join(', ')+'</div>')+
   (item.quantity===1?'':'<div>quantity: '+item.quantity+'</div>')
   if(item.melee){
     html+='<div>melee</div>'
@@ -41,7 +41,7 @@ const showItemStats=(e,item,target)=>{
       document.getElementById('dialog2').appendChild(equipButton)
       equipButton.appendChild(createButton2('Unequip',(e)=>unequip(e,target,slot)))
     }
-    if(item.type==='consumable'&&item.jobs.find(j=>j===target.job)){
+    if(item.type==='consumable'){
       document.getElementById('dialog2').appendChild(equipButton)
       equipButton.appendChild(createButton2('Consume',(e)=>consume(e,item,target)))
     }

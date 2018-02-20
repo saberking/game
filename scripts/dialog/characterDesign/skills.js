@@ -45,7 +45,7 @@ const increaseSkill=(skill,i)=>{
   (skill,i)
   let c=charactersToDesign[i]
   if(increasedSkill[i].length===2)return
-    c.skills[skill]+=5
+    c.skills[skill]+=3
     increasedSkill[i].push(skill)
     document.getElementById(skill+'_'+i).innerHTML=
       doubleColumn(skill[0].toUpperCase()+skill.substring(1),c.skills[skill],skill+'_'+i)+
@@ -59,7 +59,7 @@ const decreaseSkill=(s,i)=>{
   increasedSkill[i]=increasedSkill[i].filter(sk=>sk!=s)
   document.getElementById('continue_'+i).innerHTML=''
   let c= charactersToDesign[i]
-  c.skills[s]-=5
+  c.skills[s]-=3
   document.getElementById(s+'_'+i).innerHTML=doubleColumn(s[0].toUpperCase()+s.substring(1),c.skills[s])+
   increaseButton(s,i,'Skill')
 }

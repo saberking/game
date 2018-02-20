@@ -8,8 +8,7 @@ const selectClass=(i)=>{
   //
 
   c.skills=merge(jobsSkills[value],magicSkills)
-  chooseSpell(i)
-  document.getElementById('skill_'+i).innerHTML=displaySkills(c,i,0)
-  addSkillButtons(i)
+  // chooseSpell(i)
+
   document.getElementById('continue_'+i).innerHTML=''
 }

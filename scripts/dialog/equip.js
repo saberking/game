@@ -1,5 +1,5 @@
 const canEquip=(target,item)=>{
-  if(!item.jobs.find(j=>j===target.job))return
+  // if(!item.jobs.find(j=>j===target.job))return
   const slot=slots.find(s=>s===item.type)
   if(slot&&(!target[slot]||target[slot].id!==item.id)){
     if(!combat||(target.id===stillToMove[0].id)){

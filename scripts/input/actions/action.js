@@ -20,7 +20,7 @@ const openActionMenu=({x,y},leftClick=true)=>{
     }
   })
   let c=creatureAt(normalise({x,y}))
-  if(c&&!c.effects.find(e=>e.score==='invisibility')&&currentView[x][y])possibleActions=possibleActions.concat(getAvailableCreatureActions(c).map(a=>({action:a,id:c.id})))
+  if(c&&isCreatureVisible(c))possibleActions=possibleActions.concat(getAvailableCreatureActions(c).map(a=>({action:a,id:c.id})))
   if(possibleActions.length){
 
     let route

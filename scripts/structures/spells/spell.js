@@ -1,5 +1,5 @@
 const spells = []
-const magicSchools=['sorcery','illusion','healing','divinity']
+const magicSchools=['chemistry','illusion','theology']
 
 class Spell {
   constructor({
@@ -154,7 +154,7 @@ const spellDefenceStrength=(a,b,s)=>{
     if(s.damageType==='magic')defenceStrength += b.status.mag*4/s.penetration
     else defenceStrength+=b.armor[s.damageType]/s.penetration
     if(b.status[s.type])defenceStrength+=round(b.status[s.type]/2)
-    defenceStrength+=b.status.divinity/3
+    defenceStrength+=b.status.theology/3
   }
   return defenceStrength
 }

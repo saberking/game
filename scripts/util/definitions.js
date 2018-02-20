@@ -31,6 +31,6 @@ const statDescriptions={
   // san:'Improves magic resistance and reduces chance of insanity',
   luc:'Improves your luck with anything involvoing chance'
 }
-const sorcery='sorcery',divinity='divinity',illusion='illusion'
+const chemistry='chemistry',theology='theology',illusion='illusion'
 const afraid = 'afraid'
 const slots=['weapon','hat','shield','top','trousers','shoes']

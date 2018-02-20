@@ -22,7 +22,7 @@ const meleeAttackEvent = (a, b) => {
   let message='   - '
   let bonus=a.nextAttack||a.thisAttack
   if(bonus&&!bonus.type.includes('melee'))bonus=null
-  let attackStrength = a.status.str +a.status[a.weapon.subtype] + d20(a)+a.status.sorcery/3
+  let attackStrength = a.status.str +a.status[a.weapon.subtype] + d20(a)+a.status.chemistry/3
   if(bonus){
     attackStrength+=bonus.bonus
     addMessage(a.display+ ' is wearing steel toe caps!')

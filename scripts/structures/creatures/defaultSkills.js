@@ -46,8 +46,8 @@ const jobsSkills={
 let skills=[]
 Object.keys(defaultSkills).forEach(k=>skills.push(k))
 let magicSkills={
-  sorcery:0,
+  chemistry:0,
   illusion:0,
-  divinity:0,
-  healing:0
+  theology:0,
 }
+Object.keys(magicSkills).forEach(m=>skills.push(m))

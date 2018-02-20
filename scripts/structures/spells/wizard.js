@@ -1,11 +1,12 @@
-const magicMissile = new Spell({
-  type:'sorcery',
+const acidSplash = new Spell({
+  type:'chemistry',
   effect: [{score: str, amount: -3, type: norm}],
-  name: 'magicMissile',
+  name: 'acidSplash',
   targetType: 'enemy',
   rangePen: 2,
   jobs:['wizard'],
-  damageType:'physical'
+  damageType:'physical',
+  level:5
 })
 
 const terror = new Spell({
@@ -15,7 +16,8 @@ const terror = new Spell({
   targetType: 'enemy',
   rangePen: 2,
   jobs:['wizard','psionic'],
-  damageType:'magic'
+  damageType:'magic',
+  level:10
 })
 const invisibility=new Spell({
   type:'illusion',
@@ -32,13 +34,14 @@ const invisibility=new Spell({
     const points=round(attackStrength*2/20)
     enactEffect({score:'invisibility',amount:points,type:temp})(caster)
     return true
-  }
+  },
+  level:5
 })
 
 
-// 
+//
 // const steelToeCap=new Spell({
-//   type:'sorcery',
+//   type:'chemistry',
 //   name:'steelToeCap',
 //   jobs:['fighter'],
 //   targetType:'self',
@@ -72,7 +75,7 @@ const invisibility=new Spell({
 
 
 const fireball=new Spell({
-  type:'sorcery',
+  type:'chemistry',
   targetType:'enemy',
   targets:'area',
   name:'fireball',
@@ -102,11 +105,12 @@ const fireball=new Spell({
       }
     })
     return true
-  }
+  },
+  level:10
 })
 
 const blockage = new Spell({
-  type:'sorcery',
+  type:'chemistry',
   targetType:'enemy',
   targets:'area',
   name:'blockage',
@@ -114,4 +118,5 @@ const blockage = new Spell({
   damageType:'magic',
   effect:[{score:str,amount:-2,type:'norm'},{score:luc,amount:-6,type:norm}],
   rangePen:4,
+  level:15
 })

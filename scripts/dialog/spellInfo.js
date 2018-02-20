@@ -11,7 +11,7 @@ const showSpellInfo=(event,spell)=>{
     '<div>targets: '+spell.targets+' '+spell.targetType+'</div>'+
     (spell.targetType==='enemy'?'<div>Penetration: '+spell.penetration+'</div>':'')+
 
-    '<div>classes:'+spell.jobs.join(', ')+'</div>'+
+    // '<div>classes:'+spell.jobs.join(', ')+'</div>'+
     '<div onclick="closeDialog2()">Close</div>'
   setTimeout(openDialog2)
 }

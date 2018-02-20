@@ -4,7 +4,6 @@ const starting=startingPos[startingWorld]
 
 const addCharacters=()=>{
   let cl=['thief','wizard','priest']
-  let sp=['invisibility','magicMissile','heal']
   let bonuses=[{str:-2,spd:1,rea:1,luck:2},{str:-2,int:+7,spd:-2},{spd:1,rea:-2}]
   for(let j = 0;j<noOfCharacters;j++){
     you.push( new Creature({
@@ -13,7 +12,6 @@ const addCharacters=()=>{
       name: pcNames[j],
       display:pcNames[j],
       faction:1,
-      skills:merge(jobsSkills[cl[j]],magicSkills),
       spells: [],
       items:[],
       stages: 5,
@@ -68,7 +66,7 @@ const start=()=>{
 
   restart()
   closeDialog()
-
+  centreScreen()
   document.getElementById('message2').style.display='inline-block'
   removeBackground()
 

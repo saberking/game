@@ -3,7 +3,7 @@ let toilet={
   hostileRange:10,
   skills:{
     club:10,
-    divinity:10,
+    theology:10,
     physical:10
   },
   spells:['blockage'],

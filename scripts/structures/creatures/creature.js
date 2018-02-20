@@ -158,15 +158,16 @@ class Creature {
         if(self[ef].armor){self.armor.light+=self[ef].armor.light;self.armor.physical+=self[ef].armor.physical}
       }
     })
-    this.status.maxStamina=this.status.str*10
-    if(lastStatus){
-      this.status.stamina=lastStatus.stamina+this.status.maxStamina-lastStatus.maxStamina
-    }else{
-      this.status.stamina=this.status.maxStamina
-    }
-    this.status.maxAp=round(this.status.spd*sqrt(this.status.stamina/this.status.maxStamina))
+    this.spells=spells.filter(s=>this.status[s.type]>=s.level).map(s=>s.name)
+    // this.status.maxStamina=this.status.str*10
+    // if(lastStatus){
+    //   this.status.stamina=lastStatus.stamina+this.status.maxStamina-lastStatus.maxStamina
+    // }else{
+    //   this.status.stamina=this.status.maxStamina
+    // }
+    // this.status.maxAp=round(this.status.spd*sqrt(this.status.stamina/this.status.maxStamina))
     if (lastStatus) {
-      this.status.currentAp=lastStatus.currentAp
+      // this.status.currentAp=lastStatus.currentAp
       if (this.status.str <= 0 && lastStatus.str > 0 ||
             this.status.int <= 0 && lastStatus.int > 0) {
         addMessage(this.display +' has fallen unconscious')

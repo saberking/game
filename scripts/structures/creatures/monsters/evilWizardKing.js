@@ -14,8 +14,8 @@ let evilWizardKing={
   spells:['heal','airStrike'],
   skills:{
     sword:5,
-    divinity:15,
-    sorcery:15,
+    theology:15,
+    chemistry:15,
     staff:15
   },
   weapon:enchant(staff,1,1,['prayer'])
