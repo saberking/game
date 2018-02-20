@@ -59,7 +59,6 @@ const setup=()=>{
     }
   })
   setTimeout(initBackgrounds)
-
 }
 const start=()=>{
   charactersToDesign=[]

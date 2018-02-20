@@ -66,19 +66,16 @@ const canAttack=(id)=>{
   console.log(c)
   if(!c||!c.hostileRange)return
   if(!selected||!stillToMove||!stillToMove.length||!stillToMove[0].controlled)return
-  console.log('ifcom')
   if(combat){
     const range = distance(c,selected)
     if(!c.controlled){
       if (range === 1 && selected.weapon.melee) {
-        console.log('mel')
         return ()=>meleeAttackAction(selected, c)
       }
       if(!selected.weapon)console.log(selected)
       const sufficientAmmo=selected.weapon.subtype==='throwing'||
         selected.weapon.ammo.find(a=>selected.shield&&a===selected.shield.subtype)
       if (selected.weapon.ranged && range > 1&&sufficientAmmo) {
-        console.log('ran')
         return ()=>rangedAttackAction(selected, c)
       }
     }
