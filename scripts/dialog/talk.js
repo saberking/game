@@ -4,15 +4,18 @@ const getAnswers=c=>{
   if(c.chat.states[c.chat.state].answers)c.chat.states[c.chat.state].answers.forEach(a=>answers.push(a))
   return answers
 }
-
+const whiteBackground=text=>'<div class="whiteBackground">'+text+'</div>'
+const breaker='<div style="padding-top:50"> </div>'
 const talk=(c)=>{
   if(c.chat){
     let {text}=c.chat.states[c.chat.state]
-    document.getElementById('dialog').innerHTML=
+    document.getElementById('dialog').innerHTML='<div class="style1">'+
       '<div style="min-height:100%"><div style="padding:20">'+
-      header(c)+
-      text+
-      '<div style="padding-top:50"> </div><div id="contents"></div></div></div>'
+      whiteBackground(header(c))+
+      breaker+
+      whiteBackground(text)+
+      breaker+
+      '<div id="contents"></div></div></div></div>'
     const reply=document.createElement('input')
     reply.type='text'
     const button=document.createElement('button')

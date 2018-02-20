@@ -10,6 +10,9 @@
         background-size: cover;
         min-height: 100%;
 }
+.whiteBackground{
+  background-color:rgba(136,136,136,0.6)
+}
 #message2::-webkit-scrollbar{
   border-style: solid;
 }

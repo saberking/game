@@ -20,7 +20,6 @@ const addCharacters=()=>{
     // Object.keys(bonuses[j]).forEach(key=>you[j].stats[key]+=bonuses[j][key])
     if(!offerLoad){
       you[j].job=cl[j]
-      you[j].spells=[sp[j]]
     }
     you[j].checkStatus(true)
   }

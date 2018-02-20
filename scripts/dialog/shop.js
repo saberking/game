@@ -3,12 +3,12 @@ let shopping=false
 
 const shop = c=>{
   shopping=c
-  let item=(i,price)=>'<span style="position:relative;width:64;height:64" id="item'+i.id+'"><img src="assets/items/'+i.picName+'.png"/><span style="font-size:20;position:absolute;right:0;bottom:0;background-color:rgba(136,136,136,0.6)">'+price+'</span></span>'
-  let html='<div class="style1"><div style="padding:50;position:relative;display:inline-block;width:300"><div style="background-color:rgba(136,136,136,0.6)">Buy</div>'
+  let item=(i,price)=>'<span style="position:relative;width:64;height:64" id="item'+i.id+'"><img src="assets/items/'+i.picName+'.png"/><span style="font-size:20;position:absolute;right:0;bottom:0"class="whiteBackground">'+price+'</span></span>'
+  let html='<div class="style1"><div style="padding:50;position:relative;display:inline-block;width:300"><div class="whiteBackground">Buy</div>'
   c.items.forEach(i=>{
     html+=item(i,i.value*i.quantity)
   })
-  html+='</div><div style="position:absolute;top:0;left:460;width:300;padding:50"><div style="background-color:rgba(136,136,136,0.6)">Sell</div>'
+  html+='</div><div style="position:absolute;top:0;left:460;width:300;padding:50"><div class="whiteBackground">Sell</div>'
   selected.items.forEach(i=>{
       html+=item(i,floor(i.value*i.quantity/3))
   })
