@@ -1,23 +1,23 @@
-const addStatButtons=(i)=>{
+const addStatButtons=(i=0)=>{
   stats.forEach(s=>{
     document.getElementById(s+'_'+i).innerHTML+=increaseStatButton(s,i)
   })
 }
 
-const displayStats=(i)=>{
-  document.getElementById('continue_'+i).innerHTML=''
-  increasedStat[i]=[]
-  let st=charactersToDesign[i].stats
-  let html=''
+const displayStats=(c,i=0,status=false)=>{
+  let st=c.stats
+  let html='<div style="background-color:rgba(55,20,30,0.33);"class="skillsColumn">'
   stats.forEach(s=>{
-    html+=doubleColumn(fullStats[s],st[s],s+'_'+i)
+    html+=doubleColumn(fullStats[s],(status?c.status[s]+'/':'')+st[s],s+'_'+i)
   })
-  document.getElementById('stats_'+i).innerHTML=html
+  html+='</div>'
+return html
+}
+const statContext=(i=0)=>{
   stats.forEach(s=>{
     let box=document.getElementById(s+'_'+i)
     box.oncontextmenu=showStatInfo(s)
   })
-  addStatButtons(i)
 }
 
 const increaseStat=(s,i)=>{

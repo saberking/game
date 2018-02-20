@@ -70,6 +70,7 @@ var loop = () => {
         startBattle()
       }
     }
+    if(!combat)catchup()
 
     let dist=round(scrollSpeed*sqrt(zoomLevel))
     if(scrollUp)moveScreen(0,-dist)

@@ -6,7 +6,7 @@ const acidSplash = new Spell({
   rangePen: 2,
   jobs:['wizard'],
   damageType:'physical',
-  level:5
+  level:0
 })
 
 const terror = new Spell({

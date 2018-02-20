@@ -13,6 +13,9 @@
 .whiteBackground{
   background-color:rgba(136,136,136,0.6)
 }
+.bg2{
+  background-image:url('assets/background/bg2.jpg');
+}
 #message2::-webkit-scrollbar{
   border-style: solid;
 }

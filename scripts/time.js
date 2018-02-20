@@ -56,7 +56,7 @@ const createTime=()=>{
   timedEvents.add({
     event:()=>{
       for(let i=0;i<moveSpeed-1;i++){
-        setTimeout(catchup,i*1000/(moveSpeed-1))
+        // setTimeout(catchup,i*1000/(moveSpeed-1))
       }
     },
     interval:1

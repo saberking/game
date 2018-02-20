@@ -4,8 +4,7 @@ let clones=[]
 let increasedStat=[]
 let increasedSkill=[]
 const characterComplete=(i)=>{
-  return increasedSkill[i].length===2&&
-      (charactersToDesign[i].level>1||(increasedStat[i].length===2))
+  return increasedSkill[i].length===2&&increasedStat[i].length===2
 }
 const increaseStatButton=(s,i)=>increaseButton(s,i,'Stat')
 
@@ -64,16 +63,22 @@ const characterDesign=()=>{
     creation(i)
   }
 }
-const singleCharacterDesign=()=>{
+
+const openLevelDialog=()=>{
   openDialog()
   let c=charactersToDesign[0]
   increasedSkill[0]=[]
-  chooseSkills()
+  increasedStat[0]=[]
+  // document.getElementById('continue').innerHTML='<div style="height:52"></div>'
+  document.getElementById('dialog').innerHTML=
+  header(c)+displayStats()+'<div style="position:absolute;left:200;top:50"id="stats"></div>'
+  document.getElementById('stats').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
+  addSkillButtons()
+  addStatButtons()
 }
-
 const levelUp=c=>{
   charactersToDesign.push(c)
   if(charactersToDesign.length===1)
-  singleCharacterDesign()
+  openLevelDialog()
 
 }

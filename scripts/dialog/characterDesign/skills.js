@@ -1,6 +1,6 @@
 
-const displaySkills=(c,i=0,top=100)=>{
-  const skillRow=(skill)=>doubleColumn(skill[0].toUpperCase()+skill.substring(1),c.skills[skill],skill+'_'+i)
+const displaySkills=(c,i=0,status=false)=>{
+  const skillRow=(skill)=>doubleColumn(skill[0].toUpperCase()+skill.substring(1),(status?c.status[skill]+'/':'')+c.skills[skill],skill+'_'+i)
   c=c||charactersToDesign[i]
   let html=''
   let skills=[]
@@ -33,14 +33,7 @@ const addSkillButtons=(i=0)=>{
 
   })
 }
-const chooseSkills=()=>{
-  let c= charactersToDesign[0]
-  // document.getElementById('continue').innerHTML='<div style="height:52"></div>'
-  document.getElementById('dialog').innerHTML=
-  header(c)+'<div style="position:absolute;left:200;top:50"id="stats"></div>'
-  document.getElementById('stats').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
-  addSkillButtons()
-}
+
 const increaseSkill=(skill,i)=>{
   (skill,i)
   let c=charactersToDesign[i]

@@ -50,5 +50,5 @@ const prayer = new Spell({
     enactEffect({score:stat,amount:points,type:temp})(caster)
     return true
   },
-  level:5
+  level:0
 })

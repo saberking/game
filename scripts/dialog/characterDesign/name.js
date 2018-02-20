@@ -8,6 +8,7 @@ const backButton=(i)=>{
 }
 const creation=(i)=>{
   const c=charactersToDesign[i]
+  increasedStat[i]=[]
   let n=c.display
   document.getElementById('dialog_'+i).innerHTML=
     '<div style="position:absolute;top:30;left:50">'+
@@ -16,8 +17,8 @@ const creation=(i)=>{
       '<div style="margin-top:30">Name</div>'+
       designPic(c)+
       '<input style="background-color:#999988;margin-bottom:40  "type="text" value="'+n+'"onchange="updateName(value,'+i+')"/>'+
+      displayStats(c,i)+
 
-      '<div id="stats_'+i+'"style="background-color:rgba(55,20,30,0.33);"class="skillsColumn"></div>'+
     '</div>'+
     '<div style="position:absolute;left:360;top:0">'+
       // '<div style="margin-bottom:4;margin-top:30">Class</div>'+
@@ -30,7 +31,7 @@ const creation=(i)=>{
     '<div style="position:absolute;right:70;bottom:60"id="continue_'+i+'"></div>'
     console.log(document.getElementById('dialog_'+i).style.width)
     document.getElementById('backButton'+i).appendChild(backButton(i))
-    displayStats(i)
-    document.getElementById('skill_'+i).innerHTML=displaySkills(c,i,0)
+    document.getElementById('skill_'+i).innerHTML=displaySkills(c,i)
     addSkillButtons(i)
+    addStatButtons(i)
 }
