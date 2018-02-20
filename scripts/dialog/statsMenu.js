@@ -37,7 +37,7 @@ const openStatsMenu = (target)=>{
     itemsText='<div style="width:650"><div>Items</div>'+itemsText+'</div>'
     let combatText='<div>Armor '+target.armor.physical+
     '</div><div>Attack +'+
-      (target.weapon.ranged?meleeAttackBonus(target):target.status[target.weapon.subtype]/2)+'</div'
+      (target.weapon.ranged?target.status[target.weapon.subtype]/2:meleeAttackBonus(target))+'</div'
     // let borderRight=equipSlot==='weapon'?340:equipSlot==='shield'?20:180
     // let borderTop=equipSlot==='hat'?20:equipSlot==='trousers'?200:equipSlot==='shoes'?330:80
     // let border='<img style="position:absolute;right:'+borderRight+';top:'+borderTop+'" src="./items/border.png"/>'
