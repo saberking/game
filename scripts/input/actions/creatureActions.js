@@ -1,9 +1,5 @@
 var selectCharacter=c=>{
-  if(combat){
-    if(!stillToMove||!stillToMove[0])return
-    if(c.id!==stillToMove[0].id)return
-    if(!c.controlled)aiTurn(c)
-  }
+  if(combat)return
   if(!selected||c.id!==selected.id){
     selected=c
     if(dialogType){
@@ -14,7 +10,6 @@ var selectCharacter=c=>{
 
   }
   c.catchupRoute=null
-  refuseInput=!c.controlled
   selected.attract=false
   showHealth()
 }

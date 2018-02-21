@@ -10,7 +10,7 @@ const hexVisibility = (x,y,filtered=controlled.filter(c=>c.status.status==='acti
   return view
 }
 
-const blocking=({x,y,z})=>{
+const blocking=({x,y,z=currentWorld})=>{
   if(!world[z][x]) console.log(z,x,y)
 
   if(world[z][x][y])return world[z][x][y].blocking

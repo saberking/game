@@ -38,7 +38,14 @@ const nextCharacter=()=>{
   if(!stillToMove.length)endTurn()
   else{
     if(!checkConditions(stillToMove[0])){
-      selectCharacter(stillToMove[0])
+      if(stillToMove[0].controlled){
+        selected=stillToMove[0]
+        refuseInput=false
+        showHealth()
+      }else{
+        selected=null
+        aiTurn()
+      }
     }
   }
 }

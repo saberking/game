@@ -55,7 +55,10 @@ var showHealth = ()=>{
        e.preventDefault()
        e.stopPropagation()
        if(dialogOpen)closeDialog()
-       else openStatsMenu(c)
+       else {
+         selectCharacter(c)
+         openStatsMenu(c)
+       }
     }
   })
   // spells.forEach(s=>{

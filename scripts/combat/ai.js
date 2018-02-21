@@ -1,5 +1,6 @@
 
-const aiTurn=(c)=>{
+const aiTurn=()=>{
+  let c=stillToMove[0]
   if(c.controlled)throw new Error()
   if(c.moving){
     setTimeout(()=>aiTurn(c),250)

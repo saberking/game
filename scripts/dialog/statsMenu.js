@@ -2,7 +2,6 @@ const openStatsMenu = (target)=>{
   const spinningHuman='<img src=assets/background/video_human2.gif style="position:absolute;right:0;top:0"/>'
   dialogType={type:'stats',participant:target}
   closeMenu()
-  selectCharacter(target)
   closeDialog2()
   if(screenwidth<680){
     closeDialog()

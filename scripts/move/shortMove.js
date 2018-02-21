@@ -47,28 +47,33 @@ const shortMovePossible=(a,b,func)=>{
 let singleMoveToward = (c, target)=>{
   if(isNaN(target.x)||isNaN(target.y))throw new Error()
   let route=routeToward(c,target)
-  if(route&&isEmpty(route[1])){
-    moveCreatureTo(c,route[1])
-    return true
+  if(route){
+    for(let i=2;i>0;i--){
+      if(route[i]&&isEmpty(route[i])){
+        moveCreatureTo(c,route[i])
+        return true
+      }
+    }
   }
 }
-
-let singleMoveAway = (c,target,cont) =>{
+let awayDir=(c,target)=>{
   if(c.x>target.x && canMoveRight(c)){
-    console.log('right')
-    moveCreatureTo(c, {x:c.x+2, y:c.y+upOrDownAway(c,c.x+2,target)},cont)
+    return {x:c.x+2, y:c.y+upOrDownAway(c,c.x+2,target),z:c.z}
   }else if(c.x<target.x && canMoveLeft(c)){
-    console.log('left')
-    moveCreatureTo(c, {x:c.x-2, y:c.y+upOrDownAway(c, c.x-2, target)},cont)
+    return {x:c.x-2, y:c.y+upOrDownAway(c, c.x-2, target),z:c.z}
   }else if(c.y>target.y+1&& adjacentMovePossible(c,{x:c.x,y:c.y+2,z:c.z})){
-    console.log('dow')
-    moveCreatureTo(c, {x:c.x, y:c.y+2},cont )
+    return {x:c.x, y:c.y+2,z:c.z}
   }else if (c.y<target.y-1&&adjacentMovePossible(c,{x:c.x,y:c.y-2,z:c.z})){
-    console.log('up')
-    moveCreatureTo(c, {x:c.x, y:c.y-2},cont)
-  }else {
-    console.log('foo')
-    return false
+    return {x:c.x, y:c.y-2,z:c.z}
   }
+  return c
+}
+let singleMoveAway = (c,target,cont) =>{
+  let dest=c
+  for(let i=0;i<2;i++){
+    dest=awayDir(dest,target)
+  }
+  if(dest.x===c.x&&dest.y===c.y)return
+  moveCreatureTo(c,dest)
   return true
 }
