@@ -2,13 +2,21 @@ var selectCharacter=c=>{
   if(combat){
     if(!stillToMove||!stillToMove[0])return
     if(c.id!==stillToMove[0].id)return
+    if(!c.controlled)aiTurn(c)
+  }
+  if(!selected||c.id!==selected.id){
+    selected=c
+    if(dialogType){
+      if(dialogType.type==='shop') shop(dialogType.participant)
+      if(dialogType.type==='stats') openStatsMenu(c)
+    }
+
+
   }
   c.catchupRoute=null
   refuseInput=!c.controlled
-  selected=c
   selected.attract=false
   showHealth()
-  if(!c.controlled)aiTurn(c)
 }
 
 const getAvailableCreatureActions = (c) => {
@@ -38,12 +46,13 @@ const getAvailableCreatureActions = (c) => {
 }
 
 var selectCharacterAt = function({coords}) {
+  if(combat){
+    return false
+  }
   var character = controlled.find(c=>c.x===coords.x&&c.y===coords.y&&c.z===currentWorld&&c.status.status==='active')
   if (character){
-    if(combat){
-      if(!stillToMove||!stillToMove.find(s=>s.id===character.id))return false
-    }
-    if(selected&&selected.id===character.id&&!combat)selected.attract=true
+
+    if(selected&&selected.id===character.id)selected.attract=true
     else {
       if(selected)selected.attract=false
       selectCharacter(character)
@@ -70,7 +79,6 @@ const makeHostile=b=>{
 actions.fight=(id)=>makeHostile(creatures.find(c=>c.id===id))
 const canAttack=(id)=>{
   let c=creatures.find(c=>c.id===id)
-  console.log(c)
   if(!c||!c.hostileRange)return
   if(!selected||!stillToMove||!stillToMove.length||!stillToMove[0].controlled)return
   if(combat){
@@ -79,7 +87,6 @@ const canAttack=(id)=>{
       if (range === 1 && selected.weapon.melee) {
         return ()=>meleeAttackAction(selected, c)
       }
-      if(!selected.weapon)console.log(selected)
       const sufficientAmmo=selected.weapon.subtype==='throwing'||
         selected.weapon.ammo.find(a=>selected.shield&&a===selected.shield.subtype)
       if (selected.weapon.ranged && range > 1&&sufficientAmmo) {
@@ -89,6 +96,12 @@ const canAttack=(id)=>{
   }
 }
 actions.attack=id=>canAttack(id)&&canAttack(id)()
+const attack=coords=>{
+  let c=creatureAt(normalise(coords))
+  if(c){
+    return actions.attack(c.id)
+  }
+}
 const carry=(id)=>{
   creatures.find(c=>c.id===id).carried=true
 }

@@ -8,7 +8,7 @@ const moveCreatureTo =(c, {x, y})=>{
   if(combat){
     ending=()=>{
       endMove(c);
-      finished(c)
+      endCombatAction(c)
     }
   }
   let time=moveTime(distance({x,y},c))

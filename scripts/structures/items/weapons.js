@@ -6,7 +6,7 @@ const seat={
   ap:4,
   penetration:2,
   melee:{
-    effect:[{score:str,amount:-3,type:norm},{score:luc,amount:-3,type:norm}]
+    effect:[{score:str,amount:-3,type:norm}]
   },
   damageType:'physical'
 }

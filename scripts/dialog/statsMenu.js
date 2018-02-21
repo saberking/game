@@ -1,20 +1,19 @@
 const openStatsMenu = (target)=>{
   const spinningHuman='<img src=assets/background/video_human2.gif style="position:absolute;right:0;top:0"/>'
-  selectCharacter(target)
-
+  dialogType={type:'stats',participant:target}
   closeMenu()
+  selectCharacter(target)
   closeDialog2()
   if(screenwidth<680){
     closeDialog()
     return
   }
-  if (target) {
     let statsText = '<div style="height:5"></div>'
     stats.forEach((stat,i) => statsText+=stat+': '+target.status[stat]+'/'+target.stats[stat]+' ')
     statsText=displayStats(target,0,true)
     let spellsText=''
     if(target.status.spells.length){
-      spellsText+='<div style="margin-top:10;position:absolute;margin-top:50;left:800;margin-bottom:10;width:350">Spells: '
+      spellsText+='<div style="margin-top:10;position:absolute;margin-top:100;left:800;margin-bottom:10;width:350">Spells: '
       target.status.spells.forEach(s=>spellsText+='<div style="width:350"oncontextmenu="showSpellInfo(event,\''+s+'\')"onclick="showSpellInfo(event,\''+s+'\')"> '+s+'</div>')
       spellsText+='</div>'
     }
@@ -37,7 +36,7 @@ const openStatsMenu = (target)=>{
     itemsText='<div style="width:650"><div>Items</div>'+itemsText+'</div>'
     let combatText='<div>Armor '+target.armor.physical+
     '</div><div>Attack +'+
-      (target.weapon.ranged?target.status[target.weapon.subtype]:meleeAttackBonus(target))+'</div'
+      (target.weapon.ranged?rangedAttackBonus(target):meleeAttackBonus(target))+'</div'
     // let borderRight=equipSlot==='weapon'?340:equipSlot==='shield'?20:180
     // let borderTop=equipSlot==='hat'?20:equipSlot==='trousers'?200:equipSlot==='shoes'?330:80
     // let border='<img style="position:absolute;right:'+borderRight+';top:'+borderTop+'" src="./items/border.png"/>'
@@ -47,7 +46,7 @@ const openStatsMenu = (target)=>{
     let topPic=target.top?'<img style="position:absolute;right:180;top:80" id="top" src="assets/items/'+target.top.picName+'.png"/>':''
     let trousersPic=target.trousers?'<img style="position:absolute;right:180;top:200" id="trousers" src="assets/items/'+target.trousers.picName+'.png"/>':''
     let shoesPic=target.shoes?'<img style="position:absolute;right:180;top:330" id="shoes" src="assets/items/'+target.shoes.picName+'.png"/>':''
-    document.getElementById('dialog').innerHTML='<div style="min-height:100%;min-width:100%"class="bg2">'+'<div style="padding:20;">'+
+    document.getElementById('dialog').innerHTML='<div style="min-height:100%;min-width:100%;font-size:26"class="bg2">'+'<div style="padding:20;">'+
     header(target)+
     spinningHuman+
     weaponPic+    shieldPic+
@@ -59,12 +58,12 @@ const openStatsMenu = (target)=>{
     '<div>'+statsText+'</div>'+
     '<div>'+skillsText+'</div>'+
     '<div>'+spellsText+'</div>'+
-    '<div style="position:absolute;left:950;top:600">'+effectsText+'</div>'+
+    '<div style="position:absolute;left:1000;top:440">'+effectsText+'</div>'+
     '<div>Gold: '+target.gold+'</div>'+
     combatText+breaker+
-        '<div style="margin-top:90">'+itemsText+'</div>'+
+        '<div style="margin-top:120">'+itemsText+'</div>'+
     '</div>'+
-    '<img style="position:absolute;top:420;right:0" src="assets/background/chemistry.png"id="chem"/>'+
+    // '<img style="position:absolute;top:420;right:0" src="assets/background/chemistry.png"id="chem"/>'+
     '</div></div>'
 
     // document.getElementById('chem').onclick=(e)=>openChemistry(e,target)
@@ -82,5 +81,4 @@ const openStatsMenu = (target)=>{
     }
     statContext()
     setTimeout(openDialog)
-  }
 }

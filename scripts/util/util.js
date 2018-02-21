@@ -1,5 +1,6 @@
 const d20 = (c) => {
   let bonus=c&&c.status.luc?c.status.luc/5:0
+  bonus=0
   return ceil(Math.random() *20*(1+bonus))
 }
 const displayName=n=>{

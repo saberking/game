@@ -29,7 +29,6 @@ var handle = function(event) {
   const coords =coordinates(event)
   if(coords.x<minwidth[currentWorld]||coords.x>maxwidth[currentWorld]||coords.y<=minheight[currentWorld]||coords.y>maxheight[currentWorld])return
   if(selectingTarget){
-    console.log('selectingtarget')
     let nor=normalise(coords)
     if(canSee(selected,nor)||selectingTarget.blind){
       if(selectingTarget.targets==='area'){
@@ -45,8 +44,8 @@ var handle = function(event) {
     addMessage('invalid target!')
   }else{
     selectCharacterAt({coords:normalise(coords)})||
-    // attack(coords)||
-    // openActionMenu(coords)||
+    attack(coords)||
+    openActionMenu(coords,false)||
     movePC(normalise(coords))
   }
   handleTime+=Date.now()-start
@@ -63,7 +62,6 @@ var handleright = (e) =>{
   closeMenu()
   if(refuseInput||dialogOpen)return
   const coords =coordinates(e)
-  console.log(coords)
 
   openActionMenu(coords,false)
   handleTime+=Date.now()-start

@@ -112,6 +112,6 @@ const blockage = new Spell({
   name:'blockage',
   jobs:['wizard'],
   damageType:'magic',
-  effect:[{score:str,amount:-2,type:'norm'},{score:luc,amount:-6,type:norm}],
+  effect:[{score:str,amount:-2,type:'norm'}],
   level:15
 })

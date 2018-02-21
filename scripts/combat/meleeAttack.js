@@ -11,8 +11,10 @@ const meleeAttackAction=(a,b)=>{
   //   if(a.controlled)finished(a)
   //   else ready(a)
   // }
+  return true
 }
-const meleeAttackBonus=a=>a.status.str +a.status[a.weapon.subtype]
+const meleeAttackBonus=a=>a.status.str +a.status[a.weapon.subtype]+a.status.rea
+const meleeDefenceBonus=b=>(b.weapon.melee?b.status[b.weapon.subtype]:0)+b.status.rea
 const meleeAttackEvent = (a, b) => {
   if(!b.controlled)makeHostile(b)
   closeMenu()
@@ -28,8 +30,7 @@ const meleeAttackEvent = (a, b) => {
     attackStrength+=bonus.bonus
     addMessage(a.display+ ' is wearing steel toe caps!')
   }
-  let defenceStrength = b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)
-  if(b.weapon.melee)defenceStrength+=b.status[b.weapon.subtype]
+  let defenceStrength = meleeDefenceBonus(b)+b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)
   const hitStrength = attackStrength - defenceStrength
   if (hitStrength > 0) {
     message+=resolveEffects(hitStrength, a.weapon.melee.effect, b)

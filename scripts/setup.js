@@ -3,7 +3,6 @@ const starting=startingPos[startingWorld]
 // setTimeout(audio,100)
 
 const addCharacters=()=>{
-  let bonuses=[{str:-2,spd:1,rea:1,luck:2},{str:-2,int:+7,spd:-2},{spd:1,rea:-2}]
   for(let j = 0;j<noOfCharacters;j++){
     you.push( new Creature({
       controlled: true,

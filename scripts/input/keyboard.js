@@ -1,5 +1,4 @@
 var keydown=(key)=>{
-  console.log(key)
   closeMenu()
   if(key.key==='Escape')closeDialog()
   if(dialogOpen)return

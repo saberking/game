@@ -2,6 +2,7 @@
 //   '<img src="art/bookBackground.png" style="margin-left:-100;top:-'+
 //   (1075-screenheight*0.75)+';position:absolute;opacity:'+o+'"/>'
 const scroll=()=>''
+let dialogType=null
 const background=()=>{
   let html=''
 
@@ -38,13 +39,12 @@ const openDialog=()=>{
 }
 const closeDialog = (lp=true) => {showHealth();closeDialog2();removeClones()
 dialogOpen=false;showCanvas();continueDrawing=true;
+dialogType=null
 lp&&restartLoop()
 document.getElementById('dialogContainer').style.display='none'
 document.getElementById('message2').style.display='inline-block'
 slideTo(-1)
 removeBackground()
-shopping=false
-
 }
 const closeDialog2=()=>{closeMenu();document.getElementById('dialog2').style.display='none'
 dialog2Open=false}

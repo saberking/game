@@ -18,20 +18,15 @@ const startTurn=()=>{
     return
   }
   let fighting=hostile.concat(filtered.filter(c=>c.controlled))
-  creatures.forEach(c=>c.engaged=false)
+  creatures.forEach(c=>{c.engaged=false;c.hasMoved=false})
   stillToMove=[]
   fighting.forEach(f=>f.initiative=f.status.rea*3+d20(f))
   fighting=fighting.sort((a,b)=>b.initiative-a.initiative)
-  fighting.forEach(h=>{
-    if(h.initiative==='none'){
-      h.initiative=max(1,round(random()*20/max(1,h.status.rea+2)))
-      if(!h.controlled)addMessage('You spot a '+h.display+'!')
-    }else{
-      h.initiative--
-      if(h.initiative<0) h.initiative=0
-    }
+  let fighting2=fighting.slice().reverse()
+  stillToMove=fighting.concat(fighting2)
+  stillToMove.forEach(h=>{
+
     h.engaged=true
-    stillToMove.push(h)
     // h.status.currentAp=max(h.status.maxAp,min(
     //     h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
   })
@@ -39,7 +34,7 @@ const startTurn=()=>{
   setTimeout(nextCharacter,500)
 }
 const nextCharacter=()=>{
-  stillToMove=stillToMove.filter(s=>s.status.status==='active')
+  stillToMove=stillToMove.filter(s=>s.status.status==='active'&&!s.hasMoved)
   if(!stillToMove.length)endTurn()
   else{
     if(!checkConditions(stillToMove[0])){
@@ -55,7 +50,6 @@ const endTurn=startTurn
 //   c.status.currentAp=max(0,min(1,c.status.currentAp))
 // }
 const finished = (creature) => {
-  console.log('finished',creature.display)
   selected=null
   if(!combat||!stillToMove)return
   const index = stillToMove.findIndex(c=>c.id===creature.id)

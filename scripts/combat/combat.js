@@ -6,6 +6,7 @@ const endCombatAction=c=>{
   if(c.controlled){
       refuseInput=false
   }
+  c.hasMoved=true
   c.checkStatus()
   finished(c)
 

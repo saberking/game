@@ -49,27 +49,13 @@ var showHealth = ()=>{
   controlled.forEach((c,i)=>{
     const box=  document.getElementById('box'+c.name)
      box.onclick=()=>{
-       console.log(c.name)
-       if(charactersToDesign.length)return
-       if(shopping){
-         if(c.id===selected.id){
-           closeDialog()
-         } else {
-           selectCharacter(c)
-           shop(shopping)
-         }
-       }else if(dialogOpen){
-
-         openStatsMenu(c)
-       }
-       else selectCharacter(c)
+       selectCharacter(c)
      }
      box.oncontextmenu=(e)=>{
        e.preventDefault()
        e.stopPropagation()
-       closeMenu()
-       console.log(box)
-       openStatsMenu(c)
+       if(dialogOpen)closeDialog()
+       else openStatsMenu(c)
     }
   })
   // spells.forEach(s=>{

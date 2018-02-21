@@ -10,8 +10,10 @@ const rangedAttackAction=(a,b)=>{
   //   if(a.controlled)finished(a)
   //   else ready(a)
   // }
+  return true
 }
-
+const rangedAttackBonus=a=>a.status[a.weapon.subtype]+a.status.rea
+const rangedDefenceBonus=b=>b.status.rea
 const rangedAttackEvent=(a,b) => {
   if(!b.controlled)makeHostile(b)
   closeMenu()
@@ -28,8 +30,8 @@ const rangedAttackEvent=(a,b) => {
   }
   addMessage(message)
   message='    - '
-  const attackStrength = a.status[a.weapon.subtype] + d20(a)
-  const defenceStrength = distance(a,b)*distance(a,b)/a.weapon.range+b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)
+  const attackStrength = rangedAttackBonus(a)+ d20(a)
+  const defenceStrength = rangedDefenceBonus(b)+distance(a,b)*distance(a,b)/a.weapon.range+b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)
   const hitStrength = attackStrength - defenceStrength
   if(typeof(hitStrength)!=='number')throw new Error()
   console.log(attackStrength,defenceStrength)

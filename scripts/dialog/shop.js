@@ -1,8 +1,5 @@
-let shopping=false
-
-
 const shop = c=>{
-  shopping=c
+  dialogType={type:'shop',participant:c}
   let item=(i,price)=>'<span style="position:relative;width:64;height:64" id="item'+i.id+'"><img src="assets/items/'+i.picName+'.png"/><span style="font-size:20;position:absolute;right:0;bottom:0"class="whiteBackground">'+price+'</span></span>'
   let html='<div class="style1"><div style="padding:50;position:relative;display:inline-block;width:300"><div class="whiteBackground">Buy</div>'
   c.items.forEach(i=>{
