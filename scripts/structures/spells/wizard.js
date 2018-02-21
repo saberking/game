@@ -32,7 +32,7 @@ const invisibility=new Spell({
     enactEffect({score:'invisibility',amount:points,type:temp})(caster)
     return true
   },
-  level:5
+  level:3
 })
 
 

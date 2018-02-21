@@ -19,6 +19,6 @@ const fsAndLoad=()=>{
 const fsAndDesign=()=>{
   // goFullscreen()
   // cutscene(characterDesign)
-  // slideTo(0)
-  closeDialog()
+  characterDesign()
+  slideTo(0)
 }

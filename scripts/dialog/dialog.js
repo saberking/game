@@ -41,9 +41,10 @@ dialogOpen=false;showCanvas();continueDrawing=true;
 lp&&restartLoop()
 document.getElementById('dialogContainer').style.display='none'
 document.getElementById('message2').style.display='inline-block'
-// slideTo(0)
+slideTo(-1)
 removeBackground()
 shopping=false
+
 }
 const closeDialog2=()=>{closeMenu();document.getElementById('dialog2').style.display='none'
 dialog2Open=false}

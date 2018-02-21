@@ -21,7 +21,7 @@ const firstPerson=false
 
 const perform=true
 
-const noOfCharacters=1
+const noOfCharacters=3
 const outOfView=0.25
 let inhabit=true
 const hex=true

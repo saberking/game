@@ -7,7 +7,6 @@ const addCharacters=()=>{
   for(let j = 0;j<noOfCharacters;j++){
     you.push( new Creature({
       controlled: true,
-      stats:{str:6,spd:6,int:6,mag:6,rea:6,luc:6},
       name: pcNames[j],
       display:pcNames[j],
       faction:1,
@@ -67,6 +66,7 @@ const initBackgrounds=()=>{
 const restart=()=>{
   slideTo(-1)
   centreScreen()
+  charactersToDesign=[]
   controlled=creatures.filter(c=>c.controlled)
   resetView()
 }

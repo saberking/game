@@ -28,7 +28,7 @@ const creation=(i)=>{
       '<div id="info_'+i+'"></div></div>'+
     '<div id="skill_'+i+'" style="position:absolute;top:0;left:720"></div>'+'</div>'+
     '<div style="position:absolute;bottom:60;left:40"id="backButton'+i+'"></div>'+
-    '<div style="position:absolute;right:70;bottom:60"id="continue_'+i+'"></div>'
+    '<div style="position:absolute;right:120;bottom:60"id="continue_'+i+'"></div>'
     console.log(document.getElementById('dialog_'+i).style.width)
     document.getElementById('backButton'+i).appendChild(backButton(i))
     document.getElementById('skill_'+i).innerHTML=displaySkills(c,i)

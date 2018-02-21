@@ -44,7 +44,7 @@ var handle = function(event) {
     }
     addMessage('invalid target!')
   }else{
-    // selectCharacterAt({coords:normalise(coords)})||
+    selectCharacterAt({coords:normalise(coords)})||
     // attack(coords)||
     // openActionMenu(coords)||
     movePC(normalise(coords))

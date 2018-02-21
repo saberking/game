@@ -10,7 +10,7 @@ class Spell {
     name,
     range=4,
     cost = 1,
-    level = 5,
+    level = 3,
     jobs,
     ap=4,
     damageType='magic',

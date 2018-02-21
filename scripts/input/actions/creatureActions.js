@@ -1,7 +1,12 @@
 var selectCharacter=c=>{
+  if(combat){
+    if(!stillToMove||!stillToMove[0])return
+    if(c.id!==stillToMove[0].id)return
+  }
   c.catchupRoute=null
   refuseInput=!c.controlled
   selected=c
+  selected.attract=false
   showHealth()
   if(!c.controlled)aiTurn(c)
 }
@@ -33,8 +38,10 @@ const getAvailableCreatureActions = (c) => {
 }
 
 var selectCharacterAt = function({coords}) {
-  if(combat)return false
   var character = controlled.find(c=>c.x===coords.x&&c.y===coords.y&&c.z===currentWorld&&c.status.status==='active')
+  if(combat){
+    if(!stillToMove||!stillToMove.find(s=>s.id===character.id))return false
+  }
   if (character){
     if(selected&&selected.id===character.id&&!combat)selected.attract=true
     else {

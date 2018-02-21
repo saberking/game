@@ -1,9 +1,9 @@
 const openStatsMenu = (target)=>{
   const spinningHuman='<img src=assets/background/video_human2.gif style="position:absolute;right:0;top:0"/>'
+  selectCharacter(target)
 
   closeMenu()
   closeDialog2()
-  if(!combat&&target.controlled)selectCharacter(target)
   if(screenwidth<680){
     closeDialog()
     return

@@ -26,6 +26,7 @@ const finishedCreation=(i)=>{
   if(i<noOfCharacters-1){
     slideTo(i+1)
   }else{
+    charactersToDesign=[]
     closeDialog()
   }
 }
