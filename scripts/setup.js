@@ -3,7 +3,6 @@ const starting=startingPos[startingWorld]
 // setTimeout(audio,100)
 
 const addCharacters=()=>{
-  let cl=['thief','wizard','priest']
   let bonuses=[{str:-2,spd:1,rea:1,luck:2},{str:-2,int:+7,spd:-2},{spd:1,rea:-2}]
   for(let j = 0;j<noOfCharacters;j++){
     you.push( new Creature({
@@ -18,9 +17,6 @@ const addCharacters=()=>{
       gold:50
     })  )
     // Object.keys(bonuses[j]).forEach(key=>you[j].stats[key]+=bonuses[j][key])
-    if(!offerLoad){
-      you[j].job=cl[j]
-    }
     you[j].checkStatus(true)
   }
   you.forEach(c=>position(c,starting.x,starting.y,starting.z))
@@ -30,8 +26,9 @@ const addCharacters=()=>{
 const setup=()=>{
   initActions()
   layout()
-  window.onresize=layout
   background()
+  window.onresize=layout
+  // background()
 
   can = document.getElementById('can')
   ctx = can.getContext('2d')
@@ -47,28 +44,14 @@ const setup=()=>{
   addCharacters()
 
   createTime()
+  restart()
 
   selected=you[0]
-  setTimeout(()=>{
-    if(offerLoad){
-      newOrLoad()
-      console.log('neworload')
-    }  else{
-        start()
-    }
-  })
+  newOrLoad()
+
   setTimeout(initBackgrounds)
 }
-const start=()=>{
-  charactersToDesign=[]
 
-  restart()
-  closeDialog()
-  centreScreen()
-  document.getElementById('message2').style.display='inline-block'
-  removeBackground()
-
-}
 let backgrounds=[]
 const initBackgrounds=()=>{
   // let bgi=['bg2','concrete','paper','largeConcrete','table']

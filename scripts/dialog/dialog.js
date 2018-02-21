@@ -30,7 +30,6 @@ const info = (text,c,options=[],bg)=>{
 }
 const openDialog=()=>{
   dialogOpen=true;
-  document.body.onkeydown=()=>{};
   continueDrawing=false
   // slideTo(-1)
   document.getElementById('dialogContainer').style.display='inline-block'
@@ -38,12 +37,12 @@ const openDialog=()=>{
   hideCanvas()
 }
 const closeDialog = (lp=true) => {showHealth();closeDialog2();removeClones()
-dialogOpen=false;showCanvas();document.body.onkeydown=keydown;continueDrawing=true;
+dialogOpen=false;showCanvas();continueDrawing=true;
 lp&&restartLoop()
 document.getElementById('dialogContainer').style.display='none'
 document.getElementById('message2').style.display='inline-block'
 // slideTo(0)
-
+removeBackground()
 shopping=false
 }
 const closeDialog2=()=>{closeMenu();document.getElementById('dialog2').style.display='none'

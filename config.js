@@ -1,29 +1,27 @@
 ///////////
-let offerLoad=false
 let pretty=true
 
 let startingWorld=5
 
 let omniscient=false
 
-let longRange=false
 
 /////////////////////////////
-const minZoom=longRange?0.2:0.7
+const minZoom=0.7
 
 /////////////////////////
 const maxCalcTime=10
 const maxLongMove=40
 //////////////////
-let framerate=20
-const fpsWarn=false
+const framerate=20
+const fpsWarn=true
 const stuckInterval=200
 const checkInterval=200
 const firstPerson=false
 
-const perform=false
+const perform=true
 
-const noOfCharacters=3
+const noOfCharacters=1
 const outOfView=0.25
 let inhabit=true
 const hex=true

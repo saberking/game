@@ -16,7 +16,7 @@ let lastScreenPos={}
 let lastZoomLevel=0
 const stone=new Image()
 stone.src='assets/background/largeConcrete.jpg'
-const showWorld2=()=>{
+const showGround=()=>{
   // if((lastZoomLevel===zoomLevel&&lastScreenPos.x===screenPos.x&&lastScreenPos.y===screenPos.y))return
   lastScreenPos.x=screenPos.x
   lastScreenPos.y=screenPos.y
@@ -29,10 +29,18 @@ const showWorld2=()=>{
   ctx2.globalAlpha=0.5
   ctx2.fillRect(0,0,screenwidth,screenheight)
   ctx2.globalAlpha=1
-
+}
+let groundTime=0,flatTime=0
+const showWorld2=()=>{
+  let start=Date.now()
+  showGround()
+  groundTime+=Date.now()-start
+  start=Date.now()
   showFlatConstructs()
-
-  hex&&horizontalLines()
+  flatTime+=Date.now()-start
+  start=Date.now()
+  hex&&combat&&horizontalLines()
+  hexTime+=Date.now()-start
 }
 
 // const showWorld=()=>{

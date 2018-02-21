@@ -6,7 +6,7 @@ const showSpellInfo=(event,spell)=>{
   document.getElementById('dialog2').innerHTML=
     '<div>'+spell.name+'</div>'+
     '<div>Type: '+spell.type+'</div>'+
-    (spell.rangePen?'<div>Range modifier: '+spell.rangePen+'</div>':'')+
+    (spell.range&&(spell.targets==='single'||spell.targets==='area')?'<div>range: '+spell.range+'</div>':'')+
     (spell.effect?spell.effect.map(e=>displayEffect(e)).join(''):'')+
     '<div>targets: '+spell.targets+'</div>'+
     (spell.targetType==='enemy'?'<div>Penetration: '+spell.penetration+'</div>':'')+

@@ -34,4 +34,5 @@ const creation=(i)=>{
     document.getElementById('skill_'+i).innerHTML=displaySkills(c,i)
     addSkillButtons(i)
     addStatButtons(i)
+    statContext(i)
 }

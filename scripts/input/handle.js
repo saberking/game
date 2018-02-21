@@ -46,7 +46,7 @@ var handle = function(event) {
   }else{
     // selectCharacterAt({coords:normalise(coords)})||
     // attack(coords)||
-    openActionMenu(coords)||
+    // openActionMenu(coords)||
     movePC(normalise(coords))
   }
   handleTime+=Date.now()-start

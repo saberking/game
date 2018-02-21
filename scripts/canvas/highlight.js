@@ -17,7 +17,7 @@ const getHighlight=()=>{
   let hi=[]
   for(let i=minheight[currentWorld];i<=maxheight[currentWorld];i++)hi[i]=[]
   let c=selected
-  if(combat&&c){
+  if(combat&&c&&!refuseInput){
     let range=floor(c.status.currentAp/2)
     range=2
     // let color=range?'white':'#77aaaa'

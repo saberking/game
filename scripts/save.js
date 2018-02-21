@@ -67,8 +67,9 @@ const loadData=text=>{
     searched=JSON.parse(worldText)
     searched.forEach((id)=>constructs.find(c=>c.id===id).items=[])
   }
-  start()
   addMessage('load successful')
+  restart()
+  closeDialog()
 }
 
 const load=()=>{
@@ -76,7 +77,6 @@ const load=()=>{
 }
 const loadFile=event=>{
   console.log('load')
-  console.log(constructs.filter(c=>c.name==='coach'))
   var fileToLoad = event.target.files[0];
   if (fileToLoad) {
     var reader = new FileReader();

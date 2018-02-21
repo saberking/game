@@ -7,7 +7,7 @@ class Item {
     subtype,
     melee,
     ranged,
-    rangePen=3,
+    range=3,
     value=5,
     ap=4,
     effects=[],
@@ -36,7 +36,7 @@ class Item {
     this.subtype=subtype||type
     this.melee=melee
     this.ranged = ranged
-    this.rangePen=rangePen
+    this.range=range
     this.value=value
     this.ap=ap
     this.weight=weight

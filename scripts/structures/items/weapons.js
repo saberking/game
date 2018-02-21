@@ -85,7 +85,6 @@ const bow = {
   ap:7,
   penetration:3,
   ranged:true,
-  rangePen: 1,
   value:12,
   jobs:['fighter','thief']
 }
@@ -137,7 +136,6 @@ const musket={
   picName:'musket',
   ammo:['musketBalls'],
   ranged:true,
-  rangePen:3,
   penetration:4,
   ap:7,
   value:30,
@@ -195,7 +193,6 @@ const molotov={
   picName:'molotov',
   penetration:6,
   ranged:{effect:[{score:'fire',amount:5,type:temp}]},
-  rangePen: 3
 }
 items.push(molotov)
 const brick={
@@ -205,7 +202,6 @@ const brick={
   picName:'brick',
   penetration:3,
   ranged:{effect:[{score:str,amount:-4,type:norm}]},
-  rangePen: 3
 }
 items.push(brick)
 const syringe={
@@ -223,7 +219,6 @@ const dartPistol={
   subtype:'gun',
   name:'dartPistol',
   ranged:true,
-  rangePen:3
 }
 items.push(dartPistol)
 const laserPistol={
@@ -232,7 +227,6 @@ const laserPistol={
   subtype:'gun',
   name:'laserPistol',
   ranged:true,
-  rangePen:3,
   ammo:['smallBattery'],
   ap:3,
   value:60

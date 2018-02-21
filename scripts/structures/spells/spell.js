@@ -8,9 +8,9 @@ class Spell {
     targetType='enemy',
     targets='single',
     name,
-    rangePen=0,
+    range=4,
     cost = 1,
-    level = 1,
+    level = 5,
     jobs,
     ap=4,
     damageType='magic',
@@ -26,7 +26,7 @@ class Spell {
     this.targets=targets
     this.id=spells.length
     this.name=name
-    this.rangePen=rangePen
+    this.range=range
     this.cost=cost
     this.level = level
     this.jobs=jobs
@@ -148,7 +148,7 @@ const getAvailableSpells=(c=selected)=>c.status.spells.filter(s=>{
 const spellAttackStrength=(a,s)=>
   a.status.mag + a.level + a.status[s.type] +d20(a)//+ a.status.san/2
 const spellDefenceStrength=(a,b,s)=>{
-  let defenceStrength = distance(a,b)*s.rangePen
+  let defenceStrength = distance(a,b)*distance(a,b)/s.range
   if(typeof(defenceStrength)!=='number')  console.log(a,b,s)
   if(s.targetType === 'enemy'){
     if(s.damageType==='magic')defenceStrength += b.status.mag*4/s.penetration

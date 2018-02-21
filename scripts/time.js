@@ -25,10 +25,12 @@ class TimedEvents{
 const timedEvents=new TimedEvents(0)
 const createTime=()=>{
   perform&&timedEvents.add({interval:5,event:()=>{
-    console.log({dateTime,uTime,catchuptime,hextime,ccTime,vTime,handleTime})
+    console.log({dateTime,uTime,catchuptime,hexTime,ccTime,vTime,handleTime,worldTime,checkTime,hexTime,groundTime,flatTime})
     longTime=0
     longCount=0
-    hextime=0
+    hexTime=0
+    flatTime=0
+    groundTime=0
     catchuptime=0
     moveThroughTime=0
     clearTime=0

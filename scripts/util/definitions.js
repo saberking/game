@@ -7,7 +7,7 @@ let height=44
 const players=1
 
 const str = 'str', int='int',  spd='spd',dex='dex',rea='rea',mag='mag',san='san',luc='luc'
-const stats = [int,luc,mag,str]
+const stats = [int,luc,mag,rea,str]
 const fullStats={
   str:'Strength',
   int:'Intelligence',

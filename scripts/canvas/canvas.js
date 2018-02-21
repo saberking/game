@@ -35,4 +35,4 @@ const drawQuarter=(pic,xOffset,yOffset,x,y,ct=ctx)=>{
   let {left,top,rWidth,rHeight}=rect({x,y})
   ct.drawImage(pic, xOffset,yOffset,width,height,left,top,rWidth,rHeight)
 }
-let clearTime=0,hextime=0,checkTime=0,worldTime=0,highTime=0,ccTime=0,uTime=0,vTime=0,aTime=0
+let clearTime=0,hexTime=0,checkTime=0,worldTime=0,highTime=0,ccTime=0,uTime=0,vTime=0,aTime=0

@@ -3,10 +3,8 @@ const acidSplash = new Spell({
   effect: [{score: str, amount: -3, type: norm}],
   name: 'acidSplash',
   targetType: 'enemy',
-  rangePen: 2,
   jobs:['wizard'],
   damageType:'physical',
-  level:0
 })
 
 const terror = new Spell({
@@ -14,7 +12,6 @@ const terror = new Spell({
   effect: [{score: afraid, amount: 4, type: temp}],
   name: 'terror',
   targetType: 'enemy',
-  rangePen: 2,
   jobs:['wizard','psionic'],
   damageType:'magic',
   level:10
@@ -24,6 +21,7 @@ const invisibility=new Spell({
   name:'invisibility',
   jobs:['thief'],
   targets:'self',
+  targetType:'friend',
   ap:3,
   event:caster=>{
     const spell=spells.find(s=>s.name==='invisibility')
@@ -79,7 +77,6 @@ const fireball=new Spell({
   targets:'area',
   name:'fireball',
   jobs:['wizard'],
-  rangePen:3,
   damageType:'physical',
   effect:[{score:str,amount:-3,type:norm},{score:'fire',amount:4,type:temp}],
   event:(caster,target)=>{
@@ -116,6 +113,5 @@ const blockage = new Spell({
   jobs:['wizard'],
   damageType:'magic',
   effect:[{score:str,amount:-2,type:'norm'},{score:luc,amount:-6,type:norm}],
-  rangePen:4,
   level:15
 })

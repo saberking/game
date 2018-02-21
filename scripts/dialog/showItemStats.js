@@ -1,4 +1,5 @@
 const showItemStats=(e,item,target)=>{
+  console.log(item.name)
   e.preventDefault()
   e.stopPropagation()
   let html='<div>'+item.name+'</div>'+
@@ -19,7 +20,7 @@ const showItemStats=(e,item,target)=>{
       })
     }
     if(item.type==='weapon')
-    html+='<div>range penalty: '+item.rangePen+'</div>'
+    html+='<div>range: '+item.range+'</div>'
   }
   if(item.type==='weapon'){
 

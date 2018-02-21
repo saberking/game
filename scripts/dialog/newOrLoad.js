@@ -1,5 +1,5 @@
 const newOrLoad=()=>{
-  characterDesign()
+  // characterDesign()
   let dialog=document.getElementById('dialog')
   dialog.innerHTML=
   '<div style="position:absolute;top:200;left:'+round(screenwidth/3-200)+'" id="nl"></div>'
@@ -17,7 +17,8 @@ const fsAndLoad=()=>{
   setTimeout(load)
 }
 const fsAndDesign=()=>{
-  goFullscreen()
+  // goFullscreen()
   // cutscene(characterDesign)
-  slideTo(0)
+  // slideTo(0)
+  closeDialog()
 }

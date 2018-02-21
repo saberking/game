@@ -1,7 +1,6 @@
 const heal = new Spell({
   type:'theology',
   name: 'heal',
-  rangePen: 4,
   jobs:['priest','fighter'],
   targetType:'friend',
   effect:[{score:str,amount:5,type:'healing'}],
@@ -18,7 +17,6 @@ const heal = new Spell({
 //   targets:'single',
 //   targetType:'enemy',
 //   effect:[{score:spd,amount:-3,type:temp}],
-//   rangePen:2,
 //   damageType:'magic',
 //   level:10
 // })
@@ -29,7 +27,6 @@ const airStrike=new Spell({
   targets:'single',
   targetType:'enemy',
   effect:[{score:str,amount:-2,type:norm}],
-  rangePen:1,
   ap:5,
   damageType:'physical',
   level:15
@@ -39,6 +36,7 @@ const prayer = new Spell({
   name:'prayer',
   jobs:['priest'],
   targets:'self',
+  targetType:'friend',
   event:(caster)=>{
     let spell=spells.find(s=>s.name==='prayer')
     addMessage(caster.display+' prays!')
@@ -50,5 +48,4 @@ const prayer = new Spell({
     enactEffect({score:stat,amount:points,type:temp})(caster)
     return true
   },
-  level:0
 })

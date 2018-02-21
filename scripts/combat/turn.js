@@ -20,6 +20,8 @@ const startTurn=()=>{
   let fighting=hostile.concat(filtered.filter(c=>c.controlled))
   creatures.forEach(c=>c.engaged=false)
   stillToMove=[]
+  fighting.forEach(f=>f.initiative=f.status.rea*3+d20(f))
+  fighting=fighting.sort((a,b)=>b.initiative-a.initiative)
   fighting.forEach(h=>{
     if(h.initiative==='none'){
       h.initiative=max(1,round(random()*20/max(1,h.status.rea+2)))
@@ -34,7 +36,7 @@ const startTurn=()=>{
     //     h.status.maxAp+h.status.currentAp,h.status.maxAp+5))
   })
   // stillToMove.sort((a,b)=>b.initiative-a.initiative)
-  setTimeout(nextCharacter,1000)
+  setTimeout(nextCharacter,500)
 }
 const nextCharacter=()=>{
   stillToMove=stillToMove.filter(s=>s.status.status==='active')
@@ -45,7 +47,7 @@ const nextCharacter=()=>{
     }
   }
 }
-const endTurn=()=>setTimeout(startTurn,500)
+const endTurn=startTurn
 
 
 // const ready=(c)=>{
@@ -53,6 +55,7 @@ const endTurn=()=>setTimeout(startTurn,500)
 //   c.status.currentAp=max(0,min(1,c.status.currentAp))
 // }
 const finished = (creature) => {
+  console.log('finished',creature.display)
   selected=null
   if(!combat||!stillToMove)return
   const index = stillToMove.findIndex(c=>c.id===creature.id)

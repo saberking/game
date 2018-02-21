@@ -1,5 +1,7 @@
 var keydown=(key)=>{
+  console.log(key)
   closeMenu()
+  if(key.key==='Escape')closeDialog()
   if(dialogOpen)return
     let dist=round(20*sqrt(zoomLevel))
     if(key.key=='ArrowDown')moveScreen(0,dist)

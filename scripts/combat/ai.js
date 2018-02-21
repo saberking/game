@@ -56,7 +56,7 @@ const AIAttack = (a, b) => {
   if(dist===1 && a.weapon.melee&&!blockedByWall(a,b)){
     meleeAttackAction(a,b)
     succ= true
-  }else if(dist>1 &&a.weapon.ranged&&20/a.weapon.rangePen>=dist&&
+  }else if(dist>1 &&a.weapon.ranged&&a.weapon.range*7>=dist*dist&&
       (a.weapon.subtype==='throwing'||
             (a.shield&&a.weapon.ammo.find(am=>am===a.shield.subtype))
       )) {

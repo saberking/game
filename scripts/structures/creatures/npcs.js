@@ -23,8 +23,8 @@ var mayor={
         text:'Welcome and congratulations on defeating the dummy! I have a job if you are interested',
       },
       {
-        text:'The nearby village of Tsong is being terrorised by the evil wizard king.'+
-          ' He turns his followers into neo-Nazi zombies and has been using his spells to make the village\'s crops fail. '+
+        text:'The town is being terrorised by the evil wizard king!'+
+          ' He turns his followers into neo-Nazi zombies and has been using his spells to make our crops fail. '+
           'Your quest is to kill the evil wizard king and then return here for your reward. The coach at the gate will take you there.',
       }
     ]
