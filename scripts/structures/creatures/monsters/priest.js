@@ -5,8 +5,6 @@ let parishPriest={
     unarmed:10,
     club:10,
     theology:10,
-    chemistry:10,
-    illusion:10,
   },
   spells:['terror','airStrike'],
   weapon:bible

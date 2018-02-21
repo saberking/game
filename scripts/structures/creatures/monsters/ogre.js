@@ -8,7 +8,7 @@ const ogre={
     rea:4,
     luc:4
   },
-  skills:merge(defaultSkills,{club:10,unarmed:10}),
+  skills:{illusion:5},
   name:'ogre',
   width:88,
   height:102,

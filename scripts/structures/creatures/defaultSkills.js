@@ -7,6 +7,9 @@ var defaultSkills= {
   bow:0,
   club:0,
   staff:0,
+  chemistry:0,
+  illusion:0,
+  theology:0
 }
 const jobsSkills={
   fighter:{
@@ -43,11 +46,9 @@ const jobsSkills={
     staff:0,
   }
 }
-let skills=[]
-Object.keys(defaultSkills).forEach(k=>skills.push(k))
+
 let magicSkills={
   chemistry:0,
   illusion:0,
   theology:0,
 }
-Object.keys(magicSkills).forEach(m=>skills.push(m))

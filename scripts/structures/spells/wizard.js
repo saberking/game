@@ -14,26 +14,26 @@ const terror = new Spell({
   targetType: 'enemy',
   jobs:['wizard','psionic'],
   damageType:'magic',
-  level:10
-})
-const invisibility=new Spell({
-  type:'illusion',
-  name:'invisibility',
-  jobs:['thief'],
-  targets:'self',
-  targetType:'friend',
-  ap:3,
-  event:caster=>{
-    const spell=spells.find(s=>s.name==='invisibility')
-    spellHighlight(spell,caster,caster)
-    addMessage(caster.display+' casts invisibility!')
-    const attackStrength=spellAttackStrength(caster,spell)
-    const points=round(attackStrength*2/20)
-    enactEffect({score:'invisibility',amount:points,type:temp})(caster)
-    return true
-  },
   level:3
 })
+// const invisibility=new Spell({
+//   type:'illusion',
+//   name:'invisibility',
+//   jobs:['thief'],
+//   targets:'self',
+//   targetType:'friend',
+//   ap:3,
+//   event:caster=>{
+//     const spell=spells.find(s=>s.name==='invisibility')
+//     spellHighlight(spell,caster,caster)
+//     addMessage(caster.display+' casts invisibility!')
+//     const attackStrength=spellAttackStrength(caster,spell)
+//     const points=round(attackStrength*2/20)
+//     enactEffect({score:'invisibility',amount:points,type:temp})(caster)
+//     return true
+//   },
+//   level:3
+// })
 
 
 //

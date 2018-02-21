@@ -10,7 +10,7 @@ class Creature {
   constructor({
     stats =defaultStats(),
     hostileRange=0,
-    skills=merge(defaultSkills,magicSkills),
+    skills={},
     spells=[],
     chat,
     route,
@@ -67,7 +67,7 @@ class Creature {
     this.stats = stats
     this.controlled=  controlled
     this.hostileRange=hostileRange
-    this.skills=merge(magicSkills, skills)
+    this.skills=merge(defaultSkills, skills)
     this.items=[]
     items.forEach(i=>this.items.push(new Item(i)))
     this.x=x-(x%2)

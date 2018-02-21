@@ -16,6 +16,7 @@ let evilWizardKing={
     sword:5,
     theology:15,
     chemistry:15,
+    illusion:15,
     staff:15
   },
   weapon:enchant(staff,1,1,['prayer'])

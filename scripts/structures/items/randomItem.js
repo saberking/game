@@ -29,8 +29,8 @@ const randomStat=()=>{
 }
 
 const randomSkill=()=>{
-  let r=floor(random()*skills.length)
-  return skills[r]
+  let r=floor(random()*defaultSkills.length)
+  return defaultSkills[r]
 }
 
 const randomItemEffect=(bonus=0)=>{

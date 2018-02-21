@@ -12,7 +12,7 @@ const neonaziZombie={
   weapon:molotov,
   stats:zombieStats,
   spells:['heal','prayer'],
-  skills:Object.assign({},defaultSkills,{theology:5,chemistry:5,throwing:20,unarmed:15}),
+  skills:Object.assign({},defaultSkills,{theology:5,throwing:20,unarmed:15}),
   items:[brick]
 }
 

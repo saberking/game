@@ -39,10 +39,10 @@ const getAvailableCreatureActions = (c) => {
 
 var selectCharacterAt = function({coords}) {
   var character = controlled.find(c=>c.x===coords.x&&c.y===coords.y&&c.z===currentWorld&&c.status.status==='active')
-  if(combat){
-    if(!stillToMove||!stillToMove.find(s=>s.id===character.id))return false
-  }
   if (character){
+    if(combat){
+      if(!stillToMove||!stillToMove.find(s=>s.id===character.id))return false
+    }
     if(selected&&selected.id===character.id&&!combat)selected.attract=true
     else {
       if(selected)selected.attract=false

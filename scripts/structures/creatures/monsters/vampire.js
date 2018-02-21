@@ -10,10 +10,8 @@ let vampire={
   },
   name:'vampire',
   hostileRange:12,
-  spells:['terror'],
   skills:{
-    sword:5,
-    mental:5
+    sword:15,
   },
   weapon:vampireSword
 }
