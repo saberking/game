@@ -50,6 +50,7 @@ var showHealth = ()=>{
     const box=  document.getElementById('box'+c.name)
      box.onclick=()=>{
        selectCharacter(c)
+       if(dialogType&&dialogType.type==='stats')openStatsMenu(c)
      }
      box.oncontextmenu=(e)=>{
        e.preventDefault()

@@ -57,8 +57,8 @@ const openDialog2=()=>{
 
 const header = c=>  '<div style="height:100;width:80;overflow:hidden"><img src="assets/sprites/'+c.name+'.png"/></div><div style="position:absolute;top:80;left:120">'+c.display+'</div>'+
   '<div>----------------------------------------------</div>'
-  const doubleColumn=(col1,col2,id,offset=0)=>
-  '<div style="font-size:28;position:relative"'+(id?'id="'+id+'"':'')+'><span>'+col1+'</span><span style="position:absolute;right:'+offset+'">'+col2+'</span></div>'
+  const doubleColumn=(col1,col2,id,offset=30)=>
+  '<div style="position:relative"'+(id?'id="'+id+'"':'')+'><span>'+col1+'</span><span style="position:absolute;right:'+offset+'">'+col2+'</span></div>'
 
 
 const showStatInfo=(s)=>(e)=>{

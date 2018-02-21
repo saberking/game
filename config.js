@@ -4,7 +4,7 @@ let pretty=true
 let startingWorld=5
 
 let omniscient=false
-const offerLoad=false
+const offerLoad=true
 
 
 /////////////////////////////
