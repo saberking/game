@@ -14,7 +14,7 @@ const meleeAttackAction=(a,b)=>{
   return true
 }
 const meleeAttackBonus=a=>a.status.str +a.status[a.weapon.subtype]+a.status.rea
-const meleeDefenceBonus=b=>(b.weapon.melee?b.status[b.weapon.subtype]:0)+b.status.rea
+const meleeDefenceBonus=b=>(b.weapon.melee?b.status[b.weapon.subtype]/2:0)+b.status.rea
 const meleeAttackEvent = (a, b) => {
   if(!b.controlled)makeHostile(b)
   closeMenu()
