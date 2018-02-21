@@ -19,7 +19,7 @@ const finishedCreation=(i)=>{
   charactersToDesign[i].checkStatus(true)
   if(charactersToDesign[i].level>1){
     charactersToDesign.splice(0,1)
-    if(charactersToDesign.length)singleCharacterDesign()
+    if(charactersToDesign.length)openLevelDialog()
     else closeDialog()
     return
   }
@@ -72,7 +72,7 @@ const openLevelDialog=()=>{
   // document.getElementById('continue').innerHTML='<div style="height:52"></div>'
   document.getElementById('dialog').innerHTML=
   header(c)+displayStats(c)+'<div style="position:absolute;left:500;top:150"id="skills"></div>'
-  document.getElementById('skills').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
+  document.getElementById('skills').innerHTML=  displaySkills(c)+'<div style="margin-left:400" id="continue_0"></div>'
   addSkillButtons()
   addStatButtons()
   statContext()
