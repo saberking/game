@@ -33,7 +33,7 @@ const openStatsMenu = (target)=>{
     })
     if(itemsText==='')itemsText='<div style="height:64"></div>'
     itemsText='<div style="width:650"><div>Items</div>'+itemsText+'</div>'
-    let combatText=      '<div>initiative '+initiativeBonus(target)+'</div>'+
+    let combatText=      '<div>initiative +'+initiativeBonus(target)+'</div>'+
     '<div>Armor '+target.armor.physical+
     '</div><div>Attack +'+
       (target.weapon.ranged?rangedAttackBonus(target):meleeAttackBonus(target))+
