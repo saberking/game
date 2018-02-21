@@ -71,9 +71,10 @@ const openLevelDialog=()=>{
   // document.getElementById('continue').innerHTML='<div style="height:52"></div>'
   document.getElementById('dialog').innerHTML=
   header(c)+displayStats(c)+'<div style="position:absolute;left:500;top:150"id="skills"></div>'
-  document.getElementById('skill').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
+  document.getElementById('skills').innerHTML=  displaySkills(c)+'<div id="continue_0"></div>'
   addSkillButtons()
   addStatButtons()
+  statContext()
 }
 const levelUp=c=>{
   charactersToDesign.push(c)
