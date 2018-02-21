@@ -22,7 +22,7 @@ const showItemStats=(e,item,target)=>{
     if(item.type==='weapon')
     html+='<div>range: '+item.range+'</div>'
   }
-  if(item.type==='weapon'){
+  if(item.type==='weapon'||(item.type==='shield'&&item.maxQuantity>1)){
 
     html+='<div>penetration: '+item.penetration+'</div>'
   }
