@@ -44,8 +44,8 @@ const prayer = new Spell({
     let attackStrength=spellAttackStrength(caster,spell)
     let stat=randomStat()
     while(stat===mag)stat=randomStat()
-    let points=round(attackStrength/4)
-    enactEffect({score:stat,amount:points,type:temp})(caster)
+    let message='- '+resolveEffects(attackStrength,[{score:stat,amount:5,type:temp}],caster)
+    addMessage(message)
     return true
   },
 })

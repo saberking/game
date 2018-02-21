@@ -43,12 +43,17 @@ const resolveEffects = (hitStrength, eff, target) => {
       if(amount) {
         if(e.score==='afraid')message+='afraid for '+amount+' turns!'
         else if(e.score==='fire')message+='on fire for '+amount+' turns!'
-        else if(e.type==='healing'>0){
+        else if(e.type==='healing'){
           message+='healed '+amount+' damage'
-        }else{
+        }else if(amount<0){
           message+=-1*amount
+          if(e.type!==norm)message+=' '+e.type
           if(e.score!=str)message+=' '+e.score
           message+=' damage'
+        }else{
+          message+='+'+amount
+          if(e.type!==norm)message+=' '+e.type
+          message+=' '+fullStats[e.score]
         }
         if(i!==effects.length-1)message+=', '
         enactEffect(Object.assign({},e,{amount}))(target)

@@ -1,6 +1,6 @@
 const increaseDate=(amount=1)=>{
   for(let i=0;i<amount;i++){
-    incrementDate()
+    timedEvents.increment()
   }
 }
 class TimedEvents{
@@ -53,7 +53,7 @@ const createTime=()=>{
     creattime=0
     handleTime=0
   }})
-  timedEvents.add({interval:300,event:spawnCreatures})
+  // timedEvents.add({interval:300,event:spawnCreatures})
   timedEvents.add({interval:1,event:()=>creatures.forEach(c=>c.z===currentWorld&&reduceEffects(c))})
   timedEvents.add({
     event:()=>{
