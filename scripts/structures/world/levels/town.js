@@ -65,8 +65,8 @@ buildDoorwayH(38,9,5)
   )
 
   addCounter3(14,28,5)
-  spawnCreature(shopkeeper,{x:20,y:25,z:5,items:[rustySword,knife,knife,bow,modItem(arrow,{quantity:10}),
-    modItem(musketBalls,{quantity:5}),modItem(musketBalls,{quantity:5}),musket,dagger,dagger,sword,club,club,modItem(smallBattery,{quantity:10})]})
+  spawnCreature(shopkeeper,{x:20,y:25,z:5,items:[rustySword,knife,bow,modItem(arrow,{quantity:10}),
+    modItem(musketBalls,{quantity:5}),modItem(musketBalls,{quantity:5}),musket,dagger,sword,club]})
 
   buildPassageH(32,17,5,5)
 

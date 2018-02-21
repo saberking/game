@@ -9,7 +9,7 @@ const showSpellInfo=(event,spell)=>{
     (spell.range&&(spell.targets==='single'||spell.targets==='area')?'<div>range: '+spell.range+'</div>':'')+
     (spell.effect?spell.effect.map(e=>displayEffect(e)).join(''):'')+
     '<div>targets: '+spell.targets+'</div>'+
-    (spell.targetType==='enemy'?'<div>Penetration: '+spell.penetration+'</div>':'')+
+    // (spell.targetType==='enemy'?'<div>Penetration: '+spell.penetration+'</div>':'')+
 
     // '<div>classes:'+spell.jobs.join(', ')+'</div>'+
     '<div onclick="closeDialog2()">Close</div>'

@@ -213,31 +213,31 @@ const syringe={
   value:4
 }
 items.push(syringe)
-const dartPistol={
-  type:'weapon',
-  ammo:['needle'],
-  subtype:'gun',
-  name:'dartPistol',
-  ranged:true,
-}
-items.push(dartPistol)
-const laserPistol={
-  type:'weapon',
-  damageType:'light',
-  subtype:'gun',
-  name:'laserPistol',
-  ranged:true,
-  ammo:['smallBattery'],
-  ap:3,
-  value:60
-}
-items.push(laserPistol)
-const smallBattery={
-  type:'shield',
-  subtype:'smallBattery',
-  name:'smallBattery',
-  ranged:{effect:[{score:str,amount:-4,type:norm}]},
-  maxQuantity:10,
-
-}
-items.push(smallBattery)
+// const dartPistol={
+//   type:'weapon',
+//   ammo:['needle'],
+//   subtype:'gun',
+//   name:'dartPistol',
+//   ranged:true,
+// }
+// items.push(dartPistol)
+// const laserPistol={
+//   type:'weapon',
+//   damageType:'light',
+//   subtype:'gun',
+//   name:'laserPistol',
+//   ranged:true,
+//   ammo:['smallBattery'],
+//   ap:3,
+//   value:60
+// }
+// items.push(laserPistol)
+// const smallBattery={
+//   type:'shield',
+//   subtype:'smallBattery',
+//   name:'smallBattery',
+//   ranged:{effect:[{score:str,amount:-4,type:norm}]},
+//   maxQuantity:10,
+//
+// }
+// items.push(smallBattery)

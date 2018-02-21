@@ -101,6 +101,7 @@ const defaultSpellEvent = (s,a,b)=>{
     if(a.controlled&&!b.controlled)makeHostile(b)
     addMessage(a.display + ' casts '+s.name+' at '+b.display +' - ')
     let defenceStrength = spellDefenceStrength(a,b,s)
+    console.log(attackStrength,defenceStrength)
     if(typeof(attackStrength)!=='number'||typeof(defenceStrength)!=='number'){
       console.log(attackStrength,defenceStrength)
       throw new Error()
@@ -145,16 +146,14 @@ const getAvailableSpells=(c=selected)=>c.status.spells.filter(s=>{
     }
   }
 })
+const spellAttackBonus=(a,s)=>a.status.mag + a.level + a.status[s.type]
 const spellAttackStrength=(a,s)=>
-  a.status.mag + a.level + a.status[s.type] +d20(a)//+ a.status.san/2
+   spellAttackBonus(a,s)+d20(a)//+ a.status.san/2
 const spellDefenceStrength=(a,b,s)=>{
-  let defenceStrength = distance(a,b)*distance(a,b)/s.range
-  if(typeof(defenceStrength)!=='number')  console.log(a,b,s)
+  let defenceStrength = distance(a,b)*distance(a,b)/s.range+d20(b)
+  if(typeof(defenceStrength)!=='number')  throw new Error()
   if(s.targetType === 'enemy'){
-    if(s.damageType==='magic')defenceStrength += b.status.mag*4/s.penetration
-    else defenceStrength+=b.armor[s.damageType]/s.penetration
-    if(b.status[s.type])defenceStrength+=round(b.status[s.type]/2)
-    defenceStrength+=b.status.theology/3
+    defenceStrength += (b.status[s.type])/2
   }
   return defenceStrength
 }

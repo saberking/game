@@ -33,9 +33,13 @@ const openStatsMenu = (target)=>{
     })
     if(itemsText==='')itemsText='<div style="height:64"></div>'
     itemsText='<div style="width:650"><div>Items</div>'+itemsText+'</div>'
-    let combatText='<div>Armor '+target.armor.physical+
+    let combatText=      '<div>initiative '+initiativeBonus(target)+'</div>'+
+    '<div>Armor '+target.armor.physical+
     '</div><div>Attack +'+
-      (target.weapon.ranged?rangedAttackBonus(target):meleeAttackBonus(target))+'</div'
+      (target.weapon.ranged?rangedAttackBonus(target):meleeAttackBonus(target))+
+      '</div><div>Melee Def +'+meleeDefenceBonus(target)+
+      '</div><div>Ranged Def +'+rangedDefenceBonus(target)+'</div>'
+
     // let borderRight=equipSlot==='weapon'?340:equipSlot==='shield'?20:180
     // let borderTop=equipSlot==='hat'?20:equipSlot==='trousers'?200:equipSlot==='shoes'?330:80
     // let border='<img style="position:absolute;right:'+borderRight+';top:'+borderTop+'" src="./items/border.png"/>'
@@ -59,8 +63,8 @@ const openStatsMenu = (target)=>{
     '<div>'+spellsText+'</div>'+
     '<div style="position:absolute;left:1000;top:440">'+effectsText+'</div>'+
     '<div>Gold: '+target.gold+'</div>'+
-    combatText+breaker+
-        '<div style="margin-top:120">'+itemsText+'</div>'+
+    '<div style="font-size:26">'+combatText+'</div>'+
+        '<div style="margin-top:16">'+itemsText+'</div>'+
     '</div>'+
     // '<img style="position:absolute;top:420;right:0" src="assets/background/chemistry.png"id="chem"/>'+
     '</div></div>'

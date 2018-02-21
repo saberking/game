@@ -27,7 +27,7 @@ const showItemStats=(e,item,target)=>{
     html+='<div>penetration: '+item.penetration+'</div>'
   }
   if(item.armor){
-    html+='<div>armor: physical '+item.armor.physical+', light '+item.armor.light+'</div>'
+    html+='<div>armor: '+item.armor.physical+'</div>'
   }
   document.getElementById('dialog2').innerHTML=html
   if(target&&target.controlled){

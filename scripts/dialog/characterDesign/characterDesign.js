@@ -9,7 +9,7 @@ const characterComplete=(i)=>{
 const increaseStatButton=(s,i)=>increaseButton(s,i,'Stat')
 
 const increaseButton=(s,i,type)=>
-  '<button style="background-color:#999988;position:absolute;top:0;left:280"onclick="increase'+type+'(\''+s+'\','+i+')">+</button>'
+  '<button style="background-color:#999988;position:absolute;top:0;right:-30"onclick="increase'+type+'(\''+s+'\','+i+')">+</button>'
 
 const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:250;top:10;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
 
@@ -31,7 +31,7 @@ const finishedCreation=(i)=>{
   }
 }
 
-const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;left:190"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
+const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;right:60"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
 const slideTo=(i)=>{
   console.log(i)
   let cont=document.getElementById('dialogContainer')

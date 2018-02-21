@@ -10,6 +10,7 @@ const addCharacters=()=>{
       display:pcNames[j],
       faction:1,
       spells: [],
+      skills:{theology:15},
       items:[],
       stages: 5,
       gold:50
@@ -45,8 +46,14 @@ const setup=()=>{
   restart()
 
   selected=you[0]
-  newOrLoad()
-
+  if(offerLoad)newOrLoad()
+  else {
+    controlled.forEach(c=>{
+      magicSchools.forEach(m=>c.skills[m]+=15)
+      c.checkStatus()
+    })
+    closeDialog()
+  }
   setTimeout(initBackgrounds)
 }
 

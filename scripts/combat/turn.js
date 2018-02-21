@@ -1,4 +1,5 @@
 let refuseInput=false
+const initiativeBonus=f=>(f.status.rea+f.level)*3
 
 const startTurn=()=>{
   timedEvents.increment()
@@ -20,7 +21,7 @@ const startTurn=()=>{
   let fighting=hostile.concat(filtered.filter(c=>c.controlled))
   creatures.forEach(c=>{c.engaged=false;c.hasMoved=false})
   stillToMove=[]
-  fighting.forEach(f=>f.initiative=f.status.rea*3+d20(f))
+  fighting.forEach(f=>f.initiative=initiativeBonus(f)+d20(f))
   fighting=fighting.sort((a,b)=>b.initiative-a.initiative)
   let fighting2=fighting.slice().reverse()
   stillToMove=fighting.concat(fighting2)
