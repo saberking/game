@@ -1,7 +1,51 @@
 let actions=[]
+actions.finish=id=>{
+  let c=creatures.find(c=>c.id===id)
+  skip(c)
+}
+actions.fight=(id)=>makeHostile(creatures.find(c=>c.id===id))
+actions.attack=id=>canAttack(id)&&canAttack(id)()
 
+actions.carry=id=>carry(id)
+actions.stats=(id)=>openStatsMenu(creatures.find(c=>c.id===id))
+actions.talk=id=>talk(creatures.find(c=>c.id===id))
+actions.shop=id=>shop(creatures.find(c=>c.id===id))
 const initActions=()=>spells.forEach(s=>actions[s.name]=()=>castSpell(s))
 initEvents.push(initActions)
+const creatureAt=({x,y})=>{
+  let normal=normalise({x,y})
+  return creatures.find(c=>c.x===normal.x&&c.y===normal.y&&c.z===currentWorld&&!c.carried)
+}
+
+const inside=(c,z)=>{
+  return c.z===z.z&&c.x>=z.left&&c.x<=z.right&&c.y>=z.top&&c.y<=z.bottom
+}
+
+const getAvailableCreatureActions = (c) => {
+  if(!selected)return []
+  let availableActions = []
+  availableActions.push('stats')
+  if(isCreatureVisible(c)){
+    if(c.faction!==selected.faction&&!combat){
+      if(!c.hostileRange){
+        c.chat&&availableActions.push('talk')
+        if(c.trader)availableActions.push('shop')
+      }
+      availableActions.push('fight')
+    }
+    if(combat&&selected.status.magic>0)availableActions=availableActions.concat(selected.spells.filter(s=>s.targets==='single').map(s=>s.name))
+    if(canAttack(c.id))availableActions.push('attack')
+    if(selected&&c.faction===selected.faction&&c.status.status!=='active')availableActions.push('carry')
+
+  }
+  if(selected&&selected.id===c.id){
+    availableActions=availableActions.concat(getAvailableSpells())
+    if(combat){
+      availableActions=availableActions.concat(['wait'])
+    }
+  }
+  return availableActions
+}
 
 const actionRoute=({x,y})=>{
   if(!selected||combat)return

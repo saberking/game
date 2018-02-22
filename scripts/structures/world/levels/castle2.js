@@ -26,7 +26,7 @@ const buildCastle2=()=>{
 
   addTreasure('bookcase',8,5,7)
   addTreasure('bookcase',10,5,7)
-  addTreasure('bookcase',12,5,7,[createSpellbook(randomSpell())])
+  addTreasure('bookcase',12,5,7)
   addTreasure('bookcase',14,5,7)
   addTreasure('bookcase',16,5,7)
 

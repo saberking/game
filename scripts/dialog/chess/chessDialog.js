@@ -1,6 +1,7 @@
 let piece=null
 const updateChessDialog=(color)=>{
   openDialog()
+  dialogType={type:'chess'}
   const dialog=document.getElementById('dialog')
   let html='<div style="margin:25">'+chessBoardPic(piece)+'</div>'
   let piecesRemaining=0

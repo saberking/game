@@ -12,7 +12,11 @@ const rangedAttackAction=(a,b)=>{
   // }
   return true
 }
-const rangedAttackBonus=a=>a.status[a.weapon.subtype]+a.status.rea+a.status.str/2
+const reduceAmmo=c=>{
+  c.shield.quantity--
+  if(c.shield.quantity===0)c.shield=null
+}
+const rangedAttackBonus=a=>a.status[a.weapon.subtype]+a.status.rea+floor(a.status.str/2)
 const rangedDefenceBonus=b=>b.status.rea
 const rangedAttackEvent=(a,b) => {
   if(!b.controlled)makeHostile(b)

@@ -1,5 +1,32 @@
+
+var startBattle = () => {
+  addMessage('Battle starts!')
+  creatures.forEach(c=>{
+    c.initiative='none'
+  })
+  refuseInput=true
+  combat=true
+  date=startDate+floor(Date.now()/1000)
+  // creatures.forEach(c=>c.status.currentAp=0)
+  currentTurn=0
+  setTimeout(()=>startTurn(),1000)
+}
+
+var endBattle=()=>{
+  addMessage('----------Combat ends-----------')
+  battleEndTime=Date.now()
+  startDate=date-1*floor(Date.now()/1000)
+  combat=false
+  refuseInput=false
+  creatures.forEach(c=>{
+    c.engaged=false
+    c.initiative='none'
+    c.checkStatus()
+  })
+  selectCharacter(controlled.find(c=>c.status.status==='active'))
+}
 let refuseInput=false
-const initiativeBonus=f=>(f.status.rea+f.level)*3
+const initiativeBonus=f=>(f.status.rea+f.level)
 
 const startTurn=()=>{
   timedEvents.increment()
@@ -67,7 +94,12 @@ const finished = (creature) => {
     return
   }
   stillToMove.splice(index, 1)
+  getVisibleCreatures()
   const hostile=checkHostility(creatures)
   if(!hostile.length)endBattle()
   else setTimeout(nextCharacter,500)
+}
+const endCombatAction=(c=selected)=>{
+  c.hasMoved=true
+  finished(c)
 }

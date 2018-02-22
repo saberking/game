@@ -1,36 +1,3 @@
-let screenwidth=window.width
-let screenheight=window.height
-const goFullscreen=()=>     {
-  // document.body.webkitRequestFullscreen&&document.body.webkitRequestFullscreen()
-  // document.body.mozRequestFullScreen&&document.body.mozRequestFullScreen()
-}
-const centreScreen=(c=selected)=>{
-  if(c){
-    screenPos={
-      x:min(
-          max(c.x*width*zoomLevel-screenwidth/2,0),
-          maxwidth[currentWorld]*width*zoomLevel-screenwidth
-        ),
-      y:max(
-          min(c.y*height*zoomLevel-screenheight/2,
-            maxheight[currentWorld]*height*zoomLevel-screenheight
-          ),
-          minheight[currentWorld]*height*zoomLevel
-        )}
-  }
-
-}
-const moveScreen=(x,y)=>{
-  let xDistance=min(maxwidth[currentWorld]*width*zoomLevel-screenwidth,
-    max(minwidth[currentWorld]*width*zoomLevel,screenPos.x+x))-screenPos.x
-    let yDistance=min((maxheight[currentWorld]-1)*height*zoomLevel-screenheight,
-      max(screenPos.y+y,minheight[currentWorld]*height*zoomLevel))-screenPos.y
-  screenPos.y+=round(yDistance)
-  screenPos.x+=round(xDistance)
-  // document.getElementById('canvas2').style.left=-screenPos.x
-  // document.getElementById('canvas2').style.top=-screenPos.y
-}
-
 const layout=()=>{
   // closeDialog()
   screenwidth=window.innerWidth

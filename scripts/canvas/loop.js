@@ -65,12 +65,13 @@ var loop = () => {
     }
     getVisibleCreatures()
     start=Date.now()
-    if(!combat&&Date.now()-battleEndTime>500){
+    if(!combat){
       if(checkHostility().length){
         startBattle()
+      }else{
+        catchup()
       }
     }
-    if(!combat)catchup()
 
     let dist=round(scrollSpeed*sqrt(zoomLevel))
     if(scrollUp)moveScreen(0,-dist)

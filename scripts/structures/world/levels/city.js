@@ -6,13 +6,11 @@ minwidth[10]=40
 maxwidth[10]=99
 minheight[10]=25
 maxheight[10]=78
-startingPos[9]={x:76,y:151,z:9}
 worldNames[9]='City'
-const cityNPCs=[shopkeeper,mayor,oldWoman]
-const cityNPC=()=>cityNPCs[floor(random()*cityNPCs.length)]
-const addInhabitant=(x,y,z)=>spawnCreature(cityNPC(),{x,y,z})
+
 
 const buildCity=()=>{
+  startingPos[9]={x:76,y:151,z:9}
   buildPostman(0,0,9)
 }
 const buildMarket=(x,y,z)=>{

@@ -2,11 +2,12 @@ maxwidth[6]=maxwidth[7]=67
 maxheight[6]=maxheight[7]=50
 minwidth[6]=minwidth[7]=0
 minheight[6]=minheight[7]=0
-startingPos[6]={x:16,y:41,z:6}
-startingPos[7]={x:32,y:29,z:7}
+
 worldNames[6]='Castle'
 
 const defaultCastleBuilderFloor=(z,xAdjust,yAdjust)=>{
+  startingPos[6]={x:16,y:41,z:6}
+  startingPos[7]={x:32,y:29,z:7}
   // changeArea({left:minwidth[6]+xAdjust,right:maxwidth[6]+xAdjust,top:minheight[6]+yAdjust,bottom:maxheight[6]+yAdjust},z,stone)
   // changeArea({left:minwidth[6]+xAdjust,right:maxwidth[6]+xAdjust,top:40+yAdjust,bottom:50+yAdjust},z,dirt)
   // changeArea({left:54+xAdjust,right:59+xAdjust,top:0+yAdjust,bottom:37+yAdjust},z,water)

@@ -4,7 +4,7 @@ let pretty=true
 let startingWorld=5
 
 let omniscient=false
-const offerLoad=false
+const offerLoad=true
 
 
 /////////////////////////////
@@ -30,7 +30,7 @@ const hex=true
 
 //////////////////////////
 ///////////////////
-const moveSpeed=4
+const moveSpeed=5
 
 const scrollSpeed=30
 const daytimeLos=11

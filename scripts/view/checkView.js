@@ -45,3 +45,21 @@ const resetView=()=>{
   }
   lastCheck=0
 }
+const checkHostility=()=>{
+  if(!visibleCreatures||!visibleCreatures.length)getVisibleCreatures()
+  let v=visibleCreatures
+  let spotted=[]
+  v.forEach(c=>{
+    if(c.hostileRange&&c.z===currentWorld){
+      let h=false
+      creatures.filter(c2=>c2.controlled&&c2.status.status==='active').forEach(c2=>{
+        if(!h&&distance(c,c2)<=c.hostileRange&&canSee(c2,c)){
+          spotted.push(c)
+          h=true
+        }
+      })
+    }
+
+  })
+  return spotted
+}

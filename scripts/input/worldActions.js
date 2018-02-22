@@ -65,7 +65,6 @@ actions.pullLever=()=>{
     spawnCreature(dummy,{x:34,y:24,z:5})
   }
 }
-actions.move=(coords)=>movePC(normalise(coords))
 actions.search=(id)=>{
   console.log(id)
   let c=constructs.find(c=>c.id===id)
@@ -84,20 +83,7 @@ actions.search=(id)=>{
 actions.travel=(id)=>{
   openTravelDialog()
 }
-const travelTo=dest=>{
-  console.log(dest)
-  closeDialog()
-  currentWorld=dest.z
-  resetView()
-  creatures.forEach(c=>{
-    if(c.controlled){
-      c.z=currentWorld
-      const {x,y,z}=dest
-      position(c,x,y,z)
-      centreScreen()
-    }
-  })
-}
+
 actions.climb=(id)=>{
   travelTo(constructs.find(c=>c.id===id).dest)
 }

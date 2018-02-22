@@ -1,11 +1,3 @@
-const updateName=v=>charactersToDesign[0].display=v
-const backButton=(i)=>{
-  let btn=createButton2('Back',(e)=>{
-    e.preventDefault()
-    slideTo(i-1)
-  })
-  return btn
-}
 const creation=(i)=>{
   const c=charactersToDesign[i]
   increasedStat[i]=[]

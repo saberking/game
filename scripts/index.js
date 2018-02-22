@@ -1,8 +1,7 @@
 
-const starting=startingPos[startingWorld]
 // setTimeout(audio,100)
 
-const addCharacters=()=>{
+const addCharacters=(starting)=>{
   for(let j = 0;j<noOfCharacters;j++){
     you.push( new Creature({
       controlled: true,
@@ -37,10 +36,10 @@ const setup=()=>{
 
   document.getElementById('file-input').onchange= loadFile
   screenPos={x:0,y:100}
-  currentWorld=starting.z
   initWorld()
+  currentWorld=startingPos[startingWorld].z
 
-  addCharacters()
+  addCharacters(startingPos[startingWorld])
 
   createTime()
   restart()
@@ -63,7 +62,6 @@ const initBackgrounds=()=>{
   let bgi=['bg2','table']
   bgi.forEach(i=>{
     let c=new Image()
-    c.onload=()=>console.log(c.src)
     c.src='assets/background/'+i+'.jpg'
     backgrounds.push(c)
   })

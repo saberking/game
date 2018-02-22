@@ -1,6 +1,4 @@
 let charactersToDesign = []
-let designIndex=0
-let clones=[]
 let increasedStat=[]
 let increasedSkill=[]
 const characterComplete=(i)=>{
@@ -10,6 +8,7 @@ const increaseStatButton=(s,i)=>increaseButton(s,i,'Stat')
 
 const increaseButton=(s,i,type)=>
   '<button style="background-color:#999988;position:absolute;top:0;right:0"onclick="increase'+type+'(\''+s+'\','+i+')">+</button>'
+  const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;right:90"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
 
 const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:250;top:10;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
 
@@ -21,9 +20,7 @@ const finishedCreation=(i)=>{
     charactersToDesign.splice(0,1)
     if(charactersToDesign.length)openLevelDialog()
     else closeDialog()
-    return
-  }
-  if(i<noOfCharacters-1){
+  }else if(i<noOfCharacters-1){
     slideTo(i+1)
   }else{
     charactersToDesign=[]
@@ -31,9 +28,7 @@ const finishedCreation=(i)=>{
   }
 }
 
-const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;right:90"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
 const slideTo=(i)=>{
-  console.log(i)
   let cont=document.getElementById('dialogContainer')
   cont.removeAttribute('class')
   cont.classList.add('slider'+i)
@@ -49,7 +44,6 @@ const characterDesign=()=>{
   charactersToDesign=[]
   for(let i = 0;i<noOfCharacters;i++){
     let clone=dialog.cloneNode(false)
-    console.log(dialog.style.width,clone.style.width)
     clone.id='dialog_'+i
 
     let x=75+screenwidth*(i+1)
@@ -82,4 +76,12 @@ const levelUp=c=>{
   if(charactersToDesign.length===1)
   openLevelDialog()
 
+}
+const updateName=v=>charactersToDesign[0].display=v
+const backButton=(i)=>{
+  let btn=createButton2('Back',(e)=>{
+    e.preventDefault()
+    slideTo(i-1)
+  })
+  return btn
 }

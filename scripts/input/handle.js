@@ -9,7 +9,21 @@ const mousemove=(e)=>{
   if(clientY>screenheight-12)scrollDown=true
   else scrollDown=false
 }
+var selectCharacterAt = function({coords}) {
+  if(combat){
+    return false
+  }
+  var character = controlled.find(c=>c.x===coords.x&&c.y===coords.y&&c.z===currentWorld&&c.status.status==='active')
+  if (character){
 
+    if(selected&&selected.id===character.id)selected.attract=true
+    else {
+      if(selected)selected.attract=false
+      selectCharacter(character)
+    }
+    return true
+  }
+}
 const context=e=>{
   e.preventDefault()
   e.stopPropagation()

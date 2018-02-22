@@ -3,10 +3,11 @@ maxwidth[5]=61
 maxheight[5]=50
 minwidth[5]=0
 minheight[5]=0
-startingPos[5]={x:8,y:13,z:5}
 worldNames[5]='Town'
 
 const buildTown=()=>{
+  startingPos[5]={x:8,y:13,z:5}
+
   buildTomb({left:4,right:maxwidth[5]-5,top:1,bottom:maxheight[5]-7},5,0)
 buildTomb({left:4,right:12,top:7,bottom:15},5)
 

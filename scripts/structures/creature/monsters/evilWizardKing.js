@@ -19,5 +19,4 @@ let evilWizardKing={
     illusion:15,
     staff:15
   },
-  weapon:enchant(staff,1,1,['prayer'])
 }

@@ -1,38 +1,8 @@
-let save=()=>{
-  let j=JSON.stringify(creatures)
-  j+='++++'
-   j+=JSON.stringify(searched)
-   j+='++++'
-   j+=date
-   let seen=[]
-   world.forEach((l,z)=>{
-     l.forEach((c,x)=>{
-       c.forEach((h,y)=>{
-         if(h.seen)seen.push({x,y,z,seen:h.seen})
-       })
-     })
-   })
-   j+='++++'
-   j+=JSON.stringify(seen)
-   j+='++++'
-   j+=JSON.stringify(events)
-  var blob=new Blob([j], { type: 'text/plain' })
-  var downloadLink = document.createElement('a');
-        downloadLink.download = 'save';
-          downloadLink.href = window.URL.createObjectURL(blob);
-  downloadLink.click()
-  addMessage('Save successful')
-}
 
 const parseText=text=>{
-  closeDialog(false)
-  continueDrawing=false
-  setTimeout(()=>{
-    resetWorld(()=>loadData(text))
-  })
-}
-const loadData=text=>{
   if(combat)endBattle()
+  continueDrawing=false
+  resetWorld()
   let split=text.split('++++')
   let creaturesText=split[0]
   let worldText=split[1]

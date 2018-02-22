@@ -3,5 +3,5 @@ let skeleton={
   hostileRange:0,
   name:'skeleton',
   weapon:bow,
-  shield:modItem(arrow,{quantity:10})
+  shield:merge(arrow,{quantity:10})
 }

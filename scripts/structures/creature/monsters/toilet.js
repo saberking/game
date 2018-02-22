@@ -7,5 +7,5 @@ let toilet={
     chemistry:10
   },
   unarmed:seat,
-  items:[new Item(speedPowder)]
+  items:[]
 }
