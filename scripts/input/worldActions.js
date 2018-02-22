@@ -79,7 +79,19 @@ actions.search=(id)=>{
   if(combat)finished(selected)
   searched.push(c.id)
 }
-
+const travelTo=dest=>{
+  closeDialog()
+  currentWorld=dest.z
+  resetView()
+  creatures.forEach(c=>{
+    if(c.controlled&&(c.status.status==='active'||c.carried)){
+      c.z=currentWorld
+      const {x,y,z}=dest
+      position(c,x,y,z)
+      centreScreen()
+    }
+  })
+}
 actions.travel=(id)=>{
   openTravelDialog()
 }

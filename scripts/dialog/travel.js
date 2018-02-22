@@ -6,16 +6,3 @@ const openTravelDialog=()=>{
     function:()=>{travelTo(startingPos[d])}
   })))
 }
-const travelTo=dest=>{
-  closeDialog()
-  currentWorld=dest.z
-  resetView()
-  creatures.forEach(c=>{
-    if(c.controlled){
-      c.z=currentWorld
-      const {x,y,z}=dest
-      position(c,x,y,z)
-      centreScreen()
-    }
-  })
-}
