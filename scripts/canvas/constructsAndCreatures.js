@@ -60,10 +60,6 @@ const showCreature=(c)=>{
     ctx.globalAlpha=0.2
     colorRect({x:c.x,y:c.y,color:'blue',size:2})
     ctx.globalAlpha=1
-  }else if(combat&&selected&&c.id===selected.id&&!apForAttack(c)){
-    ctx.globalAlpha=0.05
-    colorRect({x:c.x,y:c.y,color:'cyan',size:2})
-    ctx.globalAlpha=1
   }else if(selectingTarget&&selected&&c.id===selected.id){
     ctx.globalAlpha=0.2
     colorRect({x:c.x,y:c.y,color:'yellow',size:2})

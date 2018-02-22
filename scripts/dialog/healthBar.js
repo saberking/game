@@ -51,6 +51,7 @@ var showHealth = ()=>{
      box.onclick=()=>{
        selectCharacter(c)
        if(dialogType&&dialogType.type==='stats')openStatsMenu(c)
+       if(dialogType&&dialogType.type==='shop')shop(dialogType.participant)
      }
      box.oncontextmenu=(e)=>{
        e.preventDefault()

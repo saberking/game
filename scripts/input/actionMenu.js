@@ -33,7 +33,7 @@ const getAvailableCreatureActions = (c) => {
       }
       availableActions.push('fight')
     }
-    if(combat&&selected.status.magic>0)availableActions=availableActions.concat(selected.spells.filter(s=>s.targets==='single').map(s=>s.name))
+    if(combat&&selected.status.magic>0)availableActions=availableActions.concat(selected.status.spells.filter(s=>s.targets==='single').map(s=>s.name))
     if(canAttack(c.id))availableActions.push('attack')
     if(selected&&c.faction===selected.faction&&c.status.status!=='active')availableActions.push('carry')
 

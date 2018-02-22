@@ -48,19 +48,19 @@ const openItemMenu=(e,item,target)=>{
         }
       }
     }
-    if(item.type==='spellbook'){
-      if(spells.find(s=>s.name===item.spells[0]).jobs.find(c=>c===target.job)){
-        if(!target.spells.find(s=>s===item.spells[0])){
-          const read=addButtonToMenu('read')
-          read.onclick=()=>{
-            closeMenu()
-            target.spells.push(item.spells[0])
-            target.items.splice(target.items.findIndex(i=>i.id===item.id),1)
-            openStatsMenu(target)
-          }
-        }
-      }
-    }
+    // if(item.type==='spellbook'){
+    //   if(spells.find(s=>s.name===item.spells[0]).jobs.find(c=>c===target.job)){
+    //     if(!target.spells.find(s=>s===item.spells[0])){
+    //       const read=addButtonToMenu('read')
+    //       read.onclick=()=>{
+    //         closeMenu()
+    //         target.spells.push(item.spells[0])
+    //         target.items.splice(target.items.findIndex(i=>i.id===item.id),1)
+    //         openStatsMenu(target)
+    //       }
+    //     }
+    //   }
+    // }
     if(target.controlled&&canEquip(target,item)){
           const equipButton=addButtonToMenu('equip')
           equipButton.onclick=e=>equip(e,target,item)

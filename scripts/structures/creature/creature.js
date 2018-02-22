@@ -140,13 +140,13 @@ class Creature {
       levelUp(this)
       addMessage(this.display+' went up a level!')
     }
-    this.status = Object.assign({}, this.stats, this.skills,{spells:this.spells.slice()})
+    this.status = Object.assign({}, this.stats, this.skills)
+    this.status.spells=spells.filter(s=>this.status[s.type]>=s.level).map(s=>s.name)
 
     this.effects.forEach(e => {
       this.status[e.score] += e.amount
     })
     self.armor=Object.assign({},{light:0,physical:0},this.naturalArmor)
-    this.spells=spells.filter(s=>this.status[s.type]>=s.level).map(s=>s.name)
 
     slots.forEach(ef=>{
       if(self[ef]){
@@ -156,7 +156,7 @@ class Creature {
           })
         }
         self[ef].spells.forEach(s=>
-          typeof(this.skills[spells.find(sp=>sp.name===s).type])==='number'&&this.status.spells.push(s))
+          !this.status.spells.find(sp=>sp===s)&&this.status.spells.push(s))
         if(self[ef].armor){self.armor.light+=self[ef].armor.light;self.armor.physical+=self[ef].armor.physical}
       }
     })

@@ -16,7 +16,14 @@ const reduceAmmo=c=>{
   c.shield.quantity--
   if(c.shield.quantity===0)c.shield=null
 }
-const rangedAttackBonus=a=>a.status[a.weapon.subtype]+a.status.rea+floor(a.status.str/2)
+const rangedSkillBonus=  (a)=>{
+  let arr=[]
+  for(let skill in rangedSkills){
+    if(a.weapon.subtype!==skill)arr.push(a.status[skill])
+  }
+  return rms(arr)+a.status.skills[a.weapon.subtype]
+}
+const rangedAttackBonus=a=>floor(rangedSkillBonus(a)+a.status.rea+a.status.str/2)
 const rangedDefenceBonus=b=>b.status.rea
 const rangedAttackEvent=(a,b) => {
   if(!b.controlled)makeHostile(b)
