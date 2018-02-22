@@ -176,9 +176,7 @@ class Creature {
     }
     if (this.status.str <= 0 || this.status.int <=0) {
       this.status.status = 'unconscious'
-      if(this.controlled){
-        this.carried=true
-      }else{
+      if(!this.controlled){
         console.log('uncon')
         moveItems(this)
         creatures=creatures.filter(c=>c.id!==this.id)

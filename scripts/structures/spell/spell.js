@@ -42,7 +42,7 @@ const useResources=(caster,s)=>{
   caster.practice[s.type]++
   if(combat){
 
-    caster.initiative+=apCost(caster,s.ap)
+    // caster.initiative+=apCost(caster,s.ap)
     endCombatAction(caster)
   }
   caster.checkStatus()

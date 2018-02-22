@@ -21,7 +21,7 @@ const rangedSkillBonus=  (a)=>{
   for(let skill in rangedSkills){
     if(a.weapon.subtype!==skill)arr.push(a.status[skill])
   }
-  return rms(arr)+a.status.skills[a.weapon.subtype]
+  return rss(arr)/3+a.status[a.weapon.subtype]
 }
 const rangedAttackBonus=a=>floor(rangedSkillBonus(a)+a.status.rea+a.status.str/2)
 const rangedDefenceBonus=b=>b.status.rea
@@ -47,7 +47,6 @@ const rangedAttackEvent=(a,b) => {
   if(typeof(hitStrength)!=='number')throw new Error()
   console.log(attackStrength,defenceStrength)
   let weaponEffect= a.weapon.subtype==='throwing'?a.weapon.ranged.effect:a.shield.ranged.effect
-  a.initiative+=apCost(a,a.weapon.ap)
   a.practice[a.weapon.subtype]++
   if(a.weapon.subtype==='throwing'){
     let index=a.items.findIndex(i=>typeof(a.status[i.subtype])==='number')

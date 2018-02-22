@@ -13,8 +13,8 @@ const d20 = (c) => {
   bonus=0
   return ceil(Math.random() *20*(1+bonus))
 }
-const rms=arr=>{
+const rss=arr=>{
   let total=0
   arr.forEach(a=>total+=a*a)
-  return sqrt(total/arr.length)
+  return sqrt(total)
 }

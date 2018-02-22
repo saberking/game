@@ -1,5 +1,5 @@
 var rangedSkills= {
-  bow:0
+  bow:0,
   throwing:0,
   gun:0,
 }
@@ -52,10 +52,3 @@ let meleeSkills={
   staff:0,
 }
 const defaultSkills=merge(magicSkills,merge(meleeSkills,rangedSkills))
-const rmsSkill=(s,skills)=>{
-  let arr=[]
-  for(let skill in skills){
-    if(s!==skill)arr.push(a.status[skill])
-  }
-  return rms(arr)
-}

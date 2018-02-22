@@ -20,7 +20,7 @@ const meleeSkillBonus=  (a)=>{
   for(let skill in meleeSkills){
     if(a.weapon.subtype!==skill)arr.push(a.status[skill])
   }
-  return rms(arr)+a.status.skills[a.weapon.subtype]
+  return rss(arr)/3+a.status[a.weapon.subtype]
 }
 const meleeDefenceBonus=b=>floor(b.weapon.melee?meleeSkillBonus(b)/2:0)+b.status.rea
 const meleeAttackEvent = (a, b) => {
@@ -53,6 +53,5 @@ const meleeAttackEvent = (a, b) => {
   a.practice[a.weapon.subtype]++
   addMessage(message)
   b.checkStatus()
-  a.initiative+=apCost(a,a.weapon.ap)
   endCombatAction(a)
 }
