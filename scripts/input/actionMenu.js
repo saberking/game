@@ -73,39 +73,40 @@ const openActionMenu=({x,y},leftClick=true)=>{
         if(!route)possibleActions=possibleActions.filter(a=>a.action==='stats'||a.action==='fight'||a.action==='attack')
     }
     let defaultEvent=(a,route)=>{
-                if(!route||a.action==='fight'||a.action==='stats'||a.action==='attack')
-                return ()=>actions[a.action](a.id)
-                return ()=>startLongMove(route,selected,()=>{actions[a.action](a.id)})
+      if(typeof(actions[a.action])!=='function')throw new Error()
+      if(!route||a.action==='fight'||a.action==='stats'||a.action==='attack')
+        return ()=>actions[a.action](a.id)
+      return ()=>startLongMove(route,selected,()=>{actions[a.action](a.id)})
     }
-    if(leftClick){
-      let talkAction=possibleActions.find(a=>a.action==='talk')
-      if(talkAction){
-        defaultEvent(talkAction,route)()
-        return true
-      }
-      let shopAction=possibleActions.find(p=>p.action==='shop')
-      if(shopAction){
-        defaultEvent(shopAction,route)()
-        console.log('shop',shopAction)
-        return true
-      }
-      let searchAction=possibleActions.find(p=>p.action==='search')
-      if(searchAction){
-        defaultEvent(searchAction,route)()
-        return true
-      }
-    }
+    // if(leftClick){
+    //   let talkAction=possibleActions.find(a=>a.action==='talk')
+    //   if(talkAction){
+    //     defaultEvent(talkAction,route)()
+    //     return true
+    //   }
+    //   let shopAction=possibleActions.find(p=>p.action==='shop')
+    //   if(shopAction){
+    //     defaultEvent(shopAction,route)()
+    //     console.log('shop',shopAction)
+    //     return true
+    //   }
+    //   let searchAction=possibleActions.find(p=>p.action==='search')
+    //   if(searchAction){
+    //     defaultEvent(searchAction,route)()
+    //     return true
+    //   }
+    // }
 
     if(!possibleActions.length)return
-    route&&isEmpty(normalise({x,y}))&&possibleActions.push({action:'move',id:{x,y}})
-    openMenu(
-      possibleActions.map(
-        a=>{
-          let event=defaultEvent(a,route)
-          return {text:a.action,event}
-        }
-      ),
-    {x,y})
+    // route&&isEmpty(normalise({x,y}))&&possibleActions.push({action:'move',id:{x,y}})
+    const menu = popup('menu', zoomLevel*width*x-screenPos.x,zoomLevel*height*(y)-screenPos.y)
+    possibleActions.forEach(a => {
+      const row = document.createElement('button')
+      row.innerHTML=a.action
+      row.id=a.action
+      menu.appendChild(row)
+      row.onclick=()=>{closeMenu();defaultEvent(a,route)}
+    })
     return true
   }
 }

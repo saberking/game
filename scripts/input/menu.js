@@ -8,18 +8,6 @@ const popup = (id, left, top) => {
   return pop
 }
 
-const openMenu=(actions, {x, y})=>{
-  if (actions.length) {
-    const menu = popup('menu', zoomLevel*width*x-screenPos.x,zoomLevel*height*(y)-screenPos.y)
-    actions.forEach(a => {
-      const row = document.createElement('button')
-      row.innerHTML=a.text
-      row.id=a.text
-      menu.appendChild(row)
-      row.onclick=()=>{closeMenu();a.event()}
-    })
-  }
-}
 
 
 
