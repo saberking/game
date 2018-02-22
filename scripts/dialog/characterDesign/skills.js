@@ -1,28 +1,40 @@
+const skillRow=(skill,c,status,i)=>doubleColumn(skill[0].toUpperCase()+skill.substring(1),(status?c.status[skill]+'/':'')+c.skills[skill],skill+'_'+i)
 
-const displaySkills=(c,i=0,status=false)=>{
-  const skillRow=(skill)=>doubleColumn(skill[0].toUpperCase()+skill.substring(1),(status?c.status[skill]+'/':'')+c.skills[skill],skill+'_'+i)
-  c=c||charactersToDesign[i]
-  let html=''
-  let skills=[]
-  for(let skill in c.skills){
-    skills.push(skill)
-  }
-  skills.sort((m1,m2)=>m1.charCodeAt(0)-m2.charCodeAt(0))
-  let j
-  html+='<div style="position:absolute;top:'+top+'"><div style="width:250;height:100%">'
-
-  html+='<div class="skillsColumn"style="  background-color:rgba(33,55,55,0.33)">'
-  let ms=skills.filter(s=>typeof(magicSkills[s])==='number')
-  ms.forEach(s=>    html+=skillRow(s))
-  html+='</div>'
-
-  html+='<div style="height:3"></div>'
-
+const displayMeleeSkills=(c,status,i)=>{
+  let html='',j
   html+='<div style="background-color:rgba(44,44,70,0.33)"class="skillsColumn">'
-  let mundane=skills.filter(s=>!ms.find(m=>m===s))
-  for(j=0;j<mundane.length;j++)
-  html+=skillRow(mundane[j])
-  html+='</div></div></div>'
+  let melee=alphabetic(Object.keys(meleeSkills))
+  for(j=0;j<melee.length;j++)
+  html+=skillRow(melee[j],c,status,i)
+  html+='</div>'
+  return html
+}
+const displayRangedSkills=(c,status,i)=>{
+  let html='',j
+  html+='<div style="background-color:rgba(55,70,33,0.33)"class="skillsColumn">'
+  let ranged=alphabetic(Object.keys(rangedSkills))
+  for(j=0;j<ranged.length;j++)
+  html+=skillRow(ranged[j],c,status,i)
+  html+='</div>'
+  return html
+}
+const displayMagicSkills=(c,status,i)=>{
+  let html='',j
+  html+='<div style="background-color:rgba(33,55,55,0.33)"class="skillsColumn">'
+  let ranged=alphabetic(Object.keys(magicSkills))
+  for(j=0;j<ranged.length;j++)
+  html+=skillRow(ranged[j],c,status,i)
+  html+='</div>'
+  return html
+}
+const displaySkills=(c,i=0,status=false)=>{
+  c=c||charactersToDesign[i]
+  let html=displayMagicSkills(c,status,i)+
+    '<div style="height:3"></div>'+
+    displayMeleeSkills(c,status,i)+
+    '<div style="height:3"></div>'+
+    displayRangedSkills(c,status,i)
+
 
   return html
 

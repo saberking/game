@@ -10,7 +10,7 @@ const increaseButton=(s,i,type)=>
   '<button style="background-color:#999988;position:absolute;top:0;right:0"onclick="increase'+type+'(\''+s+'\','+i+')">+</button>'
   const decreaseButton=(s,i,type)=>'<button style="background-color:#999988;position:absolute;top:0;right:90"onclick="decrease'+type+'(\''+s+'\','+i+')">-</button>'
 
-const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:250;top:10;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
+const designPic=c=>      '<div style="overflow:hidden;position:absolute;left:210;top:10;width:88;height:100"><img src="assets/sprites/'+c.name+'.png"/></div>'
 
 const continueButton= (i)=>     createButton(25,'finishedCreation('+i+')','Continue')
 
@@ -46,7 +46,7 @@ const characterDesign=()=>{
     let clone=dialog.cloneNode(false)
     clone.id='dialog_'+i
 
-    let x=75+screenwidth*(i+1)
+    let x=screenwidth*(i+1)
     clone.style.left=x
 
     document.getElementById('dialogContainer').appendChild(clone)

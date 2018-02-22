@@ -18,3 +18,4 @@ const rss=arr=>{
   arr.forEach(a=>total+=a*a)
   return sqrt(total)
 }
+const alphabetic=arr=>arr.slice().sort((m1,m2)=>m1.charCodeAt(0)-m2.charCodeAt(0))
