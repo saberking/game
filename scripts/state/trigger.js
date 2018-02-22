@@ -16,6 +16,7 @@ deathTriggers.dummy=(d)=>{
     moveCreatureTo(creatures.find(c=>c.name==='tim'),{x:42,y:18})
   }
 }
+deathTriggers.evilWizardKing=()=>addMessage('Evil Wizard King defeated!')
 // deathTriggers.mayor=()=>talkEvent.primeCoach()
 // deathTriggers.evilWizardKing=()=>{
 //   if(!events.find(e=>e==='evilWizardKing')){

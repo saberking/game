@@ -4,28 +4,30 @@ const openItemMenu=(e,item,target)=>{
   closeMenu()
   const menu = popup('menu', e.clientX,e.clientY)
   if(item.subtype!=='unarmed'){
-    creatures.forEach(c=>{
-      if(c.id!==target.id&&c.z===currentWorld&&distance(c,target)<=2){
-        const give =addButtonToMenu('give to '+c.display)
-        give.onclick=()=>{
-          addToInventory(c,item)
-          // if(onGive[c.name]&&onGive[c.name][item.name])onGive[c.name][item.name]()
-          target.items.splice(target.items.findIndex(i=>i.id===item.id),1);
-          openStatsMenu(target)
-        }
-      }
-    })
-    const drop=addButtonToMenu('drop')
-    drop.onclick=()=>{
-      target.items.splice(target.items.findIndex(i=>i.id===item.id),1);
-      openStatsMenu(target)
-    }
     if(canUnequip(target,item)){
       const unequipButton=addButtonToMenu('unequip')
       unequipButton.onclick=(e)=>{
         unequip(e,target,item.type)
       }
+    }else{
+      creatures.forEach(c=>{
+        if(c.id!==target.id&&c.z===currentWorld&&distance(c,target)<=2){
+          const give =addButtonToMenu('give to '+c.display)
+          give.onclick=()=>{
+            addToInventory(c,item)
+            // if(onGive[c.name]&&onGive[c.name][item.name])onGive[c.name][item.name]()
+            target.items.splice(target.items.findIndex(i=>i.id===item.id),1);
+            openStatsMenu(target)
+          }
+        }
+      })
     }
+    const drop=addButtonToMenu('drop')
+    drop.onclick=()=>{
+      target.items.splice(target.items.findIndex(i=>i.id===item.id),1);
+      openStatsMenu(target)
+    }
+
     if(item.type==='consumable'){
       const consumeButton=addButtonToMenu('consume')
       consumeButton.onclick=(e)=>consume(e,item,target)

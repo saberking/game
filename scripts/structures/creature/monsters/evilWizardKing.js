@@ -1,17 +1,14 @@
 
 let evilWizardKing={
   stats:{
-    str:1,
-    int:8,
-    mag:2,
-    luc:6,
-    spd:8,
+    str:7,
+    int:10,
+    mag:10,
     rea:9
   },
   name:'evilWizardKing',
   deathTrigger:'evilWizardKing',
   hostileRange:6,
-  spells:['heal','airStrike'],
   skills:{
     sword:5,
     theology:15,

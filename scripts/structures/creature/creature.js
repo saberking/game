@@ -118,7 +118,7 @@ class Creature {
     for (let stat in this.stats)xp+=self.stats[stat]
     for (let skill in this.skills)xp+=self.skills[skill]
     xp = floor(xp/controlled.length)
-    controlled.forEach(c=>{
+    controlled.filter(c=>c.status.status==='active').forEach(c=>{
       c.xp+=round(xp*(1+c.status[int]/10))
       c.checkStatus()
     })

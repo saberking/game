@@ -8,10 +8,11 @@ const addCharacters=(starting)=>{
       name: pcNames[j],
       display:pcNames[j],
       faction:1,
-      spells: [],
-      skills:{theology:15},
       items:[],
       stages: 5,
+      hat:clothCap,
+      trousers:jeans,
+      top:clothShirt,
       gold:50
     })  )
     // Object.keys(bonuses[j]).forEach(key=>you[j].stats[key]+=bonuses[j][key])
