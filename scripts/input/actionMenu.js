@@ -75,8 +75,8 @@ const openActionMenu=({x,y},leftClick=true)=>{
     let defaultEvent=(a,route)=>{
       if(typeof(actions[a.action])!=='function')throw new Error()
       if(!route||a.action==='fight'||a.action==='stats'||a.action==='attack')
-        return ()=>actions[a.action](a.id)
-      return ()=>startLongMove(route,selected,()=>{actions[a.action](a.id)})
+        actions[a.action](a.id)
+      else startLongMove(route,selected,()=>{actions[a.action](a.id)})
     }
     // if(leftClick){
     //   let talkAction=possibleActions.find(a=>a.action==='talk')
