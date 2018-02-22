@@ -1,8 +1,8 @@
 const newOrLoad=()=>{
   // characterDesign()
   let dialog=document.getElementById('dialog')
-  dialog.innerHTML=
-  '<div style="border-width:3;top:'+round(screenheight/2-300)+';left:'+round(screenwidth/2-485)+'" class="bg2 intro"id="nl"></div>'
+  dialog.innerHTML=topLineBackground()+'<div id="nl"></div>'
+
   let btn1=document.createElement('div')
   btn1.appendChild(createButton2('New game',fsAndDesign))
   btn1.style.marginTop=100
