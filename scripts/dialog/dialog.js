@@ -13,7 +13,7 @@ const background=()=>{
 const removeBackground=()=>{
   document.getElementById('ins').innerHTML=''
 }
-const topLineBackground=()=>    '<div class="bg2 intro"style="border-width:4;top:'+round(screenheight/2-350)+';left:'+round(screenwidth/2-485)+'">'
+const topLineBackground=()=>    '<div class="bg2 intro"style="border-width:4;display:flex">'
 
 const displayEffect=e=>'<div>'+e.score+' '+e.amount+' '+e.type+'</div>'
 const info = (text,c,options=[],bg)=>{

@@ -150,7 +150,7 @@ const spellAttackBonus=(a,s)=>a.status.mag + a.level + a.status[s.type]
 const spellAttackStrength=(a,s)=>
    spellAttackBonus(a,s)+d20(a)//+ a.status.san/2
 const spellDefenceStrength=(a,b,s)=>{
-  let defenceStrength = distance(a,b)*distance(a,b)/s.range+d20(b)
+  let defenceStrength = distance(a,b)*distance(a,b)/s.range
   if(typeof(defenceStrength)!=='number')  throw new Error()
   if(s.targetType === 'enemy'){
     defenceStrength += (b.status[s.type])/2

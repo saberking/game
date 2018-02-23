@@ -38,7 +38,7 @@ const meleeAttackEvent = (a, b) => {
     attackStrength+=bonus.bonus
     addMessage(a.display+ ' is wearing steel toe caps!')
   }
-  let defenceStrength = meleeDefenceBonus(b)+b.armor[a.weapon.damageType]/a.weapon.penetration+d20(b)
+  let defenceStrength = meleeDefenceBonus(b)+b.armor[a.weapon.damageType]/a.weapon.penetration
   const hitStrength = attackStrength - defenceStrength
   if (hitStrength > 0) {
     message+=resolveEffects(hitStrength, a.weapon.melee.effect, b)

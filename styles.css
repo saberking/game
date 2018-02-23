@@ -9,6 +9,7 @@
         -o-background-size: cover;
         background-size: cover;
         min-height: 100%;
+        min-width:100%;
 }
 .whiteBackground{
   background-color:rgba(136,136,136,0.6)
@@ -20,11 +21,18 @@ div{
   border-style:solid;
   border-width: 0;
 }
+.dialog{
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:auto;
+  background-color:transparent;
+}
 .bg2{
   background-image:url('assets/background/bg2.jpg');
 }
 .intro{
-  position:absolute;
   height:700;
   width:970;
 }
