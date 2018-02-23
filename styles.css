@@ -33,7 +33,7 @@ div{
   background-image:url('assets/background/bg2.jpg');
 }
 .intro{
-  height:700;
+  height:650;
   width:970;
 }
 #message2::-webkit-scrollbar{
