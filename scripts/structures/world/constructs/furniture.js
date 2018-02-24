@@ -46,13 +46,13 @@ const addTable=(x,y,z=10)=>{
 }
 const addTable2=(x,y,z=10)=>{
   new Construct({
-    zone:zone(x,y,z,3),
+    zone:zone(x,y,z,6),
     name:'table2'
   })
 }
 const addBed=(x,y,z=10)=>{
   new Construct({
-    zone:zone(x,y,z,2,2),
+    zone:zone(x,y,z,4,2),
     name:'bed',
     actions:['sleep'],
     height:1
@@ -60,7 +60,7 @@ const addBed=(x,y,z=10)=>{
 }
 const addCounter=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,4),
+    zone:zone(x,y,z,8),
     name:'counter'
   })
 }
@@ -74,7 +74,7 @@ const addTree=(x,y,z)=>{
 }
 const addDesk=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,1,3),
+    zone:zone(x,y,z,2,3),
     name:'desk'
   })
 }

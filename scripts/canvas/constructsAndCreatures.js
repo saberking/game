@@ -18,7 +18,7 @@ const showFlatConstructs=()=>{
 const showFlatConstruct=(c)=>{
   let w=(c.zone.right-c.zone.left+1)*width*zoomLevel
   let h=(c.zone.bottom-c.zone.top+1)*height*zoomLevel
-  ctx2.drawImage(c.image,
+  ctx2.drawImage(c.image,0,0,w,h,
     round(c.zone.left*width*zoomLevel-screenPos.x),round(c.zone.top*height*zoomLevel-screenPos.y),w,h
   )
 }

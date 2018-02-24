@@ -37,8 +37,8 @@ class Construct{
     constructs.push(this)
   }
 }
-const zone=(x,y,z,width=1,height=1)=>({top:y,bottom:y+height-1,left:x,right:x+width*2-1,z})
-const addConstruct=(c,x,y,z,w=1,h=1,actions=[],items=[],height=wallHeight,passable=false)=>{
+const zone=(x,y,z,width=2,height=1)=>({top:y,bottom:y+height-1,left:x,right:x+width-1,z})
+const addConstruct=(c,x,y,z,w=2,h=1,actions=[],items=[],height=wallHeight,passable=false)=>{
   new Construct({
     zone:zone(x,y,z,w,h),
     name:c,
@@ -51,7 +51,7 @@ const addConstruct=(c,x,y,z,w=1,h=1,actions=[],items=[],height=wallHeight,passab
 const removeConstructs=(x,y,z,width=1,height=1)=>{
   for(let i=0;i<width;i++){
     for(let j=0;j<height;j++){
-      constructs=constructs.filter(c=>!inside({x:x+i,y:y+j,z},c.zone))
+      constructs=constructs.filter(c=>!c.height||!inside({x:x+i,y:y+j,z},c.zone))
       if(!world[z][x+i]){
         console.log(z,x+i,world[z].length)
       }

@@ -11,13 +11,13 @@ const addTreasure=(name,x,y,z,items=[])=>{
 }
 const addCounter2=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,4),
+    zone:zone(x,y,z,8),
     name:'counter2'
   })
 }
 const addCounter3=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,4),
+    zone:zone(x,y,z,8),
     name:'counter3'
   })
 }
@@ -26,7 +26,7 @@ const addPotionRack=(x,y,z,items=[randomItem('consumable')])=>{
   new Construct({
     actions:['search'],
     items,
-    zone:zone(x,y,z,1,5),
+    zone:zone(x,y,z,2,5),
     name:'potionRack'
   })
 }
@@ -50,7 +50,7 @@ const addArmorRack=(x,y,z,items=[(randomItem('top'))])=>{
   let actions
   if(items)actions=['search']
   new Construct({
-    zone:zone(x,y,z,1,3),
+    zone:zone(x,y,z,2,3),
     name:'armorRack',
     items,
     actions

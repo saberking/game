@@ -8,7 +8,7 @@ worldNames[5]='Town'
 const buildTown=()=>{
   startingPos[5]={x:8,y:13,z:5}
 
-  buildTomb({left:4,right:maxwidth[5]-5,top:1,bottom:maxheight[5]-7},5,0)
+  buildTomb({left:4,right:maxwidth[5]-5,top:1,bottom:maxheight[5]-7},5,0,null)
 buildTomb({left:4,right:12,top:7,bottom:15},5)
 
 buildTomb({left:12,right:24,top:7,bottom:15},5)
@@ -51,7 +51,9 @@ buildDoorwayH(38,9,5)
 
 
   addBed(11,3,5)
-
+  addFloorboards(5,2,5,12,6)
+  addFloorboards(5,8,5,8,8)
+  addFloorboards(13,8,5,12,8)
   addHatStand(22,11,5)
   addArmorRack(14,12,5)
   // spawnCreature(shopkeeper,{x:18,y:12,z:5,  items:[chainMail,leatherJacket,clothShirt,clothShirt,sandals,sandals,

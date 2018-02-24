@@ -9,7 +9,7 @@ const addCorpse=(x,y,z,items=randomItem())=>{
 }
 const addBoxingRing=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,4,7),
+    zone:zone(x,y,z,8,7),
     name:'boxingRing',
     passable:true,
     height:0
@@ -19,7 +19,7 @@ const addBoxingRing=(x,y,z)=>{
 
 const addCoach=(x,y,z,dest)=>{
   new Construct({
-    zone:zone(x,y,z,3,3),
+    zone:zone(x,y,z,6,3),
     name:'coach',
     actions:['travel'],
     dest
@@ -27,7 +27,7 @@ const addCoach=(x,y,z,dest)=>{
 }
 const addStaircase=(x,y,z,dest)=>{
   new Construct({
-    zone:zone(x,y,z,2,4),
+    zone:zone(x,y,z,4,4),
     name:dest.z>z?'staircase':'staircaseDown',
     actions:['climb'],
     dest,
@@ -35,7 +35,7 @@ const addStaircase=(x,y,z,dest)=>{
 }
 const addStaircase2=(x,y,z,dest)=>{
   new Construct({
-    zone:zone(x,y,z,1,2),
+    zone:zone(x,y,z,2,2),
     name:'staircase2',
     actions:['travel'],
     dest
@@ -44,14 +44,14 @@ const addStaircase2=(x,y,z,dest)=>{
 const addGate=(x,y,z)=>{
   removeConstructs(x,y,z,4)
   new Construct({
-    zone:zone(x,y,z,2),
+    zone:zone(x,y,z,4),
     name:'gate',
   })
 }
 const addWell=(x,y,z,dest)=>{
   new Construct({
     name:'well2',
-    zone:zone(x,y,z,3,4),
+    zone:zone(x,y,z,6,4),
     dest,
     height:0
   })

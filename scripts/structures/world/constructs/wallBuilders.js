@@ -44,11 +44,20 @@ const buildStoneWallV=(x,y,z,length)=>{
   addWallCross(x,y,z)
   addWallCross(x,y+2*length-2,z)
 }
-const buildTomb=({left,top,right,bottom},z,shade=0.25)=>{
+const buildTomb=({left,top,right,bottom},z,shade=0.25,flooring=addFloorboards)=>{
   buildStoneWallH(left,top,z,(right-left)/2+1)
   buildStoneWallH(left,bottom,z,(right-left)/2+1,z)
   buildStoneWallV(left,top,z,(bottom-top)/2+1,z)
   buildStoneWallV(right,top,z,(bottom-top)/2+1,z)
+  if(flooring){
+    let height=bottom-top
+    if(height>12){
+      flooring(left+1,top+1,z,right-left,12)
+      flooring(left+1,top+13,z,right-left,height-12)
+    }else{
+      addFloorboards(left+1,top+1,z,right-left,height)
+    }
+  }
   // if(shade)addShade({left:left+1,top:top+1,right,bottom},z,shade)
 }
 const buildPassageH=(x,y,z,length)=>{

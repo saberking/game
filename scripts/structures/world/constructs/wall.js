@@ -17,7 +17,7 @@ const addWindow=(x,y,z)=>{
 const addWallV=(x,y,z)=>{
 
   new Construct({
-    zone:zone(x,y,z,1,2),
+    zone:zone(x,y,z,2,2),
     name:'wallV'
   })
   world[z][x][y].blocking+='r'
@@ -61,7 +61,7 @@ const addDoorClose=(x,y,z)=>{
 const addWallCross=(x,y,z)=>{
   removeConstructs(x,y,z,2,2)
   new Construct({
-    zone:zone(x,y,z,1,2),
+    zone:zone(x,y,z,2,2),
     name:'wallCross'
   })
   world[z][x][y].blocking='r'
@@ -76,7 +76,7 @@ const addWallDiagUp=(x,y,z)=>{
   world[z][x+1][y].blocking+='r'
   world[z][x+2][y].blocking+='l'
   new Construct({
-    zone:zone(x,y,z,1,2),
+    zone:zone(x,y,z,2,2),
     name:'wallDiagUp'
   })
 }
@@ -88,13 +88,13 @@ const addWallDiagDown=(x,y,z)=>{
   world[z][x][y].blocking+='l'
   world[z][x-1][y].blocking+='r'
   new Construct({
-    zone:zone(x,y,z,1,2),
+    zone:zone(x,y,z,2,2),
     name:'wallDiagDown'
   })
 }
 const addWallDiagUp2=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,1,3),
+    zone:zone(x,y,z,2,3),
     name:'wallDiagUp2'
   })
   world[z][x][y+1].blocking+='br'
@@ -105,7 +105,7 @@ const addWallDiagUp2=(x,y,z)=>{
 }
 const addWallDiagDown2=(x,y,z)=>{
   new Construct({
-    zone:zone(x,y,z,1,3),
+    zone:zone(x,y,z,2,3),
     name:'wallDiagDown2'
   })
   world[z][x+1][y+1].blocking+='bl'
