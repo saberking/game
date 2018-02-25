@@ -36,7 +36,7 @@ const showWorld2=()=>{
   showGround()
   groundTime+=Date.now()-start
   start=Date.now()
-  showFlatConstructs()
+  showFlatConstructs(flatConstructs.filter(c=>c.type!=='roof'))
   flatTime+=Date.now()-start
   start=Date.now()
   hex&&combat&&horizontalLines()

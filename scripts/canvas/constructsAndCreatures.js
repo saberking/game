@@ -1,4 +1,4 @@
-const showFlatConstructs=()=>{
+const showFlatConstructs=(flatConstructs)=>{
   let start = flatConstructs.findIndex(c=>c.zone.bottom>=screenTop())
   if(start===-1)return
   let end=flatConstructs.findIndex(c=>c.zone.top>screenBottom())
@@ -104,8 +104,6 @@ const showConstructsAndCreatures=(visibleCreatures)=>{
   }
 }
 const showConstruct=c=>{
-  // if(c.zone.z!==currentWorld)console.log('foo')
-  if(!c.height)console.log(c)
   const excFunc=(x,y)=>currentView[x][y]||(!firstPerson&&world[currentWorld][x][y].seen)
   let {top,bottom,left,right}=c.zone
   for(let x=left;x<=right;x++){

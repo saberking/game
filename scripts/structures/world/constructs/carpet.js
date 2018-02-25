@@ -39,10 +39,17 @@ const addCarpet2V=(x,y,z)=>{
   })
 }
 const addFloorboards=(x,y,z,w,h)=>{
-  console.log(x,y,z,w,h)
   new Construct({
     name:'floorboards',
     zone:zone(x,y,z,w,h),
+    passable:true,
+    height:0
+  })
+}
+const addDirt=(x,y,z)=>{
+  new Construct({
+    name:'dirt',
+    zone:zone(x,y,z,50,40),
     passable:true,
     height:0
   })

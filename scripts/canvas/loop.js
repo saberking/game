@@ -47,6 +47,7 @@ const updateCanvas=(loopStartTime)=>{
   start=Date.now()
   showAnimations()
   aTime+=Date.now()-start
+  showRoof()
   square()
   // ctx3.drawImage(can2,0,0)
   // ctx3.drawImage(can,0,0)

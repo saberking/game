@@ -1,14 +1,15 @@
 los[5]=daytimeLos
 maxwidth[5]=61
-maxheight[5]=50
+maxheight[5]=45
 minwidth[5]=0
 minheight[5]=0
 worldNames[5]='Town'
 
 const buildTown=()=>{
   startingPos[5]={x:8,y:13,z:5}
+  addDirt(2,1,5)
 
-  buildTomb({left:4,right:maxwidth[5]-5,top:1,bottom:maxheight[5]-7},5,0,null)
+  buildTomb({left:4,right:48,top:1,bottom:39},5,0,null)
 buildTomb({left:4,right:12,top:7,bottom:15},5)
 
 buildTomb({left:12,right:24,top:7,bottom:15},5)
@@ -80,8 +81,8 @@ buildDoorwayH(38,9,5)
   spawnCreature(oldWoman,{x:52,y:21,z:5})
   // addConstruct('levers',42,18,5,2,1,['pullLever'],[],1)
   addBoxingRing(33,22 ,5)
-  addGate(22,44,5)
-  addCoach(19,38,5)
+  // addGate(22,44,5)
+  addCoach(19,34,5)
 
   // revealArea({left:minwidth[5],right:maxwidth[5],top:minheight[5],bottom:maxheight[5]},5)
 

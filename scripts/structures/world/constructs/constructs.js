@@ -12,8 +12,10 @@ class Construct{
     items=[],
     dest,
     id,
-    height=wallHeight
+    height=wallHeight,
+    type
   }){
+    this.type=type
     this.zone=zone
     this.name=name
     this.passable=passable
