@@ -61,7 +61,7 @@ class Creature {
     this.pic=pic
     this.picWidth=picWidth
     this.picHeight=picHeight
-    this.stages=stages
+    this.stages=1
     this.drawWidth=drawWidth
     this.drawHeight=drawHeight
     this.stats = stats
