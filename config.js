@@ -4,11 +4,11 @@
 let startingWorld=5
 
 let omniscient=false
-const offerLoad=false
+const offerLoad=true
 
 
 /////////////////////////////
-const minZoom=0.7
+const minZoom=0.5
 
 /////////////////////////
 const maxCalcTime=10

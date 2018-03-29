@@ -1,6 +1,6 @@
 let catchuptime=0
 const catchup=()=>{
-  if(combat)return
+  if(combat||!selected)return
   let start=Date.now()
   let success=false
   controlled.filter(c=>c.z===currentWorld&&c.id!==selected.id&&
