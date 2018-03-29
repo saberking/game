@@ -16,25 +16,37 @@ let lastScreenPos={}
 let lastZoomLevel=0
 const stone=new Image()
 stone.src='assets/background/largeConcrete.jpg'
+const dirt = new Image()
+dirt.src='assets/constructs/dirt.png'
 const showGround=()=>{
   // if((lastZoomLevel===zoomLevel&&lastScreenPos.x===screenPos.x&&lastScreenPos.y===screenPos.y))return
-  lastScreenPos.x=screenPos.x
-  lastScreenPos.y=screenPos.y
-  lastZoomLevel=zoomLevel
-  const dim={x:5136,y:3424}
-  const scale={x:dim.x/(width*200*zoomLevel),y:dim.y/(height*200*zoomLevel)}
-  pretty&&ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
+  // lastScreenPos.x=screenPos.x
+  // lastScreenPos.y=screenPos.y
+  // let off=document.getElementById('offscreen')
+  // let ct2=off.getContext('2d')
+  // if(lastScreenPos.z!==currentWorld){
+    // lastScreenPos.z=currentWorld
+    // for(let i=0;i<maxwidth[currentWorld]+3;i+=2)
+    //   for(let j=0;j<maxheight[currentWorld]+3;j+=2)
+    //     ct2.drawImage(dirt,i*width*zoomLevel,j*height*zoomLevel,width*2*zoomLevel,height*2*zoomLevel)
+  // }
+  // lastZoomLevel=zoomLevel
+  // ctx.drawImage(off,(screenPos.x)%(width*2*zoomLevel),(screenPos.y)%(height*2*zoomLevel),screenwidth,screenheight,0,0,screenwidth,screenheight)
 
-  ctx2.fillStyle='#733e2a'
-  ctx2.globalAlpha=0.5
-  ctx2.fillRect(0,0,screenwidth,screenheight)
-  ctx2.globalAlpha=1
+  // const dim={x:5136,y:3424}
+  // const scale={x:dim.x/(width*200*zoomLevel),y:dim.y/(height*200*zoomLevel)}
+  // pretty&&ctx2.drawImage(stone,screenPos.x*scale.x,screenPos.y*scale.y,screenwidth*scale.x,screenheight*scale.y,0,0,screenwidth,screenheight)
+
+  // ctx2.fillStyle='#733e2a'
+  // ctx2.globalAlpha=0.5
+  // ctx2.fillRect(0,0,screenwidth,screenheight)
+  // ctx2.globalAlpha=1
 }
 let groundTime=0,flatTime=0
 const showWorld2=()=>{
-  let start=Date.now()
-  showGround()
-  groundTime+=Date.now()-start
+  // let start=Date.now()
+  // showGround()
+  // groundTime+=Date.now()-start
   start=Date.now()
   showFlatConstructs(flatConstructs.filter(c=>c.type!=='roof'))
   flatTime+=Date.now()-start

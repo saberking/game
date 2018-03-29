@@ -13,6 +13,8 @@ const newOrLoad=()=>{
   btn2.style.marginLeft=100
   document.getElementById('nl').appendChild(btn1)
   document.getElementById('nl').appendChild(btn2)
+  characterDesign()
+
 }
 const fsAndLoad=()=>{
   // goFullscreen()
@@ -21,6 +23,5 @@ const fsAndLoad=()=>{
 const fsAndDesign=()=>{
   // goFullscreen()
   // cutscene(characterDesign)
-  characterDesign()
   slideTo(0)
 }

@@ -85,7 +85,7 @@ color:#111111;
   margin-top:8;
   width:310;
 }
-canvas{
+#can{
   position:absolute;
 top:0;
 left:0;

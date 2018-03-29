@@ -14,13 +14,15 @@ class Hex {
     shade=0,
     blocking='',
     opacity=1,
-    passable=true
+    passable=true,
+    terrain='dirt'
   }){
     this.seen=seen
     this.shade=shade
     this.blocking=blocking
     this.opacity=opacity
     this.passable=passable
+    this.terrain=terrain
   }
 }
 const initWorld=()=>{

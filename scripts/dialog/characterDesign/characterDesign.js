@@ -29,6 +29,7 @@ const finishedCreation=(i)=>{
 }
 
 const slideTo=(i)=>{
+  console.log(i)
   let cont=document.getElementById('dialogContainer')
   cont.removeAttribute('class')
   cont.classList.add('slider'+i)
@@ -80,6 +81,7 @@ const levelUp=c=>{
 const updateName=v=>charactersToDesign[0].display=v
 const backButton=(i)=>{
   let btn=createButton2('Back',(e)=>{
+    console.log('foo')
     e.preventDefault()
     slideTo(i-1)
   })

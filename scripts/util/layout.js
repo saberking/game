@@ -7,10 +7,10 @@ const layout=()=>{
   document.getElementById('can').style.width = screenwidth
   document.getElementById('can').height = screenheight
   document.getElementById('can').style.height = screenheight
-  // document.getElementById('drawCanvas').width = screenwidth
-  // document.getElementById('drawCanvas').style.width = screenwidth
-  // document.getElementById('drawCanvas').height = screenheight
-  // document.getElementById('drawCanvas').style.height = screenheight
+  document.getElementById('offscreen').width = screenwidth+100
+  document.getElementById('offscreen').style.width = screenwidth+100
+  document.getElementById('offscreen').height = screenheight+100
+  document.getElementById('offscreen').style.height = screenheight+100
   // document.getElementById('canvas2').width = screenwidth
   // document.getElementById('canvas2').style.width = screenwidth
   // document.getElementById('canvas2').height = screenheight
@@ -32,7 +32,5 @@ const layout=()=>{
   document.getElementById('dialog2').style.left=screenwidth*0.25
   document.getElementById('dialog2').style.top=screenheight*0.1
   document.getElementById('dialog2').style.height=screenheight*0.8-50
-  // document.getElementById('ins').style.height=screenheight
-  // document.getElementById('ins').style.width=screenwidth
   lastZoomLevel=0
 }

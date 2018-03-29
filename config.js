@@ -1,5 +1,5 @@
 ///////////
-let pretty=true
+// let pretty=true
 
 let startingWorld=5
 

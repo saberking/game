@@ -8,10 +8,12 @@ const background=()=>{
 
   for(let i=0;i<10;i++)
     password.forEach(p=>html+='<div style="font-family:times;position:absolute;margin-left:'+(round(screen.width*random())-400)+';font-size:108;background-color:#888888;opacity:0.1;top:'+round(random()*screen.height-60)+'">'+p+'</div>')
-  document.getElementById('ins').innerHTML=html
+  let ins=document.getElementById('ins')
+  if(ins)ins.innerHTML=html
 }
 const removeBackground=()=>{
-  document.getElementById('ins').innerHTML=''
+  let ins=  document.getElementById('ins')
+  if(ins)ins.innerHTML=''
 }
 const topLineBackground=()=>    '<div class="bg2 intro"style="border-width:4;display:flex">'
 
